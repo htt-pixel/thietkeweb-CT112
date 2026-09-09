@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Thịnh</title>
+    <!-- Sử dụng Tailwind CSS qua CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed flex flex-col min-h-screen">
+
+    <!-- ================================================================= -->
+    <!-- THẺ <header>: Phần đầu trang, định nghĩa vùng đầu trang web -->
+    <!-- ================================================================= -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-blue-600">Thịnh.dev</div>
+
+            <!-- ============================================================= -->
+            <!-- THẺ <nav>: Thanh điều hướng chứa các liên kết chuyển trang/mục -->
+            <!-- ============================================================= -->
+            <nav>
+                <ul class="flex space-x-6 text-sm font-semibold text-slate-600">
+                    <li><a href="#about" class="hover:text-blue-600 transition">Giới thiệu</a></li>
+                    <li><a href="#projects" class="hover:text-blue-600 transition">Dự án</a></li>
+                    <li><a href="#contact" class="hover:text-blue-600 transition">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ================================================================= -->
+    <!-- THẺ <main>: Khung nội dung chính, chứa toàn bộ các khối nội dung trọng tâm -->
+    <!-- ================================================================= -->
+    <main class="max-w-6xl mx-auto px-6 py-10 space-y-12 flex-grow w-full">
+
+        <!-- Section 1: Giới thiệu bản thân (About) -->
+        <section id="about" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-3 py-1 rounded">Section 1: Giới thiệu</span>
+            <h1 class="text-3xl font-extrabold text-slate-900 mt-4 mb-2">Xin chào, tôi là Thịnh 👋</h1>
+            <p class="text-slate-600 text-lg">Lập trình viên Front-end đam mê xây dựng giao diện tối ưu, trải nghiệm người dùng mượt mà và các công cụ tự động hóa.</p>
+        </section>
+
+        <!-- Section 2: Dự án tiêu biểu (Projects) -->
+        <section id="projects" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-3 py-1 rounded">Section 2: Dự án</span>
+            <h2 class="text-2xl font-bold text-slate-900 mt-4 mb-6">Các dự án nổi bật</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">Ứng dụng Macro Android</h3>
+                    <p class="text-slate-600 text-sm">Phát triển ứng dụng tự động hóa trên Android sử dụng Kotlin kết hợp dịch vụ trợ năng (Accessibility Service).</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">Hệ thống Web Automation</h3>
+                    <p class="text-slate-600 text-sm">Xây dựng script Python tối ưu hóa tác vụ trình duyệt web, sử dụng Selenium và xử lý hình ảnh.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Thông tin liên hệ (Contact) -->
+        <section id="contact" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-3 py-1 rounded">Section 3: Liên hệ</span>
+            <h2 class="text-2xl font-bold text-slate-900 mt-4 mb-2">Kết nối với tôi</h2>
+            <p class="text-slate-600 mb-4">Bạn có dự án thú vị hoặc muốn trao đổi công việc? Hãy liên hệ tôi.</p>
+            <a href="https://github.com/TranGiaThinh46" class="inline-block bg-blue-600 text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-blue-700 transition shadow-sm">Thông tin liên hệ</a>
+        </section>
+
+    </main>
+
+    <!-- ================================================================= -->
+    <!-- THẺ <footer>: Phần chân trang, chứa thông tin bản quyền và liên kết phụ -->
+    <!-- ================================================================= -->
+    <footer class="bg-white border-t border-slate-200 mt-16">
+        <div class="max-w-6xl mx-auto px-6 py-6 text-center text-sm text-slate-500">
+            <p>© 2026 Thịnh. Thiết kế chuẩn Semantic HTML5 kết hợp Tailwind CSS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
