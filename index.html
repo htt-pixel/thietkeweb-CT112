@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cá Nhân</title>
+</head>
+<body>
+
+    <!-- ==========================================
+         1. HEADER & NAVIGATION
+         - <header>: Đại diện cho phần đầu của trang/mục, chứa tiêu đề, logo, hoặc các công cụ điều hướng.
+         - <nav>: Định nghĩa một khu vực chứa các liên kết điều hướng chính của trang web.
+    =========================================== -->
+    <header>
+        <h1>Võ Minh Quang - Web Developer</h1>
+        
+        <!-- Thanh điều hướng giúp người dùng di chuyển nhanh giữa các phần trong trang -->
+        <nav>
+            <ul>
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#projects">Dự án</a></li>
+                <li><a href="#skills">Kỹ năng</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================
+         2. MAIN CONTENT
+         - <main>: Chứa nội dung chính, độc nhất của toàn bộ tài liệu. 
+           Không dùng <main> cho các phần lặp lại như header, footer hay sidebar.
+    =========================================== -->
+    <main>
+
+        <!-- SECTION 1: GIỚI THIỆU BẢN THÂN
+             - <section>: Định nghĩa một phần/khu vực độc lập có cùng chủ đề trong trang.
+        -->
+        <section id="about">
+            <h2>Giới thiệu bản thân</h2>
+            <p>Xin chào! Tôi là một Lập trình viên Front-End đam mê tạo ra các trải nghiệm web mượt mà, chuẩn SEO và dễ tiếp cận cho người dùng.</p>
+        </section>
+
+        <!-- SECTION 2: DỰ ÁN DÀNH CHO PORTFOLIO
+             - <article>: Đại diện cho một nội dung độc lập, tự có nghĩa và có thể tái sử dụng độc lập (ví dụ: một thẻ bài viết, một sản phẩm dự án).
+        -->
+        <section id="projects">
+            <h2>Dự án nổi bật</h2>
+            
+            <article>
+                <h3>Dự án 1: Trang web E-commerce</h3>
+                <p>Một trang web bán hàng trực tuyến xây dựng bằng HTML5, CSS3 và JavaScript thuần.</p>
+                <a href="#">Xem chi tiết</a>
+            </article>
+
+            <article>
+                <h3>Dự án 2: Ứng dụng Quản lý Tác vụ</h3>
+                <p>Ứng dụng To-Do List hỗ trợ lưu trữ dữ liệu local storage và giao diện Responsive.</p>
+                <a href="#">Xem chi tiết</a>
+            </article>
+        </section>
+
+        <!-- SECTION 3: KỸ NĂNG -->
+        <section id="skills">
+            <h2>Kỹ năng chuyên môn</h2>
+            <ul>
+                <li>HTML5 / CSS3 / JavaScript</li>
+                <li>Semantic HTML & SEO Basics</li>
+                <li>Git & GitHub</li>
+                <li>Responsive Web Design</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 4: LIÊN HỆ -->
+        <section id="contact">
+            <h2>Liên hệ với tôi</h2>
+            <p>Email: tranvana@email.com</p>
+            <p>Điện thoại: 090x xxx xxx</p>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         3. FOOTER
+         - <footer>: Chứa thông tin chân trang như bản quyền (copyright), thông tin liên hệ phụ, điều khoản sử dụng hoặc các liên kết mạng xã hội.
+         - <address>: Dùng để cung cấp thông tin liên lạc cho tác giả hoặc chủ sở hữu bài viết/trang web.
+    =========================================== -->
+    <footer>
+        <p>&copy; 2026 Trần Văn A. Tất cả quyền được bảo lưu.</p>
+        <address>
+            Kết nối qua mạng xã hội: 
+            <a href="https://linkedin.com">LinkedIn</a> | 
+            <a href="https://github.com">GitHub</a>
+        </address>
+    </footer>
+
+</body>
+</html>
