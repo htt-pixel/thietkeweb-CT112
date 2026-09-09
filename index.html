@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Cá Nhân</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER (Đầu trang)
+       Vai trò: Chứa logo, tiêu đề chính hoặc thanh điều hướng (navigation). 
+       Nó định hướng cho người dùng biết họ đang ở trang web nào và hỗ trợ di chuyển.
+  =========================================== -->
+  <header>
+    <div class="logo">
+      <a href="#hero">Portfolio</a>
+    </div>
+
+    <!-- NAV (Thanh điều hướng): Chứa tập hợp các liên kết điều hướng chính của trang -->
+    <nav>
+      <ul>
+        <li><a href="#hero">Trang chủ</a></li>
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ==========================================
+       MAIN (Nội dung chính)
+       Vai trò: Chứa nội dung chính, độc nhất và độc lập của trang web. 
+       Mỗi trang chỉ nên có duy nhất 1 thẻ <main>.
+  =========================================== -->
+  <main>
+
+    <!-- SECTION 1: Hero / Giới thiệu tổng quan
+         Thẻ <section> phân chia nội dung thành các phần độc lập theo chủ đề riêng biệt. -->
+    <section id="hero" class="hero-section">
+      <h1>Xin chào, tôi là Hoàng Anh Hưng </h1>
+      <p>Lập trình viên Web / Web Developer</p>
+      <a href="#projects" class="btn">Xem Dự Án</a>
+    </section>
+
+    <!-- SECTION 2: Giới thiệu bản thân & Kỹ năng -->
+    <section id="about" class="about-section">
+      <h2>Về Tôi</h2>
+      <p>Tôi là một lập trình viên đam mê tạo ra các ứng dụng web tối ưu và thân thiện với người dùng.</p>
+
+      <h3>Kỹ Năng</h3>
+      <ul>
+        <li>HTML5 / CSS3 / JavaScript</li>
+        <li>React / Vue.js</li>
+        <li>Git / GitHub</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3: Danh sách dự án nổi bật -->
+    <section id="projects" class="projects-section">
+      <h2>Dự Án Nổi Bật</h2>
+      <div class="project-grid">
+
+        <!-- ARTICLE: Đại diện cho một thành phần độc lập, có thể tái sử dụng hoặc tự có nghĩa riêng biệt (ở đây là 1 card dự án) -->
+        <article class="project-card">
+          <h3>Dự án 1: Website Bán Hàng</h3>
+          <p>Shop bán hàng quản lý tồn kho.</p>
+          <a href="#" target="_blank">Xem Chi Tiết</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Dự án 2: Ứng dụng Quản lý Task</h3>
+          <p>Quản lý tiến độ các dự án ,các công việc được giao.</p>
+          <a href="#" target="_blank">Xem Chi Tiết</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: Thông tin liên hệ -->
+    <section id="contact" class="contact-section">
+      <h2>Liên Hệ</h2>
+      <p>Hãy kết nối với tôi qua email hoặc form dưới đây:</p>
+      <form action="#" method="POST">
+        <div>
+          <label for="name">Họ và tên: Hoàng Anh Hưng</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email:hoanglong09188@gmail.com</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="message">Lời nhắn:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit">Gửi</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER (Chân trang)
+       Vai trò: Chứa thông tin bản quyền, các liên kết mạng xã hội, 
+       hoặc thông tin liên hệ phụ ở cuối trang.
+  =========================================== -->
+  <footer>
+    <p>&copy; 2026 Hoàng Anh Hưng. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://github.com" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a href="https://www.facebook.com/hoang.hung.63220"target="_blank">Facebook</a>
+      <a href="https://www.tiktok.com/vi-VN/" target="_blank">Tiktok</a>
+    </div>
+  </footer>
+
+</body>
+</html>
