@@ -1,371 +1,318 @@
 <!DOCTYPE html>
+
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio cá nhân của Cam Quốc Thịnh">
-    <title>Portfolio - Cam Quốc Thịnh</title>
 
-    <style>
-        :root {
-            --primary: #0284c7;
-            --primary-dark: #0369a1;
-            --dark: #1e293b;
-            --text: #334155;
-            --muted: #64748b;
-            --bg: #f5f7fa;
-            --white: #fff;
-            --radius: 12px;
-            --shadow: 0 5px 20px rgba(0, 0, 0, .08);
-            --max-width: 1200px;
+<title>Giới thiệu bản thân - Cam Quốc Thịnh</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f7f7fb;
+        color: #222;
+        line-height: 1.6;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+        background: #2459a6;
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    header h1 {
+        font-size: 45px;
+        margin-bottom: 10px;
+    }
+
+    header p {
+        font-size: 20px;
+    }
+
+    /* ===== MENU ===== */
+    nav {
+        background: white;
+        padding: 18px;
+        text-align: center;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #2459a6;
+        font-weight: bold;
+        margin: 0 20px;
+    }
+
+    nav a:hover {
+        color: #b88625;
+    }
+
+    /* ===== KHUNG CHÍNH ===== */
+    .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    /* ===== BOX ===== */
+    .box {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .box h2 {
+        color: #2459a6;
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    .box p {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    /* ===== THÔNG TIN CÁ NHÂN ===== */
+    .profile {
+        background: #2459a6;
+        color: white;
+    }
+
+    .profile h2 {
+        color: white;
+    }
+
+    .profile strong {
+        color: #ffe08a;
+    }
+
+    /* ===== SỞ THÍCH ===== */
+    ul {
+        padding-left: 25px;
+    }
+
+    li {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    /* ===== DỰ ÁN ===== */
+    .projects {
+        grid-column: 1 / -1;
+    }
+
+    .project {
+        background: #d4e0f5;
+        padding: 25px;
+        border-radius: 15px;
+        margin-top: 15px;
+    }
+
+    .project h3 {
+        color: #2459a6;
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .project p {
+        margin-bottom: 15px;
+    }
+
+    .project-button {
+        display: inline-block;
+        background: #2459a6;
+        color: white;
+        text-decoration: none;
+        padding: 12px 22px;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .project-button:hover {
+        background: #174582;
+    }
+
+    /* ===== HIỂN THỊ DỰ ÁN ===== */
+    .project-view {
+        display: none;
+        margin-top: 25px;
+    }
+
+    .project-view iframe {
+        width: 100%;
+        height: 800px;
+        border: none;
+        border-radius: 15px;
+        background: white;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+        background: #2459a6;
+        color: white;
+        text-align: center;
+        padding: 25px;
+        margin-top: 50px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+        header h1 {
+            font-size: 32px;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        .container {
+            grid-template-columns: 1fr;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* HEADER */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 18px 8%;
-            color: var(--white);
-            background: var(--dark);
-        }
-
-        .logo {
-            color: #38bdf8;
-            font-size: 24px;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        nav ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 22px;
-            list-style: none;
+        .projects {
+            grid-column: auto;
         }
 
         nav a {
-            font-weight: 700;
-            transition: color .25s ease;
+            margin: 0 8px;
         }
+    }
+</style>
+```
 
-        nav a:hover,
-        nav a:focus-visible {
-            color: #38bdf8;
-        }
-
-        /* MAIN */
-        main {
-            width: min(84%, var(--max-width));
-            margin: auto;
-        }
-
-        section {
-            padding: 70px 0;
-            scroll-margin-top: 80px;
-        }
-
-        .section-title {
-            margin-bottom: 35px;
-            color: var(--dark);
-            font-size: 32px;
-            text-align: center;
-        }
-
-        /* HERO */
-        #home {
-            min-height: 620px;
-            display: grid;
-            place-items: center;
-            text-align: center;
-        }
-
-        .hero h1 {
-            margin-bottom: 15px;
-            color: var(--dark);
-            font-size: clamp(36px, 6vw, 50px);
-        }
-
-        .hero h1 span {
-            color: var(--primary);
-        }
-
-        .hero p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: var(--muted);
-            font-size: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            border-radius: 7px;
-            color: var(--white);
-            background: var(--primary);
-            font-weight: 700;
-            transition: transform .25s ease, background .25s ease;
-        }
-
-        .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* CARD DÙNG CHUNG */
-        .card {
-            padding: 30px;
-            border-radius: var(--radius);
-            background: var(--white);
-            box-shadow: var(--shadow);
-        }
-
-        /* ABOUT */
-        .about-box p {
-            margin-bottom: 15px;
-        }
-
-        .about-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* SKILLS + PROJECTS
-           CSS Grid tự co giãn theo kích thước màn hình. */
-        .skills-container,
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
-        }
-
-        .skill {
-            text-align: center;
-        }
-
-        .skill h3,
-        article h3 {
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-
-        article p {
-            margin-bottom: 15px;
-        }
-
-        .technology {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .project-link {
-            display: inline-block;
-            color: var(--primary);
-            font-weight: 700;
-            transition: transform .2s ease;
-        }
-
-        .project-link:hover {
-            transform: translateX(4px);
-        }
-
-        /* CONTACT */
-        .contact-box {
-            text-align: center;
-        }
-
-        .contact-box p {
-            margin: 10px 0;
-        }
-
-        /* FOOTER */
-        footer {
-            margin-top: 30px;
-            padding: 30px;
-            color: var(--white);
-            background: var(--dark);
-            text-align: center;
-        }
-
-        /* MOBILE */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 16px 5%;
-            }
-
-            nav ul {
-                gap: 12px 18px;
-            }
-
-            main {
-                width: 90%;
-            }
-
-            section {
-                padding: 55px 0;
-            }
-
-            #home {
-                min-height: 520px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 21px;
-            }
-
-            nav ul {
-                font-size: 14px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .card {
-                padding: 24px;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">MyPortfolio</div>
+```
+<!-- ===== GIỚI THIỆU ===== -->
+<header>
+    <h1>CAM QUỐC THỊNH</h1>
+    <p>Xin chào! Đây là trang giới thiệu bản thân của tôi.</p>
+</header>
 
-        <nav aria-label="Điều hướng chính">
-            <ul>
-                <li><a href="#home">Trang chủ</a></li>
-                <li><a href="#about">Giới thiệu</a></li>
-                <li><a href="#skills">Kỹ năng</a></li>
-                <li><a href="#projects">Dự án</a></li>
-                <li><a href="#contact">Liên hệ</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- ===== MENU ===== -->
+<nav>
+    <a href="#gioi-thieu">Giới thiệu</a>
+    <a href="#so-thich">Sở thích</a>
+    <a href="#du-an">Dự án</a>
+</nav>
 
-    <main>
+<main class="container">
 
-        <section id="home">
-            <div class="hero">
-                <h1>Xin chào, tôi là <span>Cam Quốc Thịnh</span></h1>
+    <!-- ===== GIỚI THIỆU BẢN THÂN ===== -->
+    <section class="box profile" id="gioi-thieu">
+        <h2>Giới thiệu bản thân</h2>
 
-                <p>
-                    Tôi là một Web Developer đam mê thiết kế và phát triển
-                    những website hiện đại, thân thiện với người dùng.
-                </p>
+        <p><strong>Họ tên:</strong> Cam Quốc Thịnh</p>
+        <p><strong>Tuổi:</strong> 19</p>
+        <p><strong>Nơi sống:</strong> Biên Hòa, Đồng Nai</p>
+        <p><strong>Trường:</strong> Đại học Lạc Hồng</p>
+        <p><strong>Ngành:</strong> Công nghệ thông tin</p>
+        <p><strong>Số yêu thích:</strong> 24</p>
+    </section>
 
-                <a href="#projects" class="btn">Xem dự án</a>
+    <!-- ===== SỞ THÍCH ===== -->
+    <section class="box" id="so-thich">
+        <h2>Sở thích</h2>
+
+        <ul>
+            <li>Chơi game cùng bạn bè</li>
+            <li>Chơi bóng đá</li>
+            <li>Nghe nhạc</li>
+            <li>Tìm hiểu về công nghệ</li>
+            <li>Lập trình và thiết kế website</li>
+        </ul>
+    </section>
+
+    <!-- ===== DỰ ÁN ===== -->
+    <section class="box projects" id="du-an">
+
+        <h2>Dự án của tôi</h2>
+
+        <!-- DỰ ÁN CSS -->
+        <div class="project">
+
+            <h3>CSS</h3>
+
+            <p>
+                Dự án tìm hiểu về <strong>CSS Grid</strong> -
+                mô hình bố cục hai chiều, cho phép điều khiển
+                hàng và cột trong giao diện website.
+            </p>
+
+            <p>
+                Dự án có chức năng điều chỉnh số cột,
+                số hàng, khoảng cách GAP và độ rộng giao diện.
+            </p>
+
+            <!-- NÚT MỞ DỰ ÁN -->
+            <a href="javascript:void(0)"
+               class="project-button"
+               onclick="moDuAn()">
+                Xem dự án CSS
+            </a>
+
+            <!-- FILE UNTITLED ĐƯỢC CHÈN VÀO ĐÂY -->
+            <div class="project-view" id="cssProject">
+
+                <iframe
+                    src="Untitled-1.html"
+                    title="Dự án CSS Grid">
+                </iframe>
+
             </div>
-        </section>
 
-        <section id="about">
-            <h2 class="section-title">Giới thiệu</h2>
+        </div>
 
-            <div class="about-box card">
-                <p>Tôi là Cam Quốc Thịnh, một sinh viên yêu thích công nghệ và phát triển website.</p>
-                <p>Tôi đang học HTML, CSS và JavaScript để xây dựng những trang web đẹp, dễ sử dụng và có cấu trúc rõ ràng.</p>
-                <p>Mục tiêu của tôi là trở thành một Front-end Developer chuyên nghiệp trong tương lai.</p>
-            </div>
-        </section>
+    </section>
 
-        <section id="skills">
-            <h2 class="section-title">Kỹ năng</h2>
+</main>
 
-            <div class="skills-container">
-                <article class="skill card">
-                    <h3>HTML5</h3>
-                    <p>Xây dựng cấu trúc website bằng các thẻ HTML5 Semantic.</p>
-                </article>
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2026 Cam Quốc Thịnh</p>
+    <p>Kiếm thật nhiều tiền để lười biếng 😎</p>
+</footer>
 
-                <article class="skill card">
-                    <h3>CSS3</h3>
-                    <p>Thiết kế giao diện, bố cục, màu sắc và responsive cho website.</p>
-                </article>
 
-                <article class="skill card">
-                    <h3>JavaScript</h3>
-                    <p>Tạo các chức năng tương tác và xử lý hành vi trên website.</p>
-                </article>
-            </div>
-        </section>
+<script>
 
-        <section id="projects">
-            <h2 class="section-title">Dự án của tôi</h2>
+    function moDuAn() {
 
-            <div class="projects-container">
-                <article class="card">
-                    <h3>Website Portfolio</h3>
-                    <p>Website cá nhân dùng để giới thiệu thông tin, kỹ năng và các dự án đã thực hiện.</p>
-                    <p class="technology">Công nghệ: HTML5, CSS3</p>
-                    <a href="#" class="project-link">Xem dự án →</a>
-                </article>
+        let project = document.getElementById("cssProject");
 
-                <article class="card">
-                    <h3>Website Tin Tức</h3>
-                    <p>Website hiển thị các bài viết và tin tức mới nhất với giao diện đơn giản.</p>
-                    <p class="technology">Công nghệ: HTML5, CSS3, JavaScript</p>
-                    <a href="#" class="project-link">Xem dự án →</a>
-                </article>
+        if (project.style.display === "block") {
 
-                <article class="card">
-                    <h3>Website Bán Hàng</h3>
-                    <p>Giao diện website bán hàng với danh sách sản phẩm và thông tin chi tiết.</p>
-                    <p class="technology">Công nghệ: HTML5, CSS3, JavaScript</p>
-                    <a href="#" class="project-link">Xem dự án →</a>
-                </article>
-            </div>
-        </section>
+            project.style.display = "none";
 
-        <section id="contact">
-            <h2 class="section-title">Liên hệ</h2>
+        } else {
 
-            <div class="contact-box card">
-                <p>📧 Email: camquocthinh@example.com</p>
-                <p>📞 Điện thoại: 0123 456 789</p>
-                <p>📍 Địa chỉ: Việt Nam</p>
-            </div>
-        </section>
+            project.style.display = "block";
 
-    </main>
+            project.scrollIntoView({
+                behavior: "smooth"
+            });
 
-    <footer>
-        <p>© 2026 Cam Quốc Thịnh - MyPortfolio</p>
-        <p>Thiết kế bằng HTML5 Semantic</p>
-    </footer>
+        }
+    }
+
+</script>
+```
 
 </body>
 </html>
