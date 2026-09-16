@@ -3,77 +3,490 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Thịnh</title>
-    <!-- Sử dụng Tailwind CSS qua CDN -->
+
+    <title>Thịnh.dev — Front-end Developer</title>
+    <meta
+        name="description"
+        content="Portfolio của Thịnh — Front-end Developer đam mê UI/UX, automation và phát triển ứng dụng."
+    >
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    colors: {
+                        primary: {
+                            50: "#eff6ff",
+                            100: "#dbeafe",
+                            500: "#3b82f6",
+                            600: "#2563eb",
+                            700: "#1d4ed8",
+                        },
+                    },
+                    boxShadow: {
+                        soft: "0 10px 40px rgba(15, 23, 42, 0.06)",
+                        card: "0 20px 50px rgba(15, 23, 42, 0.08)",
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        html {
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(59, 130, 246, 0.08),
+                    transparent 30%
+                ),
+                #f8fafc;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-grid {
+            background-image:
+                linear-gradient(
+                    rgba(148, 163, 184, 0.08) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(148, 163, 184, 0.08) 1px,
+                    transparent 1px
+                );
+            background-size: 32px 32px;
+        }
+
+        .card-hover {
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .fade-up {
+            animation: fadeUp 0.7s ease-out both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed flex flex-col min-h-screen">
 
-    <!-- ================================================================= -->
-    <!-- THẺ <header>: Phần đầu trang, định nghĩa vùng đầu trang web -->
-    <!-- ================================================================= -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-blue-600">Thịnh.dev</div>
+<body class="min-h-screen font-sans text-slate-800 antialiased">
 
-            <!-- ============================================================= -->
-            <!-- THẺ <nav>: Thanh điều hướng chứa các liên kết chuyển trang/mục -->
-            <!-- ============================================================= -->
-            <nav>
-                <ul class="flex space-x-6 text-sm font-semibold text-slate-600">
-                    <li><a href="#about" class="hover:text-blue-600 transition">Giới thiệu</a></li>
-                    <li><a href="#projects" class="hover:text-blue-600 transition">Dự án</a></li>
-                    <li><a href="#contact" class="hover:text-blue-600 transition">Liên hệ</a></li>
+    <!-- Header -->
+    <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-6">
+
+            <!-- Logo -->
+            <a
+                href="#"
+                class="text-xl font-extrabold tracking-tight text-slate-900"
+            >
+                Thịnh<span class="text-blue-600">.dev</span>
+            </a>
+
+            <!-- Navigation -->
+            <nav aria-label="Điều hướng chính">
+                <ul class="flex items-center gap-5 text-sm font-medium text-slate-600 sm:gap-7">
+                    <li>
+                        <a
+                            href="#about"
+                            class="transition hover:text-blue-600"
+                        >
+                            Giới thiệu
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#skills"
+                            class="transition hover:text-blue-600"
+                        >
+                            Kỹ năng
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#projects"
+                            class="transition hover:text-blue-600"
+                        >
+                            Dự án
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#contact"
+                            class="hidden rounded-full bg-slate-900 px-4 py-2 text-white transition hover:bg-blue-600 sm:block"
+                        >
+                            Liên hệ
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- ================================================================= -->
-    <!-- THẺ <main>: Khung nội dung chính, chứa toàn bộ các khối nội dung trọng tâm -->
-    <!-- ================================================================= -->
-    <main class="max-w-6xl mx-auto px-6 py-10 space-y-12 flex-grow w-full">
+    <main>
 
-        <!-- Section 1: Giới thiệu bản thân (About) -->
-        <section id="about" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-3 py-1 rounded">Section 1: Giới thiệu</span>
-            <h1 class="text-3xl font-extrabold text-slate-900 mt-4 mb-2">Xin chào, tôi là Thịnh 👋</h1>
-            <p class="text-slate-600 text-lg">Lập trình viên Front-end đam mê xây dựng giao diện tối ưu, trải nghiệm người dùng mượt mà và các công cụ tự động hóa.</p>
-        </section>
+        <!-- Hero -->
+        <section
+            id="about"
+            class="hero-grid relative overflow-hidden border-b border-slate-200"
+        >
+            <!-- Decorative blobs -->
+            <div class="absolute -left-32 -top-32 h-80 w-80 rounded-full bg-blue-400/20 blur-3xl"></div>
+            <div class="absolute -right-32 top-20 h-96 w-96 rounded-full bg-violet-400/20 blur-3xl"></div>
 
-        <!-- Section 2: Dự án tiêu biểu (Projects) -->
-        <section id="projects" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-3 py-1 rounded">Section 2: Dự án</span>
-            <h2 class="text-2xl font-bold text-slate-900 mt-4 mb-6">Các dự án nổi bật</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                    <h3 class="font-bold text-lg text-slate-800 mb-2">Ứng dụng Macro Android</h3>
-                    <p class="text-slate-600 text-sm">Phát triển ứng dụng tự động hóa trên Android sử dụng Kotlin kết hợp dịch vụ trợ năng (Accessibility Service).</p>
+            <div class="relative mx-auto max-w-6xl px-5 py-24 sm:px-6 sm:py-32">
+
+                <div class="max-w-3xl fade-up">
+
+                    <!-- Badge -->
+                    <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
+                        <span class="h-2 w-2 animate-pulse rounded-full bg-green-500"></span>
+                        Available for opportunities
+                    </div>
+
+                    <!-- Heading -->
+                    <h1 class="text-4xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-6xl">
+                        Xin chào, tôi là
+                        <span class="gradient-text">Thịnh</span>
+                        👋
+                    </h1>
+
+                    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
+                        Front-end Developer tập trung vào việc xây dựng
+                        giao diện hiện đại, trải nghiệm người dùng mượt mà
+                        và các giải pháp tự động hóa hiệu quả.
+                    </p>
+
+                    <!-- CTA -->
+                    <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+
+                        <a
+                            href="#projects"
+                            class="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700"
+                        >
+                            Xem dự án
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                        <a
+                            href="https://github.com/TranGiaThinh46"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 font-semibold text-slate-700 transition hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50"
+                        >
+                            GitHub
+                            <span aria-hidden="true">↗</span>
+                        </a>
+
+                    </div>
                 </div>
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                    <h3 class="font-bold text-lg text-slate-800 mb-2">Hệ thống Web Automation</h3>
-                    <p class="text-slate-600 text-sm">Xây dựng script Python tối ưu hóa tác vụ trình duyệt web, sử dụng Selenium và xử lý hình ảnh.</p>
+
+                <!-- Quick stats -->
+                <div class="mt-16 grid max-w-2xl grid-cols-3 gap-4 border-t border-slate-200 pt-8">
+
+                    <div>
+                        <p class="text-2xl font-extrabold text-slate-900">02+</p>
+                        <p class="mt-1 text-sm text-slate-500">Dự án tiêu biểu</p>
+                    </div>
+
+                    <div>
+                        <p class="text-2xl font-extrabold text-slate-900">FE</p>
+                        <p class="mt-1 text-sm text-slate-500">Chuyên môn chính</p>
+                    </div>
+
+                    <div>
+                        <p class="text-2xl font-extrabold text-slate-900">∞</p>
+                        <p class="mt-1 text-sm text-slate-500">Tinh thần học hỏi</p>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Section 3: Thông tin liên hệ (Contact) -->
-        <section id="contact" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-3 py-1 rounded">Section 3: Liên hệ</span>
-            <h2 class="text-2xl font-bold text-slate-900 mt-4 mb-2">Kết nối với tôi</h2>
-            <p class="text-slate-600 mb-4">Bạn có dự án thú vị hoặc muốn trao đổi công việc? Hãy liên hệ tôi.</p>
-            <a href="https://github.com/TranGiaThinh46" class="inline-block bg-blue-600 text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-blue-700 transition shadow-sm">Thông tin liên hệ</a>
+
+        <!-- Skills -->
+        <section id="skills" class="mx-auto max-w-6xl px-5 py-20 sm:px-6">
+
+            <div class="mb-10">
+                <p class="mb-2 text-sm font-bold uppercase tracking-widest text-blue-600">
+                    Skills
+                </p>
+
+                <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                    Công nghệ tôi sử dụng
+                </h2>
+
+                <p class="mt-3 max-w-2xl text-slate-600">
+                    Một số công nghệ và công cụ được sử dụng trong quá trình
+                    phát triển sản phẩm.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+
+                <div class="card-hover rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft">
+                    <div class="text-3xl">🌐</div>
+                    <p class="mt-3 font-semibold">HTML5</p>
+                </div>
+
+                <div class="card-hover rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft">
+                    <div class="text-3xl">🎨</div>
+                    <p class="mt-3 font-semibold">CSS</p>
+                </div>
+
+                <div class="card-hover rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft">
+                    <div class="text-3xl">⚡</div>
+                    <p class="mt-3 font-semibold">JavaScript</p>
+                </div>
+
+                <div class="card-hover rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft">
+                    <div class="text-3xl">🐍</div>
+                    <p class="mt-3 font-semibold">Python</p>
+                </div>
+
+                <div class="card-hover rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft">
+                    <div class="text-3xl">📱</div>
+                    <p class="mt-3 font-semibold">Kotlin</p>
+                </div>
+
+                <div class="card-hover rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-soft">
+                    <div class="text-3xl">🤖</div>
+                    <p class="mt-3 font-semibold">Automation</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Projects -->
+        <section
+            id="projects"
+            class="border-y border-slate-200 bg-white"
+        >
+            <div class="mx-auto max-w-6xl px-5 py-20 sm:px-6">
+
+                <div class="mb-10">
+                    <p class="mb-2 text-sm font-bold uppercase tracking-widest text-blue-600">
+                        Projects
+                    </p>
+
+                    <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                        Các dự án nổi bật
+                    </h2>
+                </div>
+
+                <div class="grid gap-6 md:grid-cols-2">
+
+                    <!-- Project 1 -->
+                    <article
+                        class="card-hover group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50"
+                    >
+                        <div class="flex h-48 items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-700">
+                            <div class="text-7xl transition duration-300 group-hover:scale-110">
+                                📱
+                            </div>
+                        </div>
+
+                        <div class="p-7">
+
+                            <div class="mb-4 flex items-center justify-between">
+                                <span class="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700">
+                                    Android
+                                </span>
+
+                                <span class="text-sm text-slate-400">
+                                    01
+                                </span>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-slate-900">
+                                Ứng dụng Macro Android
+                            </h3>
+
+                            <p class="mt-3 leading-7 text-slate-600">
+                                Phát triển ứng dụng tự động hóa trên Android
+                                sử dụng Kotlin kết hợp Accessibility Service.
+                            </p>
+
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <span class="rounded-md bg-white px-3 py-1 text-xs font-medium text-slate-600">
+                                    Kotlin
+                                </span>
+
+                                <span class="rounded-md bg-white px-3 py-1 text-xs font-medium text-slate-600">
+                                    Android
+                                </span>
+
+                                <span class="rounded-md bg-white px-3 py-1 text-xs font-medium text-slate-600">
+                                    Accessibility
+                                </span>
+                            </div>
+
+                        </div>
+                    </article>
+
+
+                    <!-- Project 2 -->
+                    <article
+                        class="card-hover group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50"
+                    >
+                        <div class="flex h-48 items-center justify-center bg-gradient-to-br from-violet-600 to-fuchsia-600">
+                            <div class="text-7xl transition duration-300 group-hover:scale-110">
+                                🤖
+                            </div>
+                        </div>
+
+                        <div class="p-7">
+
+                            <div class="mb-4 flex items-center justify-between">
+                                <span class="rounded-full bg-violet-100 px-3 py-1 text-xs font-bold text-violet-700">
+                                    Automation
+                                </span>
+
+                                <span class="text-sm text-slate-400">
+                                    02
+                                </span>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-slate-900">
+                                Hệ thống Web Automation
+                            </h3>
+
+                            <p class="mt-3 leading-7 text-slate-600">
+                                Xây dựng hệ thống Python tự động hóa các tác vụ
+                                trên trình duyệt với Selenium và xử lý hình ảnh.
+                            </p>
+
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <span class="rounded-md bg-white px-3 py-1 text-xs font-medium text-slate-600">
+                                    Python
+                                </span>
+
+                                <span class="rounded-md bg-white px-3 py-1 text-xs font-medium text-slate-600">
+                                    Selenium
+                                </span>
+
+                                <span class="rounded-md bg-white px-3 py-1 text-xs font-medium text-slate-600">
+                                    Image Processing
+                                </span>
+                            </div>
+
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact -->
+        <section id="contact" class="mx-auto max-w-6xl px-5 py-20 sm:px-6">
+
+            <div class="relative overflow-hidden rounded-3xl bg-slate-950 px-7 py-14 text-center sm:px-12">
+
+                <!-- Background decoration -->
+                <div class="absolute -left-20 -top-20 h-56 w-56 rounded-full bg-blue-600/30 blur-3xl"></div>
+                <div class="absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-violet-600/30 blur-3xl"></div>
+
+                <div class="relative">
+
+                    <p class="text-sm font-bold uppercase tracking-widest text-blue-400">
+                        Let's connect
+                    </p>
+
+                    <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
+                        Cùng xây dựng điều gì đó thú vị?
+                    </h2>
+
+                    <p class="mx-auto mt-4 max-w-xl text-slate-400">
+                        Nếu bạn có một dự án, ý tưởng hoặc cơ hội hợp tác,
+                        hãy kết nối với tôi qua GitHub.
+                    </p>
+
+                    <a
+                        href="https://github.com/TranGiaThinh46"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 font-semibold text-slate-900 transition hover:-translate-y-0.5 hover:bg-blue-50"
+                    >
+                        Ghé thăm GitHub
+                        <span aria-hidden="true">↗</span>
+                    </a>
+
+                </div>
+            </div>
         </section>
 
     </main>
 
-    <!-- ================================================================= -->
-    <!-- THẺ <footer>: Phần chân trang, chứa thông tin bản quyền và liên kết phụ -->
-    <!-- ================================================================= -->
-    <footer class="bg-white border-t border-slate-200 mt-16">
-        <div class="max-w-6xl mx-auto px-6 py-6 text-center text-sm text-slate-500">
-            <p>© 2026 Thịnh. Thiết kế chuẩn Semantic HTML5 kết hợp Tailwind CSS.</p>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white">
+
+        <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-7 text-sm text-slate-500 sm:flex-row sm:px-6">
+
+            <p>
+                © 2026 Thịnh.dev. All rights reserved.
+            </p>
+
+            <a
+                href="https://github.com/TranGiaThinh46"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-medium transition hover:text-blue-600"
+            >
+                GitHub ↗
+            </a>
+
         </div>
+
     </footer>
 
 </body>
