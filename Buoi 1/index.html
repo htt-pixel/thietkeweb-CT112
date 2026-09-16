@@ -1,63 +1,261 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <!-- Khai báo bảng mã ký tự hỗ trợ tiếng Việt -->
     <meta charset="UTF-8">
-    
-    <!-- Cấu hình hiển thị chuẩn Responsive trên thiết bị di động -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Tiêu đề trang web hiển thị trên thẻ trình duyệt -->
-    <title>Trang Web Của Tôi</title>
-
-    <!-- Thêm CSS trực tiếp hoặc liên kết đến file CSS bên ngoài -->
+    <title>Mô Phỏng Thuộc Tính CSS Grid & Box Model</title>
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
         }
-        header {
-            background: #007bff;
+
+        body {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background-color: #f4f6f8;
+            margin: 0;
+        }
+
+        /* Control Panel */
+        .controls {
+            width: 360px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            height: 95vh;
+            overflow-y: auto;
+        }
+
+        .control-group {
+            margin-bottom: 18px;
+        }
+
+        .control-group h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: #475569;
+            font-weight: bold;
+        }
+
+        input[type="range"], select, input[type="text"] {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        /* Preview Area */
+        .preview-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Container chứa Grid */
+        #grid-container {
+            display: grid;
+            background-color: #dbe2ef;
+            min-height: 350px;
+            transition: all 0.2s ease;
+        }
+
+        /* Các ô Item bên trong Grid */
+        .grid-item {
+            background-color: #3b82f6;
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 16px;
+            min-height: 60px;
+        }
+
+        /* Item 1 được tùy chỉnh grid-column */
+        #item-1 {
+            background-color: #ef4444; /* Thẻ đỏ nổi bật để thử grid-column */
+        }
+
+        .code-output {
+            background: #1e293b;
+            color: #38bdf8;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Phần đầu trang (Header) -->
-    <header>
-        <h1>Chào mừng đến với trang web của tôi</h1>
-    </header>
+    <!-- BẢNG ĐIỀU KHIỂN THUỘC TÍNH -->
+    <div class="controls">
+        <h2>Cấu Hình CSS Grid</h2>
 
-    <!-- Phần nội dung chính (Main Content) -->
-    <main>
-        <section>
-            <h2>Giới thiệu</h2>
-            <p>Đây là đoạn văn bản ví dụ sử dụng cấu trúc HTML5 cơ bản.</p>
-        </section>
+        <!-- THUỘC TÍNH GRID -->
+        <div class="control-group">
+            <h3>1. grid-template-columns & fr</h3>
+            <label>Cấu trúc Cột (Columns):</label>
+            <select id="select-columns">
+                <option value="1fr 1fr 1fr">1fr 1fr 1fr (3 cột bằng nhau)</option>
+                <option value="1fr 2fr 1fr">1fr 2fr 1fr (Cột giữa rộng gấp đôi)</option>
+                <option value="repeat(4, 1fr)">repeat(4, 1fr) (4 cột đều nhau)</option>
+                <option value="150px 1fr">150px 1fr (Cột 1 cố định, Cột 2 co giãn)</option>
+            </select>
+        </div>
 
-        <section>
-            <h2>Danh sách liên kết</h2>
-            <ul>
-                <li><a href="https://google.com" target="_blank">Google</a></li>
-                <li><a href="https://github.com" target="_blank">GitHub</a></li>
-            </ul>
-        </section>
-    </main>
+        <div class="control-group">
+            <h3>2. grid-template-rows</h3>
+            <label>Chiều cao Hàng (Rows):</label>
+            <select id="select-rows">
+                <option value="auto">auto (Tự động theo nội dung)</option>
+                <option value="80px 120px">80px 120px (Cố định chiều cao 2 hàng)</option>
+                <option value="repeat(2, 1fr)">repeat(2, 1fr) (Chia đều 2 hàng)</option>
+            </select>
+        </div>
 
-    <!-- Phần chân trang (Footer) -->
-    <footer>
-        <p>&copy; 2026 Bản quyền thuộc về tôi.</p>
-    </footer>
+        <div class="control-group">
+            <h3>3. gap (Khoảng cách ô)</h3>
+            <label>Gap: <span id="val-gap">15</span>px</label>
+            <input type="range" id="input-gap" min="0" max="50" value="15">
+        </div>
 
-    <!-- Thêm JavaScript (nếu có) -->
+        <div class="control-group">
+            <h3>4. grid-column (Áp dụng cho Thẻ 1)</h3>
+            <label>Trải rộng cột cho Thẻ đỏ (Item 1):</label>
+            <select id="select-grid-column">
+                <option value="auto">auto (Mặc định - 1 cột)</option>
+                <option value="span 2">span 2 (Trải rộng qua 2 cột)</option>
+                <option value="span 3">span 3 (Trải rộng qua 3 cột)</option>
+                <option value="1 / -1">1 / -1 (Bao phủ toàn bộ hàng)</option>
+            </select>
+        </div>
+
+        <!-- THUỘC TÍNH BOX MODEL -->
+        <div class="control-group">
+            <h3>5. Box Model (Container)</h3>
+            <label>Padding: <span id="val-padding">20</span>px</label>
+            <input type="range" id="input-padding" min="0" max="60" value="20">
+
+            <label>Margin: <span id="val-margin">10</span>px</label>
+            <input type="range" id="input-margin" min="0" max="50" value="10">
+
+            <label>Border Radius (Bo góc): <span id="val-radius">12</span>px</label>
+            <input type="range" id="input-radius" min="0" max="40" value="12">
+        </div>
+    </div>
+
+    <!-- KHU VỰC HIỂN THỊ KẾT QUẢ -->
+    <div class="preview-area">
+        <h2>Kết Quả Hiển Thị</h2>
+        
+        <!-- Khung Grid Container -->
+        <div id="grid-container">
+            <div class="grid-item" id="item-1">Item 1 (grid-column)</div>
+            <div class="grid-item">Item 2</div>
+            <div class="grid-item">Item 3</div>
+            <div class="grid-item">Item 4</div>
+            <div class="grid-item">Item 5</div>
+            <div class="grid-item">Item 6</div>
+        </div>
+
+        <!-- Mã CSS Sinh Ra -->
+        <h3>Mã CSS Tương Ứng:</h3>
+        <div class="code-output" id="css-code"></div>
+    </div>
+
     <script>
-        console.log("Trang web đã tải thành công!");
+        // DOM Controls
+        const selectColumns = document.getElementById('select-columns');
+        const selectRows = document.getElementById('select-rows');
+        const inputGap = document.getElementById('input-gap');
+        const selectGridColumn = document.getElementById('select-grid-column');
+        
+        const inputPadding = document.getElementById('input-padding');
+        const inputMargin = document.getElementById('input-margin');
+        const inputRadius = document.getElementById('input-radius');
+
+        // Target Elements
+        const gridContainer = document.getElementById('grid-container');
+        const item1 = document.getElementById('item-1');
+        const cssCode = document.getElementById('css-code');
+
+        function updateGrid() {
+            // Lấy giá trị
+            const cols = selectColumns.value;
+            const rows = selectRows.value;
+            const gap = inputGap.value;
+            const item1Span = selectGridColumn.value;
+            
+            const padding = inputPadding.value;
+            const margin = inputMargin.value;
+            const radius = inputRadius.value;
+
+            // Cập nhật giá trị hiển thị số
+            document.getElementById('val-gap').textContent = gap;
+            document.getElementById('val-padding').textContent = padding;
+            document.getElementById('val-margin').textContent = margin;
+            document.getElementById('val-radius').textContent = radius;
+
+            // Áp dụng Style vào Grid Container
+            gridContainer.style.gridTemplateColumns = cols;
+            gridContainer.style.gridTemplateRows = rows;
+            gridContainer.style.gap = `${gap}px`;
+            gridContainer.style.padding = `${padding}px`;
+            gridContainer.style.margin = `${margin}px`;
+            gridContainer.style.borderRadius = `${radius}px`;
+
+            // Áp dụng grid-column cho Item 1
+            item1.style.gridColumn = item1Span;
+
+            // Xuất mã CSS tương ứng
+            cssCode.textContent = 
+`/* Container */
+.grid-container {
+  display: grid;
+  grid-template-columns: ${cols};
+  grid-template-rows: ${rows};
+  gap: ${gap}px;
+  padding: ${padding}px;
+  margin: ${margin}px;
+  border-radius: ${radius}px;
+}
+
+/* Item 1 */
+.item-1 {
+  grid-column: ${item1Span};
+}`;
+        }
+
+        // Đăng ký sự kiện thay đổi
+        selectColumns.addEventListener('change', updateGrid);
+        selectRows.addEventListener('change', updateGrid);
+        inputGap.addEventListener('input', updateGrid);
+        selectGridColumn.addEventListener('change', updateGrid);
+        inputPadding.addEventListener('input', updateGrid);
+        inputMargin.addEventListener('input', updateGrid);
+        inputRadius.addEventListener('input', updateGrid);
+
+        // Chạy lần đầu
+        updateGrid();
     </script>
 </body>
 </html>

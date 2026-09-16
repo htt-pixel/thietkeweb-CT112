@@ -1,11 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=s, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Võ Hoàng Minh | Front-End Developer Portfolio</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- DÒNG LIÊN KẾT FILE CSS TẠI ĐÂY -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fa-solid fa-code"></i> Võ Hoàng Minh
+                <span class="logo-badge">Dev</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about" class="active">Giới thiệu</a></li>
+                    <li><a href="#projects">Dự án</a></li>
+                    <li><a href="#skills">Kỹ năng</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Layout Container -->
+    <div class="container">
+        
+        <!-- Main Content Area -->
+        <main>
+            <!-- Hero / About Section -->
+            <section id="about" class="hero-section">
+                <h1 class="hero-title">Xin chào, tôi là <br><span>Võ Hoàng Minh</span></h1>
+                <p class="hero-desc">
+                    Lập trình viên Front-End đam mê thiết kế và xây dựng các giao diện Web tối ưu trải nghiệm người dùng (UX), tương thích đa thiết bị và chuẩn hóa Semantic Web.
+                </p>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2 class="section-title"><i class="fa-solid fa-laptop-code"></i> Dự Án Tiêu Biểu</h2>
+                <div class="projects-grid">
+                    
+                    <article class="project-card">
+                        <div>
+                            <h3>Website Thương Mại Điện Tử</h3>
+                            <p>Hệ thống bán hàng trực tuyến tích hợp giỏ hàng, bộ lọc sản phẩm và quy trình thanh toán tối ưu.</p>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div>
+                            <h3>Ứng Dụng Quản Lý Công Việc</h3>
+                            <p>Ứng dụng web hỗ trợ lập kế hoạch, theo dõi tiến độ công việc cá nhân trực quan.</p>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">Flexbox</span>
+                            <span class="tech-badge">LocalStorage</span>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills">
+                <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> Kỹ Năng Chuyên Môn</h2>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <i class="fa-brands fa-html5"></i>
+                        <span>HTML5 & Semantic Web</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fa-brands fa-css3-alt"></i>
+                        <span>CSS3 (Flexbox & Grid)</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fa-brands fa-square-js"></i>
+                        <span>JavaScript (ES6+)</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar / Contact Area -->
+        <aside id="contact">
+            <div class="aside-card">
+                <h2 class="section-title"><i class="fa-solid fa-paper-plane"></i> Góc Kết Nối</h2>
+                
+                <div class="quote-box">
+                    "Học tập là một hành trình kéo dài suốt đời."
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" class="btn-social github">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="btn-social linkedin">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; 2026 Võ Hoàng Minh. All rights reserved.</p>
+                <p>Email: nguyenvana@email.com</p>
+            </div>
+            <div>
+                <p>Designed & Developed with Passion</p>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
