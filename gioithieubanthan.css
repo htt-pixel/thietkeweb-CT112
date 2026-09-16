@@ -1,0 +1,106 @@
+:root {
+    color-scheme: light;
+}
+
+html {
+    scroll-padding-top: 80px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(59, 130, 246, 0.08),
+            transparent 30%
+        ),
+        #f8fafc;
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Hero grid */
+.hero-grid {
+    background-image:
+        linear-gradient(
+            rgba(148, 163, 184, 0.08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(148, 163, 184, 0.08) 1px,
+            transparent 1px
+        );
+
+    background-size: 28px 28px;
+}
+
+/* Card hover */
+.card-hover {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .card-hover:hover {
+        transform: translateY(-5px);
+
+        box-shadow:
+            0 20px 50px rgba(15, 23, 42, 0.1);
+
+        border-color: rgba(59, 130, 246, 0.3);
+    }
+}
+
+/* Fade up animation */
+.fade-up {
+    animation: fadeUp 0.7s ease-out both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Safe area cho iPhone */
+.safe-bottom {
+    padding-bottom:
+        max(1.75rem, env(safe-area-inset-bottom));
+}
+
+/* Giảm animation nếu người dùng không muốn motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
