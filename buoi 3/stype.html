@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cá Nhân</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. HEADER & NAVIGATION -->
+    <header>
+        <h1>Võ Minh Quang - Web Developer</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#projects">Dự án</a></li>
+                <li><a href="#skills">Kỹ năng</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. MAIN CONTENT -->
+    <main>
+
+        <!-- GIỚI THIỆU BẢN THÂN -->
+        <section id="about">
+            <h2>Giới thiệu bản thân</h2>
+            <p>Xin chào! Tôi là một Lập trình viên Front-End đam mê tạo ra các trải nghiệm web mượt mà, chuẩn SEO và dễ tiếp cận cho người dùng.</p>
+        </section>
+
+        <!-- DỰ ÁN NỔI BẬT -->
+        <section id="projects">
+            <h2>Dự án nổi bật</h2>
+            
+            <div class="projects-grid">
+                <article>
+                    <h3>Dự án 1: Trang web E-commerce</h3>
+                    <p>Một trang web bán hàng trực tuyến xây dựng bằng HTML5, CSS3 và JavaScript thuần.</p>
+                    <button class="btn-detail" onclick="openModal('project1')">Xem chi tiết</button>
+                </article>
+
+                <article>
+                    <h3>Dự án 2: Ứng dụng Quản lý Tác vụ</h3>
+                    <p>Ứng dụng To-Do List hỗ trợ lưu trữ dữ liệu local storage và giao diện Responsive.</p>
+                    <button class="btn-detail" onclick="openModal('project2')">Xem chi tiết</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- KỸ NĂNG -->
+        <section id="skills">
+            <h2>Kỹ năng chuyên môn</h2>
+            <ul>
+                <li>HTML5 / CSS3 / JavaScript</li>
+                <li>Semantic HTML & SEO Basics</li>
+                <li>Git & GitHub</li>
+                <li>Responsive Web Design</li>
+            </ul>
+        </section>
+
+        <!-- LIÊN HỆ -->
+        <section id="contact">
+            <h2>Liên hệ với tôi</h2>
+            <p><strong>Email:</strong> tranvana@email.com</p>
+            <p><strong>Điện thoại:</strong> 090x xxx xxx</p>
+        </section>
+
+    </main>
+
+    <!-- 3. FOOTER -->
+    <footer>
+        <p>&copy; 2026 Trần Văn A. Tất cả quyền được bảo lưu.</p>
+        <address>
+            Kết nối qua mạng xã hội: 
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a> | 
+            <a href="https://github.com" target="_blank">GitHub</a>
+        </address>
+    </footer>
+
+    <!-- 4. MODAL POPUP CHI TIẾT -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-container">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+
+            <span class="badge-tag" id="modalTag">FLEXBOX GUIDE</span>
+            <h1 class="modal-main-title" id="modalTitle">FLEXBOX – BỐ CỤC MỘT CHIỀU</h1>
+
+            <div class="modal-content-grid">
+                <div class="blue-card">
+                    <h3 id="leftCardTitle">FLEXBOX LÀ GÌ?</h3>
+                    <p id="leftCardDesc">
+                        Flexbox (Flexible Box Layout) là mô hình bố cục <strong>một chiều</strong> — sắp xếp phần tử theo <strong>hàng ngang</strong> hoặc <strong>cột dọc</strong>. Lý tưởng cho Navigation bar, Card row, và các thành phần nội tuyến.
+                    </p>
+                    <p id="leftCardFooter">
+                        Kích hoạt bằng: <span class="code-box">display: flex</span>
+                    </p>
+                </div>
+
+                <div class="light-card">
+                    <h3>CÁC THUỘC TÍNH QUAN TRỌNG</h3>
+                    <ul id="rightCardList">
+                        <li><code>flex-direction</code>: Hướng sắp xếp (row / column)</li>
+                        <li><code>justify-content</code>: Căn chỉnh theo trục chính (center, space-between, space-around)</li>
+                        <li><code>align-items</code>: Căn chỉnh theo trục phụ (center, flex-start, stretch)</li>
+                        <li><code>flex-wrap</code>: Cho phép xuống dòng khi hết không gian</li>
+                        <li><code>gap</code>: Khoảng cách đồng đều giữa các item</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bottom-banner">
+                <span>💡</span>
+                <p id="bottomBannerText">
+                    <strong>Khi nào dùng Flexbox?</strong> → Khi bạn cần sắp xếp các phần tử <strong>theo một hướng</strong>: menu ngang, nhóm nút, hàng thẻ kỹ năng.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. JAVASCRIPT -->
+    <script>
+        const projectData = {
+            project1: {
+                tag: "FLEXBOX GUIDE",
+                title: "FLEXBOX – BỐ CỤC MỘT CHIỀU",
+                leftTitle: "FLEXBOX LÀ GÌ?",
+                leftDesc: "Flexbox (Flexible Box Layout) là mô hình bố cục <strong>một chiều</strong> — sắp xếp phần tử theo <strong>hàng ngang</strong> hoặc <strong>cột dọc</strong>. Lý tưởng cho Navigation bar, Card row, và các thành phần nội tuyến.",
+                leftCode: "display: flex",
+                list: [
+                    "<code>flex-direction</code>: Hướng sắp xếp (row / column)",
+                    "<code>justify-content</code>: Căn chỉnh theo trục chính (center, space-between, space-around)",
+                    "<code>align-items</code>: Căn chỉnh theo trục phụ (center, flex-start, stretch)",
+                    "<code>flex-wrap</code>: Cho phép xuống dòng khi hết không gian",
+                    "<code>gap</code>: Khoảng cách đồng đều giữa các item"
+                ],
+                bannerText: "<strong>Khi nào dùng Flexbox?</strong> → Khi bạn cần sắp xếp các phần tử <strong>theo một hướng</strong>: menu ngang, nhóm nút, hàng thẻ kỹ năng."
+            },
+            project2: {
+                tag: "CSS GRID GUIDE",
+                title: "CSS GRID – BỐ CỤC HAI CHIỀU",
+                leftTitle: "CSS GRID LÀ GÌ?",
+                leftDesc: "CSS Grid là mô hình bố cục <strong>hai chiều</strong> — kiểm soát đồng thời cả <strong>cột và hàng</strong>. Phù hợp cho cấu trúc tổng thể của trang web như Header, Sidebar, Main Content và Footer.",
+                leftCode: "display: grid",
+                list: [
+                    "<code>grid-template-columns</code>: Định nghĩa số cột và độ rộng mỗi cột",
+                    "<code>grid-template-rows</code>: Định nghĩa chiều cao từng hàng",
+                    "<code>gap</code>: Khoảng cách giữa các ô lưới",
+                    "<code>grid-column</code>: Cho phần tử trải rộng nhiều cột",
+                    "<code>fr</code>: Đơn vị phân chia tỉ lệ linh hoạt"
+                ],
+                bannerText: "<strong>Khi nào dùng CSS Grid?</strong> → Khi bạn cần xây dựng bố cục toàn trang hoặc lưới 2 chiều phức tạp."
+            }
+        };
+
+        function openModal(projectId) {
+            const data = projectData[projectId];
+            if (!data) return;
+
+            document.getElementById('modalTag').innerText = data.tag;
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('leftCardTitle').innerText = data.leftTitle;
+            document.getElementById('leftCardDesc').innerHTML = data.leftDesc;
+            document.getElementById('leftCardFooter').innerHTML = 'Kích hoạt bằng: <span class="code-box">' + data.leftCode + '</span>';
+
+            const listContainer = document.getElementById('rightCardList');
+            listContainer.innerHTML = '';
+            data.list.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = item;
+                listContainer.appendChild(li);
+            });
+
+            document.getElementById('bottomBannerText').innerHTML = data.bannerText;
+            document.getElementById('projectModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+    </script>
+</body>
+</html>
