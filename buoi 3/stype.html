@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Cá Nhân</title>
-    
-    <!-- Liên kết đến file CSS tách rời -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,13 +24,13 @@
     <!-- 2. MAIN CONTENT -->
     <main>
 
-        <!-- SECTION 1: GIỚI THIỆU BẢN THÂN -->
+        <!-- GIỚI THIỆU BẢN THÂN -->
         <section id="about">
             <h2>Giới thiệu bản thân</h2>
             <p>Xin chào! Tôi là một Lập trình viên Front-End đam mê tạo ra các trải nghiệm web mượt mà, chuẩn SEO và dễ tiếp cận cho người dùng.</p>
         </section>
 
-        <!-- SECTION 2: DỰ ÁN NỔI BẬT -->
+        <!-- DỰ ÁN NỔI BẬT -->
         <section id="projects">
             <h2>Dự án nổi bật</h2>
             
@@ -51,7 +49,7 @@
             </div>
         </section>
 
-        <!-- SECTION 3: KỸ NĂNG -->
+        <!-- KỸ NĂNG -->
         <section id="skills">
             <h2>Kỹ năng chuyên môn</h2>
             <ul>
@@ -62,7 +60,7 @@
             </ul>
         </section>
 
-        <!-- SECTION 4: LIÊN HỆ -->
+        <!-- LIÊN HỆ -->
         <section id="contact">
             <h2>Liên hệ với tôi</h2>
             <p><strong>Email:</strong> tranvana@email.com</p>
@@ -81,22 +79,15 @@
         </address>
     </footer>
 
-    <!-- ==========================================
-         4. MODAL POPUP CỬA SỔ CHI TIẾT
-    =========================================== -->
+    <!-- 4. MODAL POPUP CHI TIẾT -->
     <div class="modal-overlay" id="projectModal">
         <div class="modal-container">
             <button class="close-btn" onclick="closeModal()">&times;</button>
 
-            <!-- Thẻ Tag nhỏ ở trên -->
             <span class="badge-tag" id="modalTag">FLEXBOX GUIDE</span>
-
-            <!-- Tiêu đề lớn màu vàng -->
             <h1 class="modal-main-title" id="modalTitle">FLEXBOX – BỐ CỤC MỘT CHIỀU</h1>
 
-            <!-- Khối nội dung 2 cột -->
             <div class="modal-content-grid">
-                <!-- Cột xanh đậm bên trái -->
                 <div class="blue-card">
                     <h3 id="leftCardTitle">FLEXBOX LÀ GÌ?</h3>
                     <p id="leftCardDesc">
@@ -107,7 +98,6 @@
                     </p>
                 </div>
 
-                <!-- Cột xanh nhạt bên phải -->
                 <div class="light-card">
                     <h3>CÁC THUỘC TÍNH QUAN TRỌNG</h3>
                     <ul id="rightCardList">
@@ -120,7 +110,6 @@
                 </div>
             </div>
 
-            <!-- Khối ghi chú dưới cùng -->
             <div class="bottom-banner">
                 <span>💡</span>
                 <p id="bottomBannerText">
@@ -130,11 +119,8 @@
         </div>
     </div>
 
-    <!-- ==========================================
-         5. JAVASCRIPT ĐIỀU KHIỂN POPUP
-    =========================================== -->
+    <!-- 5. JAVASCRIPT -->
     <script>
-        // Dữ liệu mẫu cho từng dự án
         const projectData = {
             project1: {
                 tag: "FLEXBOX GUIDE",
@@ -187,7 +173,6 @@
             });
 
             document.getElementById('bottomBannerText').innerHTML = data.bannerText;
-
             document.getElementById('projectModal').classList.add('active');
         }
 
@@ -195,7 +180,6 @@
             document.getElementById('projectModal').classList.remove('active');
         }
 
-        // Đóng modal khi bấm ra ngoài vùng nội dung
         window.onclick = function(event) {
             const modal = document.getElementById('projectModal');
             if (event.target === modal) {
@@ -203,6 +187,5 @@
             }
         };
     </script>
-
 </body>
 </html>
