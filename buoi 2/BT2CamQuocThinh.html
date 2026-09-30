@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio - Cam Quốc Thịnh</title>
+
+    <style>
+        /* ==============================
+           CSS CƠ BẢN CHO TOÀN BỘ WEBSITE
+           ============================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==============================
+           HEADER
+           Vai trò:
+           Chứa phần đầu của website,
+           thường gồm logo, tên website
+           và khu vực điều hướng.
+           ============================== */
+
+        header {
+            background-color: #1e293b;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        /* ==============================
+           NAV
+           Vai trò:
+           Chứa các liên kết giúp người dùng
+           di chuyển giữa các khu vực chính
+           của website.
+           ============================== */
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* ==============================
+           MAIN
+           Vai trò:
+           Chứa nội dung chính của trang.
+           Mỗi trang chỉ nên có một <main>.
+           ============================== */
+
+        main {
+            width: 84%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* ==============================
+           SECTION
+           Vai trò:
+           Chia nội dung chính thành những
+           khu vực/chủ đề có liên quan.
+           ============================== */
+
+        section {
+            padding: 80px 0;
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            color: #1e293b;
+        }
+
+        /* ==============================
+           SECTION 1 - HOME
+           ============================== */
+
+        #home {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #0284c7;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #0284c7;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0369a1;
+        }
+
+        /* ==============================
+           SECTION 2 - ABOUT
+           ============================== */
+
+        .about-box {
+            background-color: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .about-box p {
+            margin-bottom: 15px;
+        }
+
+        /* ==============================
+           SECTION 3 - SKILLS
+           ============================== */
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill {
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .skill h3 {
+            color: #0284c7;
+            margin-bottom: 10px;
+        }
+
+        /* ==============================
+           SECTION 4 - PROJECTS
+           ============================== */
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* ==============================
+           ARTICLE
+           Vai trò:
+           Đại diện cho một nội dung độc lập.
+           Ở đây mỗi <article> đại diện cho
+           một dự án trong Portfolio.
+           ============================== */
+
+        article {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        article h3 {
+            color: #0284c7;
+            margin-bottom: 15px;
+        }
+
+        article p {
+            margin-bottom: 15px;
+        }
+
+        .technology {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            color: #0284c7;
+            font-weight: bold;
+        }
+
+        /* ==============================
+           SECTION 5 - CONTACT
+           ============================== */
+
+        .contact-box {
+            background-color: white;
+            padding: 35px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .contact-box p {
+            margin: 10px 0;
+        }
+
+        /* ==============================
+           FOOTER
+           Vai trò:
+           Là khu vực cuối trang,
+           thường chứa bản quyền,
+           thông tin liên hệ và liên kết.
+           ============================== */
+
+        footer {
+            background-color: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        /* ==============================
+           RESPONSIVE
+           ============================== */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .skills-container,
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================================================
+         HEADER
+         --------------------------------------------------
+         <header> là phần đầu của trang web.
+         Thường chứa logo, tên website hoặc thông tin
+         nhận diện chính của website.
+         ================================================== -->
+
+    <header>
+
+        <!-- Tên / Logo của Portfolio -->
+        <div class="logo">
+            MyPortfolio
+        </div>
+
+
+        <!-- ==================================================
+             NAV
+             --------------------------------------------------
+             <nav> chứa các liên kết điều hướng chính.
+             Người dùng có thể click vào menu để di chuyển
+             đến từng khu vực trong trang.
+             ================================================== -->
+
+        <nav>
+            <ul>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#skills">Kỹ năng</a></li>
+                <li><a href="#projects">Dự án</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- ==================================================
+         MAIN
+         --------------------------------------------------
+         <main> chứa nội dung chính và quan trọng nhất
+         của trang Portfolio.
+
+         Trong <main> có nhiều <section> để chia nội dung
+         thành từng chủ đề rõ ràng.
+         ================================================== -->
+
+    <main>
+
+
+        <!-- ==================================================
+             SECTION 1 - HOME
+             --------------------------------------------------
+             Đây là phần giới thiệu đầu tiên khi người dùng
+             truy cập vào Portfolio.
+             ================================================== -->
+
+        <section id="home">
+
+            <div class="hero">
+
+                <h1>
+                    Xin chào, tôi là
+                    <span>Cam Quốc Thịnh</span>
+                </h1>
+
+                <p>
+                    Tôi là một Web Developer đam mê thiết kế
+                    và phát triển những website hiện đại,
+                    thân thiện với người dùng.
+                </p>
+
+                <a href="#projects" class="btn">
+                    Xem dự án
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             SECTION 2 - ABOUT
+             --------------------------------------------------
+             <section> dùng để nhóm những nội dung có cùng
+             một chủ đề. Section này giới thiệu thông tin
+             cá nhân của người sở hữu Portfolio.
+             ================================================== -->
+
+        <section id="about">
+
+            <h2 class="section-title">
+                Giới thiệu
+            </h2>
+
+            <div class="about-box">
+
+                <p>
+                    Tôi là Cam Quốc Thịnh, một sinh viên yêu thích
+                    công nghệ và phát triển website.
+                </p>
+
+                <p>
+                    Tôi đang học HTML, CSS và JavaScript để xây dựng
+                    những trang web đẹp, dễ sử dụng và có cấu trúc
+                    rõ ràng.
+                </p>
+
+                <p>
+                    Mục tiêu của tôi là trở thành một Front-end
+                    Developer chuyên nghiệp trong tương lai.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             SECTION 3 - SKILLS
+             --------------------------------------------------
+             Section này chứa danh sách các kỹ năng của cá nhân.
+             ================================================== -->
+
+        <section id="skills">
+
+            <h2 class="section-title">
+                Kỹ năng
+            </h2>
+
+            <div class="skills-container">
+
+                <article class="skill">
+
+                    <h3>HTML5</h3>
+
+                    <p>
+                        Xây dựng cấu trúc website bằng các thẻ
+                        HTML5 Semantic.
+                    </p>
+
+                </article>
+
+
+                <article class="skill">
+
+                    <h3>CSS3</h3>
+
+                    <p>
+                        Thiết kế giao diện, bố cục, màu sắc
+                        và responsive cho website.
+                    </p>
+
+                </article>
+
+
+                <article class="skill">
+
+                    <h3>JavaScript</h3>
+
+                    <p>
+                        Tạo các chức năng tương tác và xử lý
+                        hành vi trên website.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             SECTION 4 - PROJECTS
+             --------------------------------------------------
+             Đây là khu vực hiển thị các dự án đã thực hiện.
+
+             Mỗi dự án được đặt trong một <article> vì mỗi
+             dự án là một nội dung độc lập.
+             ================================================== -->
+
+        <section id="projects">
+
+            <h2 class="section-title">
+                Dự án của tôi
+            </h2>
+
+            <div class="projects-container">
+
+
+                <!-- ARTICLE 1 -->
+
+                <article>
+
+                    <h3>
+                        Website Portfolio
+                    </h3>
+
+                    <p>
+                        Website cá nhân dùng để giới thiệu
+                        thông tin, kỹ năng và các dự án đã thực hiện.
+                    </p>
+
+                    <p class="technology">
+                        Công nghệ: HTML5, CSS3
+                    </p>
+
+                    <a href="#" class="project-link">
+                        Xem dự án →
+                    </a>
+
+                </article>
+
+
+                <!-- ARTICLE 2 -->
+
+                <article>
+
+                    <h3>
+                        Website Tin Tức
+                    </h3>
+
+                    <p>
+                        Website hiển thị các bài viết và tin tức
+                        mới nhất với giao diện đơn giản.
+                    </p>
+
+                    <p class="technology">
+                        Công nghệ: HTML5, CSS3, JavaScript
+                    </p>
+
+                    <a href="#" class="project-link">
+                        Xem dự án →
+                    </a>
+
+                </article>
+
+
+                <!-- ARTICLE 3 -->
+
+                <article>
+
+                    <h3>
+                        Website Bán Hàng
+                    </h3>
+
+                    <p>
+                        Giao diện website bán hàng với danh sách
+                        sản phẩm và thông tin chi tiết.
+                    </p>
+
+                    <p class="technology">
+                        Công nghệ: HTML5, CSS3, JavaScript
+                    </p>
+
+                    <a href="#" class="project-link">
+                        Xem dự án →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             SECTION 5 - CONTACT
+             --------------------------------------------------
+             Section này chứa thông tin để người dùng có thể
+             liên hệ với chủ sở hữu Portfolio.
+             ================================================== -->
+
+        <section id="contact">
+
+            <h2 class="section-title">
+                Liên hệ
+            </h2>
+
+            <div class="contact-box">
+
+                <p>
+                    📧 Email:
+                    camquocthinh@example.com
+                </p>
+
+                <p>
+                    📞 Điện thoại:
+                    0123 456 789
+                </p>
+
+                <p>
+                    📍 Địa chỉ:
+                    Việt Nam
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================================================
+         FOOTER
+         --------------------------------------------------
+         <footer> là phần cuối của website.
+         Thường chứa thông tin bản quyền, thông tin liên hệ
+         hoặc các liên kết bổ sung.
+         ================================================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Cam Quốc Thịnh - MyPortfolio
+        </p>
+
+        <p>
+            Thiết kế bằng HTML5 Semantic
+        </p>
+
+    </footer>
+
+</body>
+</html>
