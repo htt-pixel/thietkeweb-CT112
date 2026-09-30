@@ -1,63 +1,228 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <!-- Khai báo bảng mã ký tự hỗ trợ tiếng Việt -->
     <meta charset="UTF-8">
-    
-    <!-- Cấu hình hiển thị chuẩn Responsive trên thiết bị di động -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Tiêu đề trang web hiển thị trên thẻ trình duyệt -->
-    <title>Trang Web Của Tôi</title>
 
-    <!-- Thêm CSS trực tiếp hoặc liên kết đến file CSS bên ngoài -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-    </style>
+    <title>Portfolio - Cam Quốc Thịnh</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- Phần đầu trang (Header) -->
+    <!-- Thanh menu -->
     <header>
-        <h1>Chào mừng đến với trang web của tôi</h1>
+        <div class="logo">THỊNH.DEV</div>
+
+        <nav>
+            <a href="#home">Trang chủ</a>
+            <a href="#about">Giới thiệu</a>
+            <a href="#skills">Kỹ năng</a>
+            <a href="#projects">Dự án</a>
+            <a href="#contact">Liên hệ</a>
+        </nav>
     </header>
 
-    <!-- Phần nội dung chính (Main Content) -->
-    <main>
-        <section>
-            <h2>Giới thiệu</h2>
-            <p>Đây là đoạn văn bản ví dụ sử dụng cấu trúc HTML5 cơ bản.</p>
-        </section>
 
-        <section>
-            <h2>Danh sách liên kết</h2>
-            <ul>
-                <li><a href="https://google.com" target="_blank">Google</a></li>
-                <li><a href="https://github.com" target="_blank">GitHub</a></li>
-            </ul>
-        </section>
-    </main>
+    <!-- Trang chủ -->
+    <section id="home" class="hero">
 
-    <!-- Phần chân trang (Footer) -->
+        <div class="hero-text">
+            <p class="hello">XIN CHÀO 👋</p>
+
+            <h1>
+                Tôi là <span>Cam Quốc Thịnh</span>
+            </h1>
+
+            <h2>Developer & IT Student</h2>
+
+            <p>
+                Tôi là sinh viên Công nghệ thông tin tại Đại học Lạc Hồng.
+                Tôi yêu thích lập trình, thiết kế website và phát triển các
+                sản phẩm công nghệ.
+            </p>
+
+            <a href="#projects" class="button">
+                Xem dự án
+            </a>
+        </div>
+
+        <div class="hero-card">
+            <div class="code">
+                <span>&lt;developer&gt;</span>
+
+                <p>name: "Quốc Thịnh"</p>
+                <p>age: 19</p>
+                <p>location: "Biên Hòa"</p>
+                <p>goal: "Become a Developer"</p>
+
+                <span>&lt;/developer&gt;</span>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Giới thiệu -->
+    <section id="about" class="section">
+
+        <h2 class="title">Giới thiệu</h2>
+
+        <div class="about">
+
+            <div class="avatar">
+                QT
+            </div>
+
+            <div>
+                <h3>Về tôi</h3>
+
+                <p>
+                    Tôi tên là Cam Quốc Thịnh, hiện đang sống tại Biên Hòa,
+                    Đồng Nai và là sinh viên Đại học Lạc Hồng.
+                </p>
+
+                <p>
+                    Tôi đang tập trung học lập trình và phát triển website.
+                    Trong tương lai, tôi muốn trở thành một lập trình viên
+                    chuyên nghiệp và xây dựng những sản phẩm có ích.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Kỹ năng -->
+    <section id="skills" class="section">
+
+        <h2 class="title">Kỹ năng</h2>
+
+        <div class="skills">
+
+            <div class="skill">
+                <h3>HTML</h3>
+                <p>★★★★★</p>
+            </div>
+
+            <div class="skill">
+                <h3>CSS</h3>
+                <p>★★★★☆</p>
+            </div>
+
+            <div class="skill">
+                <h3>Python</h3>
+                <p>★★★★☆</p>
+            </div>
+
+            <div class="skill">
+                <h3>SQL</h3>
+                <p>★★★☆☆</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Dự án -->
+    <section id="projects" class="section">
+
+        <h2 class="title">Các dự án của tôi</h2>
+
+        <div class="projects">
+
+            <div class="project">
+                <div class="project-icon">🏠</div>
+
+                <h3>DormHelper</h3>
+
+                <p>
+                    Ứng dụng hỗ trợ sinh viên tìm phòng trọ,
+                    quản lý thông tin phòng và tìm người ở ghép.
+                </p>
+
+                <span>Figma</span>
+                <span>UI/UX</span>
+                <span>Prototype</span>
+            </div>
+
+
+            <div class="project">
+                <div class="project-icon">💰</div>
+
+                <h3>Finance App</h3>
+
+                <p>
+                    Ứng dụng quản lý tài chính cá nhân,
+                    theo dõi khoản chi tiêu và lập ngân sách.
+                </p>
+
+                <span>UI/UX</span>
+                <span>Figma</span>
+                <span>Mobile App</span>
+            </div>
+
+
+            <div class="project">
+                <div class="project-icon">💻</div>
+
+                <h3>Bank Management</h3>
+
+                <p>
+                    Chương trình quản lý tài khoản ngân hàng
+                    được xây dựng bằng Python.
+                </p>
+
+                <span>Python</span>
+                <span>Database</span>
+                <span>CRUD</span>
+            </div>
+
+
+            <div class="project">
+                <div class="project-icon">🛒</div>
+
+                <h3>Website bán đồ 2nd</h3>
+
+                <p>
+                    Website giới thiệu và kinh doanh các sản phẩm
+                    công nghệ đã qua sử dụng.
+                </p>
+
+                <span>WordPress</span>
+                <span>SEO</span>
+                <span>Web</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Liên hệ -->
+    <section id="contact" class="section contact">
+
+        <h2 class="title">Liên hệ với tôi</h2>
+
+        <p>
+            Nếu bạn muốn trao đổi hoặc hợp tác trong một dự án,
+            hãy liên hệ với tôi.
+        </p>
+
+        <a href="mailto:example@gmail.com" class="button">
+            Gửi Email
+        </a>
+
+    </section>
+
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Bản quyền thuộc về tôi.</p>
+        <p>© 2026 Cam Quốc Thịnh | Portfolio</p>
     </footer>
 
-    <!-- Thêm JavaScript (nếu có) -->
-    <script>
-        console.log("Trang web đã tải thành công!");
-    </script>
 </body>
 </html>
