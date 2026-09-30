@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cá Nhân</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="header-container">
+            <h1 class="logo">Võ Minh Quang - Web Developer</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#services">Dịch vụ</a></li>
+                    <li><a href="#projects">Dự án</a></li>
+                    <li><a href="#skills">Kỹ năng</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- GIỚI THIỆU BẢN THÂN -->
+        <section id="about" class="section-card">
+            <h2 class="section-title">Giới thiệu bản thân</h2>
+            <p>Xin chào! Tôi là một Lập trình viên Front-End đam mê tạo ra các trải nghiệm web mượt mà, chuẩn SEO và dễ tiếp cận cho người dùng.</p>
+        </section>
+
+        <!-- DỊCH VỤ CỦA TÔI (RESPONSIVE BREAKPOINT CHALLENGE) -->
+        <section id="services" class="section-card">
+            <h2 class="section-title">Dịch vụ của tôi</h2>
+            <div class="services-container">
+                <article class="service-box">
+                    <h3>Thiết kế Web</h3>
+                    <p>Xây dựng giao diện UI/UX trực quan, hiện đại và tối ưu trải nghiệm người dùng.</p>
+                </article>
+                <article class="service-box">
+                    <h3>Lập trình Front-End</h3>
+                    <p>Hiện thực hóa giao diện bằng HTML5, CSS3 và JavaScript mượt mà.</p>
+                </article>
+                <article class="service-box">
+                    <h3>Tối ưu Responsive</h3>
+                    <p>Đảm bảo hiển thị hoàn hảo trên mọi thiết bị từ máy tính đến điện thoại.</p>
+                </article>
+                <article class="service-box">
+                    <h3>Tối ưu SEO</h3>
+                    <p>Sử dụng Semantic HTML giúp trang web dễ dàng thăng hạng trên công cụ tìm kiếm.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- DỰ ÁN NỔI BẬT -->
+        <section id="projects" class="section-card">
+            <h2 class="section-title">Dự án nổi bật</h2>
+            
+            <div class="projects-grid">
+                <article class="project-card">
+                    <h3>Dự án 1: Trang web E-commerce</h3>
+                    <p>Một trang web bán hàng trực tuyến xây dựng bằng HTML5, CSS3 và JavaScript thuần.</p>
+                    <button class="btn-detail" onclick="openModal('project1')">Xem chi tiết</button>
+                </article>
+
+                <article class="project-card">
+                    <h3>Dự án 2: Ứng dụng Quản lý Tác vụ</h3>
+                    <p>Ứng dụng To-Do List hỗ trợ lưu trữ dữ liệu local storage và giao diện Responsive.</p>
+                    <button class="btn-detail" onclick="openModal('project2')">Xem chi tiết</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- KỸ NĂNG CHUYÊN MÔN -->
+        <section id="skills" class="section-card">
+            <h2 class="section-title">Kỹ năng chuyên môn</h2>
+            <ul class="skills-list">
+                <li>HTML5 / CSS3 / JavaScript</li>
+                <li>Semantic HTML & SEO Basics</li>
+                <li>Git & GitHub</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- MODAL POPUP (NẾU CÓ DÙNG XEM CHI TIẾT) -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-container">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <span class="badge-tag" id="modalTag">FLEXBOX GUIDE</span>
+            <h1 class="modal-main-title" id="modalTitle">FLEXBOX – BỐ CỤC MỘT CHIỀU</h1>
+
+            <div class="modal-content-grid">
+                <div class="blue-card">
+                    <h3 id="leftCardTitle">FLEXBOX LÀ GÌ?</h3>
+                    <p id="leftCardDesc">Flexbox là mô hình bố cục một chiều...</p>
+                    <p id="leftCardFooter">Kích hoạt bằng: <span class="code-box">display: flex</span></p>
+                </div>
+
+                <div class="light-card">
+                    <h3>CÁC THUỘC TÍNH QUAN TRỌNG</h3>
+                    <ul id="rightCardList">
+                        <li><code>flex-direction</code>: Hướng sắp xếp</li>
+                        <li><code>justify-content</code>: Căn chỉnh trục chính</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(projectId) {
+            document.getElementById('projectModal').classList.add('active');
+        }
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
