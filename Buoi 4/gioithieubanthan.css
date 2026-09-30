@@ -1,0 +1,110 @@
+/* Cài đặt chung */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e70c0c;
+    margin: 0;
+    color: #333;
+}
+
+/* Thanh menu */
+header {
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+header a:hover {
+    color: #4da6ff;
+}
+
+/* Phần giới thiệu */
+.intro {
+    background-color: #010304;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.intro h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 18px;
+}
+
+/* Nội dung */
+.container {
+    width: 80%;
+    margin: 30px auto;
+}
+
+/* Các tiêu đề */
+h2 {
+    color: #2b10a1;
+    border-bottom: 2px solid #0e1114;
+    padding-bottom: 8px;
+}
+
+/* Giới thiệu bản thân */
+.about {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Kỹ năng */
+.skills {
+    display: flex;
+    gap: 20px;
+}
+
+.skill {
+    background-color: white;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.skill h3 {
+    color: #4da6ff;
+}
+
+/* Dự án */
+.projects {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project {
+    background-color: white;
+    padding: 20px;
+    width: 40%;
+    border-radius: 8px;
+}
+
+.project h3 {
+    color: #4da6ff;
+}
+
+.project p {
+    line-height: 1.5;
+}
+
+/* Chân trang */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
