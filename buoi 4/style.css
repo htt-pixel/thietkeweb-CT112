@@ -1,0 +1,363 @@
+/* --- HOẠT ĐỘNG 4: DESIGN SYSTEM REFACTORING (CSS VARIABLES) --- */
+:root {
+    /* --- COLOR PALETTE --- */
+    --primary-color: #2563eb;
+    --secondary-color: #06b6d4;
+
+    /* Text Colors */
+    --text-dark: #1e293b;
+    --text-medium: #64748b;
+    --text-light: #94a3b8;
+
+    /* Background & Border Colors */
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+
+    /* --- SPACING SYSTEM --- */
+    --spacing-xs: 0.4rem;   /* ~6.4px */
+    --spacing-sm: 0.8rem;   /* ~12.8px */
+    --spacing-md: 1rem;     /* ~16px */
+    --spacing-lg: 1.5rem;   /* 24px */
+    --spacing-xl: 2rem;     /* 32px */
+    --spacing-2xl: 2.5rem;  /* 40px */
+    
+    /* Layout Gap */
+    --grid-gap-desktop: 2.5rem;
+    --grid-gap-mobile: 1.5rem;
+    --services-gap: 20px;   /* Yêu cầu cụ thể Hoạt động 3 */
+
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+}
+
+/* --- RESET BASE & BOX MODEL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* --- HEADER & NAVIGATION --- */
+header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.2rem var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.logo-badge {
+    padding: 4px var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    font-size: 0.8rem;
+}
+
+nav ul {
+    display: flex;
+    gap: var(--spacing-xl);
+    list-style: none;
+}
+
+nav a {
+    color: var(--text-medium);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-color);
+}
+
+/* --- LAYOUT CONTAINER (DESKTOP: 2 CỘT MAIN/SIDEBAR) --- */
+.container {
+    max-width: 1200px;
+    margin: var(--spacing-2xl) auto;
+    padding: 0 var(--spacing-xl);
+    display: grid;
+    grid-template-columns: 3fr 1fr; 
+    gap: var(--grid-gap-desktop);
+}
+
+/* --- COMMON SECTION STYLES --- */
+section {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl);
+    margin-bottom: var(--spacing-xl);
+    border: 1px solid var(--border-color);
+}
+
+.section-title {
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+/* --- HERO / ABOUT SECTION --- */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.hero-title {
+    font-size: 2.2rem;
+    line-height: 1.3;
+    color: var(--text-dark);
+}
+
+.hero-title span {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.hero-desc {
+    color: var(--text-medium);
+    line-height: 1.6;
+}
+
+/* --- HOẠT ĐỘNG 3: RESPONSIVE BREAKPOINT CHALLENGE (SERVICES) --- */
+/* Mặc định trên Desktop (> 1024px): 4 Cột & gap: 20px */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--services-gap, 20px);
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    text-align: center;
+}
+
+.service-card h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+}
+
+.service-card p {
+    color: var(--text-medium);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* --- PROJECTS SECTION --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--grid-gap-mobile);
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card h3 {
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-dark);
+}
+
+.project-card p {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-medium);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.tech-badge {
+    padding: 4px var(--spacing-sm);
+    border-radius: var(--radius-full);
+    background-color: var(--bg-color);
+    color: var(--text-medium);
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+}
+
+/* --- SKILLS SECTION --- */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.skill-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.skill-item i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+/* --- SIDEBAR (ASIDE) --- */
+aside .aside-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    border: 1px solid var(--border-color);
+}
+
+.quote-box {
+    border-left: 3px solid var(--primary-color);
+    background-color: var(--bg-color);
+    padding: var(--spacing-md);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-medium);
+    font-style: italic;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    width: 100%;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-social:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--card-bg);
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.footer-info p {
+    margin-bottom: 0.2rem;
+    color: var(--text-medium);
+    font-size: 0.9rem;
+}
+
+/* ===================================================
+   MEDIA QUERIES FOR RESPONSIVE DESIGN (HĐ 2 & HĐ 3)
+   =================================================== */
+
+/* --- TABLET BREAKPOINT (768px - 1024px) --- */
+@media (max-width: 1024px) and (min-width: 768px) {
+    /* Hoạt động 3: Màn hình 768px - 1024px chuyển thành 2 cột */
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- MOBILE BREAKPOINT (< 768px) --- */
+@media (max-width: 768px) {
+    /* Hoạt động 2: Chuyển 2 cột (main/sidebar) thành 1 cột & đẩy sidebar lên đầu */
+    .container {
+        grid-template-columns: 1fr;
+        padding: 0 var(--spacing-md);
+        margin: var(--spacing-lg) auto;
+    }
+
+    aside {
+        order: -1; 
+    }
+
+    /* Hoạt động 3: Màn hình < 768px chuyển thành 1 cột */
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: flex-start;
+    }
+
+    nav ul {
+        gap: var(--spacing-md);
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
