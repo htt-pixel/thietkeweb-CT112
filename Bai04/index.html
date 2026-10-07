@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Cá Nhân</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER & NAVIGATION -->
+  <header>
+    <div class="logo">Portfolio</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Trang chủ</a></li>
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#services">Dịch vụ</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PORTFOLIO LAYOUT -->
+  <div class="portfolio-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h3>Thông Tin</h3>
+      <p><strong>Họ tên:</strong> Hoàng Anh Hưng</p>
+      <p><strong>Vị trí:</strong> Web Developer</p>
+      <p><strong>Địa chỉ:</strong> Đồng Nai, Việt Nam</p>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+      <!-- SECTION 1: HERO -->
+      <section id="hero" class="hero-section">
+        <h1>Xin chào, tôi là Hoàng Anh Hưng</h1>
+        <p>Lập trình viên Web / Web Developer</p>
+        <a href="#projects" class="btn">Xem Dự Án</a>
+      </section>
+
+      <!-- SECTION 2: ABOUT & SKILLS -->
+      <section id="about" class="about-section">
+        <h2>Về Tôi</h2>
+        <p>Tôi là một lập trình viên đam mê tạo ra các ứng dụng web tối ưu và thân thiện với người dùng.</p>
+        
+        <h3 style="margin-top: 1rem; color: var(--text-dark);">Kỹ Năng</h3>
+        <ul>
+          <li>HTML5 / CSS3 / JavaScript</li>
+          <li>React / Vue.js</li>
+          <li>Git / GitHub</li>
+          <li>Node.js / Express</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 3: SERVICES -->
+      <section id="services" class="services-section">
+        <h2 style="color: var(--text-dark);">Dịch Vụ</h2>
+        <div class="services-container">
+          <div class="service-card">
+            <h3>Thiết Kế Web</h3>
+            <p>Tạo giao diện hiện đại, tối ưu trải nghiệm người dùng.</p>
+          </div>
+          <div class="service-card">
+            <h3>Lập Trình Web</h3>
+            <p>Xây dựng ứng dụng web nhanh chóng, chuẩn SEO và tối ưu.</p>
+          </div>
+          <div class="service-card">
+            <h3>Bảo Trì & Tối Ưu</h3>
+            <p>Tăng tốc độ tải trang và bảo mật website toàn diện.</p>
+          </div>
+          <div class="service-card">
+            <h3>Tư Vấn UX/UI</h3>
+            <p>Nâng cao giá trị sản phẩm qua trải nghiệm người dùng.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: PROJECTS -->
+      <section id="projects" class="projects-section">
+        <h2 style="color: var(--text-dark); margin-bottom: 0.5rem;">Dự Án Nổi Bật</h2>
+        <div style="display: grid; gap: 1rem;">
+          <div>
+            <h3 style="color: var(--primary-color);">Dự án 1: Website Bán Hàng</h3>
+            <p>Xây dựng ứng dụng thương mại điện tử responsive hoàn chỉnh.</p>
+          </div>
+          <div>
+            <h3 style="color: var(--primary-color);">Dự án 2: Ứng dụng Quản Lý Công Việc</h3>
+            <p>Ứng dụng giúp người dùng theo dõi và sắp xếp công việc hằng ngày hiệu quả.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: CONTACT -->
+      <section id="contact" class="contact-section">
+        <h2 style="color: var(--text-dark);">Liên Hệ</h2>
+        <p>Hãy kết nối với tôi qua email hoặc form dưới đây:</p>
+
+        <form class="contact-form" action="#" method="POST">
+          <div class="form-group">
+            <label for="fullname">Họ và tên:</label>
+            <input type="text" id="fullname" placeholder="Nhập họ và tên của bạn" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Nhập email của bạn" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Lời nhắn:</label>
+            <textarea id="message" rows="4" placeholder="Nhập lời nhắn..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Gửi</button>
+        </form>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Hoàng Anh Hưng. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">GitHub</a> | 
+      <a href="#">LinkedIn</a> | 
+      <a href="#">Facebook</a> | 
+      <a href="#">TikTok</a>
+    </div>
+  </footer>
+
+</body>
+</html>

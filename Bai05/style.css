@@ -1,0 +1,854 @@
+/* ==========================================
+   1. DESIGN SYSTEM: CSS VARIABLES (:root)
+   TRÍCH XUẤT TOÀN BỘ MÃ MÀU VÀ MARGIN/PADDING
+   ========================================== */
+:root {
+  /* --- 2 MÀU CHỦ ĐẠO (Primary / Secondary) --- */
+  --primary-color: #3b82f6;       /* Chủ đạo 1: Xanh dương */
+  --secondary-color: #8b5cf6;     /* Chủ đạo 2: Tím neon */
+  --primary-hover: #1d4ed8;
+
+  /* --- 3 MỨC MÀU XÁM CHO TEXT --- */
+  --text-dark: #1e293b;          /* Mức xám 1: Chữ đậm / Tiêu đề */
+  --text-medium: #475569;        /* Mức xám 2: Chữ vừa / Nội dung */
+  --text-light: #94a3b8;         /* Mức xám 3: Chữ nhạt / Viền / Phụ */
+
+  /* --- MÀU NỀN (Background Colors) --- */
+  --bg-color: #f8fafc;           /* 1 Màu nền trang */
+  --card-bg: #ffffff;            /* Màu nền thẻ / Section */
+  --white: #ffffff;
+  --border-color: #e2e8f0;       /* Màu viền */
+
+  /* --- THÔNG SỐ KHOẢNG CÁCH (Margin & Padding) --- */
+  --spacing-none: 0;
+  --spacing-xs: 0.25rem;         /* 4px */
+  --spacing-sm: 0.5rem;          /* 8px */
+  --spacing-md: 0.75rem;         /* 12px */
+  --spacing-lg: 1rem;            /* 16px */
+  --spacing-xl: 1.5rem;          /* 24px */
+  --spacing-2xl: 2rem;          /* 32px */
+  --spacing-3xl: 3rem;          /* 48px */
+
+  /* --- KÍCH THƯỚC & BO GÓC (Layout & Radius) --- */
+  --max-width-main: 1000px;
+  --max-width-form: 500px;
+  --sidebar-width: 280px;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+
+  /* --- GAP GRID --- */
+  --gap-grid: 20px;              /* Yêu cầu gap: 20px */
+  --gap-md: 1rem;
+  --gap-sm: 0.5rem;
+}
+
+/* ==========================================
+   2. BASE STYLES
+   ========================================== */
+*,
+*::before,
+*::after {
+  margin: var(--spacing-none);
+  padding: var(--spacing-none);
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+header,
+aside,
+.sidebar,
+main,
+section,
+footer,
+.services-container,
+.service-card,
+.staff-card,
+.contact-form,
+.form-group {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-medium);
+  background-color: var(--bg-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ==========================================
+   3. HEADER & NAVIGATION
+   ========================================== */
+header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background-color: var(--card-bg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: var(--spacing-none);
+  z-index: 100;
+}
+
+header .logo {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--text-dark);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: currentColor;
+  transition: transform 0.3s cubic-bezier(.25, .46, .45, .94), opacity 0.2s ease;
+}
+
+header nav {
+  justify-self: end;
+}
+
+header nav ul {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--gap-md);
+}
+
+header nav a {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--text-medium);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+header nav a:hover {
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   4. PORTFOLIO LAYOUT (DESKTOP > 1024px)
+   ========================================== */
+.portfolio-layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr; /* 2 Cột trên Desktop */
+  gap: var(--gap-grid);
+  width: 100%;
+  max-width: min(100%, var(--max-width-main));
+  margin: var(--spacing-none) auto;
+  padding: var(--spacing-xl);
+}
+
+aside, 
+.sidebar {
+  display: grid;
+  align-content: start;
+  gap: var(--gap-md);
+  padding: var(--spacing-lg);
+  background-color: var(--card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.staff-card {
+  min-height: 240px;
+  perspective: 1000px;
+}
+
+.staff-card:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.staff-card-inner {
+  position: relative;
+  min-height: inherit;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.staff-card:hover .staff-card-inner,
+.staff-card:focus .staff-card-inner {
+  transform: rotateY(180deg);
+}
+
+.staff-card-face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-sm);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  color: var(--white);
+}
+
+.staff-card-front {
+  background-color: var(--primary-color);
+}
+
+.staff-card-front h2 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.staff-card-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.staff-card-back {
+  transform: rotateY(180deg);
+  background-color: var(--text-dark);
+}
+
+.staff-card-back a {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid currentColor;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+main {
+  display: grid;
+  min-width: 0;
+  gap: var(--spacing-xl);
+}
+
+section {
+  min-width: 0;
+  padding: var(--spacing-xl);
+  background-color: var(--card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* ==========================================
+   5. HERO SECTION
+   ========================================== */
+.hero-section {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: var(--gap-sm);
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.hero-section h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.hero-section p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.hero-section .typing-text {
+  width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid currentColor;
+  animation: typing-reveal 3s steps(27, end) forwards,
+             typing-caret 0.75s step-end infinite;
+}
+
+@keyframes typing-reveal {
+  to {
+    width: 27ch;
+  }
+}
+
+@keyframes typing-caret {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+.hero-section a, 
+.hero-section .btn {
+  margin-top: var(--spacing-sm);
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-xl);
+  background-color: var(--white);
+  color: var(--primary-color);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+}
+
+.hero-section .btn,
+.btn-submit {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-section .btn:hover,
+.btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
+}
+
+.hero-section .btn:active,
+.btn-submit:active {
+  transform: scale(0.95);
+}
+
+.contact-form {
+  display: grid;
+  gap: var(--spacing-md);
+  width: 100%;
+  max-width: var(--max-width-form);
+  margin-top: var(--spacing-lg);
+}
+
+.form-group {
+  display: grid;
+  gap: var(--spacing-xs);
+  width: 100%;
+  min-width: 0;
+}
+
+.form-group input,
+.form-group textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-dark);
+  font: inherit;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.btn-submit {
+  justify-self: start;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background-color: var(--primary-color);
+  color: var(--white);
+  font: inherit;
+  cursor: pointer;
+}
+
+footer {
+  display: grid;
+  justify-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
+  min-width: 0;
+}
+
+.social-links a {
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   6. ABOUT & SKILLS SECTION
+   ========================================== */
+.about-section h2 {
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.skills-heading {
+  margin-top: var(--spacing-lg);
+  color: var(--text-dark);
+}
+
+.skills-list {
+  display: grid;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.skill-item {
+  display: grid;
+  gap: var(--spacing-xs);
+}
+
+.skill-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-dark);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.skill-track {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background-color: var(--border-color);
+}
+
+.skill-progress {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  animation: skill-fill 1.2s ease-out forwards;
+}
+
+.skill-item:nth-child(2) .skill-progress {
+  animation-delay: 0.12s;
+}
+
+.skill-item:nth-child(3) .skill-progress {
+  animation-delay: 0.24s;
+}
+
+.skill-item:nth-child(4) .skill-progress {
+  animation-delay: 0.36s;
+}
+
+@keyframes skill-fill {
+  to {
+    width: var(--skill-level);
+  }
+}
+
+.parallax-banner {
+  min-height: 360px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  color: var(--white);
+  text-align: center;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.62), rgba(15, 23, 42, 0.62)),
+    url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2000&q=85");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.parallax-banner h2 {
+  color: inherit;
+  font-size: 1.75rem;
+}
+
+.parallax-banner p {
+  max-width: 600px;
+}
+
+/* ==========================================
+   7. SERVICES CONTAINER
+   - Màn hình > 1024px: 4 cột
+   - Gap: 20px
+   ========================================== */
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Desktop > 1024px: 4 Cột */
+  gap: var(--gap-grid);                  /* Gap: 20px */
+  margin-top: var(--spacing-md);
+}
+
+.service-card {
+  display: grid;
+  align-content: start;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-lg);
+  background-color: var(--bg-color);
+  border-top: 3px solid var(--secondary-color);
+  border-radius: var(--radius-sm);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spinner-rotate 0.8s linear infinite;
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.box {
+  transition: transform 0.3s cubic-bezier(.25, .46, .45, .94);
+}
+
+.box:hover {
+  transform: translate(5px, -10px);
+}
+
+.floating-contact {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3);
+  isolation: isolate;
+  animation: contact-breathe 2.4s ease-in-out infinite;
+}
+
+.floating-contact::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  content: "";
+  animation: contact-pulse 2.4s cubic-bezier(.25, .46, .45, .94) infinite;
+}
+
+.floating-contact:focus-visible {
+  outline: 3px solid var(--text-dark);
+  outline-offset: 4px;
+}
+
+@keyframes contact-breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes contact-pulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  75%, 100% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+}
+
+@media (max-width: 767px) {
+  .floating-contact {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-contact,
+  .floating-contact::before {
+    animation: none;
+  }
+
+  .menu-line,
+  header nav ul {
+    transition: none;
+  }
+
+  .parallax-banner {
+    background-attachment: scroll;
+  }
+
+  .hero-section .typing-text {
+    width: 27ch;
+    border-right: 0;
+    animation: none;
+  }
+
+  .skill-progress {
+    width: var(--skill-level);
+    animation: none;
+  }
+}
+
+/* ==========================================
+   8. MEDIA QUERIES (RESPONSIVE)
+   ========================================== */
+
+/* ------------------------------------------
+   A. TABLET (768px đến 1024px)
+   Yêu cầu: services-container có 2 cột, gap 20px
+   ------------------------------------------ */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .portfolio-layout {
+    grid-template-columns: 220px 1fr;
+    padding: var(--spacing-lg);
+    gap: var(--gap-grid);
+  }
+
+  /* Services Container: 2 Cột */
+  .services-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-grid);
+  }
+
+  header {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  header nav ul {
+    gap: var(--gap-sm);
+  }
+
+  .about-section .skills-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------------------
+   B. MOBILE (< 768px)
+   Yêu cầu:
+   - Chuyển CSS Grid từ 2 cột (sidebar/main) thành 1 cột duy nhất.
+   - Chuyển sidebar lên đầu trang.
+   - services-container có 1 cột, gap 20px.
+   ------------------------------------------ */
+@media (max-width: 767px) {
+  .parallax-banner {
+    min-height: 260px;
+    padding: 16px 12px;
+    background-attachment: scroll;
+  }
+
+  /* Chuyển bố cục từ 2 cột thành 1 cột duy nhất */
+  .portfolio-layout {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px;
+    gap: 16px;
+  }
+
+  /* Đẩy Sidebar lên đầu trang */
+  aside,
+  .sidebar {
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+  }
+
+  main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  section {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: var(--radius-md);
+  }
+
+  /* Services Container: 1 Cột */
+  .services-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .service-card {
+    min-width: 0;
+    padding: 12px;
+  }
+
+  /* Tối ưu Header trên Mobile */
+  header {
+    grid-template-columns: 1fr auto;
+    padding: 12px;
+    gap: 8px;
+    justify-items: stretch;
+  }
+
+  header .logo {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+  }
+
+  .menu-toggle {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-dark);
+    cursor: pointer;
+  }
+
+  .menu-toggle:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+
+  .menu-toggle.active .menu-line:first-child {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.active .menu-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active .menu-line:last-child {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  header nav {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  header nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding-top 0.35s ease;
+  }
+
+  .menu-toggle.active + nav ul {
+    max-height: 20rem;
+    padding-top: var(--spacing-sm);
+  }
+
+  header nav a {
+    display: block;
+    font-size: 0.9rem;
+    padding: 8px 4px;
+  }
+
+  /* Tối ưu Hero Section trên Mobile */
+  .hero-section {
+    width: 100%;
+    padding: 16px 12px;
+    gap: 8px;
+    overflow: hidden;
+  }
+
+  .hero-section h1 {
+    font-size: 1.35rem;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-section .typing-text {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .hero-section .btn {
+    max-width: 100%;
+    padding: 10px 16px;
+    text-align: center;
+  }
+
+  section h2,
+  .parallax-banner h2 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  section h3 {
+    font-size: 1rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .staff-card {
+    min-height: 220px;
+  }
+
+  .staff-card-face {
+    padding: 12px;
+  }
+
+  .contact-form {
+    gap: 12px;
+  }
+
+  .floating-contact {
+    right: 12px;
+    bottom: 12px;
+    width: 60px;
+    height: 60px;
+    font-size: 0.75rem;
+  }
+
+  footer {
+    padding: 12px;
+  }
+
+  .social-links {
+    column-gap: 8px;
+    row-gap: 4px;
+  }
+
+  .about-section .skills-list {
+    grid-template-columns: 1fr;
+  }
+}
