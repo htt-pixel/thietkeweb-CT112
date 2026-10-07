@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio của Thịnh - Front-end Developer">
+    <title>Gia Thịnh.dev - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="navbar" data-aos="fade-down">
+        <a class="logo" href="#home" aria-label="Gia Thịnh.dev trang chủ">Gia Thịnh.dev</a>
+        <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false"
+            aria-controls="main-navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="main-navigation" class="nav-links" aria-label="Navigation">
+            <a href="#about">Giới thiệu</a>
+            <a href="#skills">Kỹ năng</a>
+            <a href="#projects">Dự án</a>
+            <a href="#contact">Liên hệ</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero container">
+            <div class="hero-content" data-aos="fade-up">
+                <span class="badge">Front-end Developer</span>
+                <h1>Xin chào,<br><span>Tôi là Thịnh.</span></h1>
+                <p class="bio typing">Tôi là một Web Developer...</p>
+                <p class="hero-copy">Tôi tập trung xây dựng giao diện hiện đại và các giải pháp tự động hóa hiệu quả.
+                </p>
+                <div class="btn-group">
+                    <a class="btn btn-primary" href="#projects">Xem dự án <span aria-hidden="true">→</span></a>
+                    <a class="btn" href="https://github.com/TranGiaThinh46" target="_blank" rel="noreferrer">GitHub</a>
+                </div>
+            </div>
+            <div class="hero-visual" data-aos="zoom-in" data-aos-delay="150">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="developer-card">
+                    <span class="status-dot"></span>
+                    <div class="code-window">
+                        <span class="code-line"></span>
+                        <span class="code-line short"></span>
+                        <span class="code-line"></span>
+                        <span class="code-line short"></span>
+                    </div>
+                    <div class="developer-name">
+                        <strong>Thịnh</strong>
+                        <span>Code with purpose</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section container" data-aos="fade-up">
+            <div class="section-heading">
+                <span class="section-number">01</span>
+                <h2 class="section-title">Giới thiệu</h2>
+            </div>
+            <div class="about-grid">
+                <p class="about-lead">Tôi yêu thích biến ý tưởng thành trải nghiệm web thật hữu ích và dễ sử dụng.</p>
+                <p>Tôi có nền tảng với HTML, CSS, JavaScript, Python và Kotlin. Mỗi dự án được xây dựng từ người dùng,
+                    chất lượng và hiệu năng.</p>
+            </div>
+        </section>
+
+        <section class="section container profile-section" aria-labelledby="profile-title">
+            <div class="section-heading">
+                <span class="section-number">01.1</span>
+                <h2 id="profile-title" class="section-title">Thẻ nhân sự</h2>
+            </div>
+            <div class="profile-card" data-aos="flip-left">
+                <div class="profile-card-inner">
+                    <div class="card-front">
+                        <div class="profile-avatar" aria-hidden="true">T</div>
+                        <span class="mini-label">Sinh viên</span>
+                        <h3>Trần Gia Thịnh</h3>
+                        <p>Front-end Developer &amp; Creative Coder</p>
+                        <span class="flip-hint">Nhấp để xem mạng xã hội <span aria-hidden="true">↻</span></span>
+                    </div>
+                    <div class="card-back">
+                        <span class="mini-label">Kết nối</span>
+                        <h3>Liên hệ của tôi</h3>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">Facebook ↗</a>
+                            <a href="https://github.com/TranGiaThinh46" target="_blank" rel="noreferrer">GitHub ↗</a>
+                        </div>
+                        <span class="flip-hint">Nhấp để quay về <span aria-hidden="true">↻</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="parallax-banner" aria-label="Thông báo về hiệu ứng parallax">
+            <div class="parallax-content container" data-aos="fade-up">
+                <span class="badge">CSS Parallax</span>
+                <h2>Giao diện chuyển động<br>như một trải nghiệm mới.</h2>
+                <p>Chuyển động trang để khám phá hiệu ứng nền ảnh cố định.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="section container" data-aos="fade-up">
+            <div class="section-heading">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Kỹ năng</h2>
+            </div>
+            <div class="grid-container skills-grid">
+                <article class="skill-card" data-aos="fade-up" data-aos-delay="50">
+                    <span class="skill-icon">&lt;/&gt;</span>
+                    <h3>HTML5 & CSS3</h3>
+                    <div class="skill-bar"><span style="--value: 92%"></span></div>
+                    <strong>92%</strong>
+                </article>
+                <article class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="skill-icon">JS</span>
+                    <h3>JavaScript</h3>
+                    <div class="skill-bar"><span style="--value: 82%"></span></div>
+                    <strong>82%</strong>
+                </article>
+                <article class="skill-card" data-aos="fade-up" data-aos-delay="150">
+                    <span class="skill-icon">Py</span>
+                    <h3>Python</h3>
+                    <div class="skill-bar"><span style="--value: 75%"></span></div>
+                    <strong>75%</strong>
+                </article>
+                <article class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="skill-icon">K</span>
+                    <h3>Kotlin</h3>
+                    <div class="skill-bar"><span style="--value: 70%"></span></div>
+                    <strong>70%</strong>
+                </article>
+            </div>
+        </section>
+
+        <section id="projects" class="section container" data-aos="fade-up">
+            <div class="section-heading">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Dự án</h2>
+            </div>
+            <div class="grid-container projects-grid">
+                <article class="project-card" data-aos="flip-left" data-aos-delay="50">
+                    <div class="project-inner">
+                        <div class="project-face project-front">
+                            <div class="card-header"><span class="tag">Android / Kotlin</span><span
+                                    class="tag">01</span></div>
+                            <h3>Ứng dụng Macro</h3>
+                            <p>Tự động hóa trên Android bằng Accessibility Service.</p>
+                            <span class="flip-hint">Xem chi tiết <span aria-hidden="true">↻</span></span>
+                        </div>
+                        <div class="project-face project-back">
+                            <span class="mini-label">Mục tiêu</span>
+                            <p>Thao tác lặp lại trên Android một cách nhanh chóng, an toàn và dễ kiểm soát.</p>
+                            <span class="mini-label">Công cụ</span>
+                            <p>Kotlin, Android SDK, Accessibility Service</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="project-inner">
+                        <div class="project-face project-front">
+                            <div class="card-header"><span class="tag">Python / Selenium</span><span
+                                    class="tag">02</span></div>
+                            <h3>Web Automation</h3>
+                            <p>Hệ thống tự động hóa các tác vụ trên trình duyệt.</p>
+                            <span class="flip-hint">Xem chi tiết <span aria-hidden="true">↻</span></span>
+                        </div>
+                        <div class="project-face project-back">
+                            <span class="mini-label">Mục tiêu</span>
+                            <p>Thuộc các thao tác nhập liệu và kiểm tra dữ liệu từ website một cách tự động.</p>
+                            <span class="mini-label">Công cụ</span>
+                            <p>Python, Selenium, WebDriver</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="section container contact-section" data-aos="fade-up">
+            <div class="section-heading">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Liên hệ</h2>
+            </div>
+            <p>Cùng xây dựng điều gì đó thú vị!</p>
+            <div class="contact-actions">
+                <a class="contact-link" href="https://github.com/TranGiaThinh46" target="_blank" rel="noreferrer">Liên
+                    hệ
+                    qua GitHub <span aria-hidden="true">↗</span></a>
+                <button class="btn btn-primary send-message" type="button" aria-label="Gửi tin nhắn">
+                    <span class="send-message-text">Gửi tin nhắn</span>
+                    <span class="send-message-spinner" aria-hidden="true"></span>
+                    <span aria-hidden="true">✦</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Gia Thịnh.dev.</p>
+    </footer>
+
+    <a class="fab" href="https://github.com/TranGiaThinh46" target="_blank" rel="noreferrer"
+        aria-label="Liên hệ qua GitHub">
+        <span aria-hidden="true">↗</span>
+    </a>
+
+    <div class="loading-screen" aria-hidden="true">
+        <div class="spinner"></div>
+        <span>Đang tải...</span>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true });
+        const toggle = document.querySelector('.menu-toggle');
+        const navigation = document.querySelector('.nav-links');
+        const skillsGrid = document.querySelector('.skills-grid');
+        const sendMessageButton = document.querySelector('.send-message');
+        const sendMessageText = document.querySelector('.send-message-text');
+
+        sendMessageButton.addEventListener('click', () => {
+            sendMessageButton.classList.add('is-loading');
+            sendMessageButton.disabled = true;
+            sendMessageText.textContent = 'Đang gửi...';
+
+            window.setTimeout(() => {
+                sendMessageButton.classList.remove('is-loading');
+                sendMessageButton.disabled = false;
+                sendMessageText.textContent = 'Gửi tin nhắn';
+            }, 1500);
+        });
+
+        const skillObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    skillsGrid.classList.add('is-visible');
+                    observer.unobserve(skillsGrid);
+                }
+            });
+        }, { threshold: 0.25 });
+
+        skillObserver.observe(skillsGrid);
+
+        toggle.addEventListener('click', () => {
+            const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!isOpen));
+            navigation.classList.toggle('is-open', !isOpen);
+        });
+
+        navigation.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                toggle.setAttribute('aria-expanded', 'false');
+                navigation.classList.remove('is-open');
+            });
+        });
+
+        window.addEventListener('load', () => {
+            document.querySelector('.loading-screen').classList.add('is-hidden');
+        });
+    </script>
+</body>
+
+</html>
