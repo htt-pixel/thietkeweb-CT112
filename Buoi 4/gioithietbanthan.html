@@ -1,14 +1,23 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Portfolio của tôi</title>
+
     <link rel="stylesheet" href="gioithieubanthan.css">
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
 
 <body>
 
+    <!-- MENU -->
     <header>
         <a href="#about">Giới thiệu</a>
         <a href="#skills">Kỹ năng</a>
@@ -16,81 +25,107 @@
         <a href="#contact">Liên hệ</a>
     </header>
 
-    <div class="intro">
+
+    <!-- GIỚI THIỆU -->
+    <div class="intro" data-aos="fade-up">
+
         <h1>Xin chào, tôi là Cam Quốc Thịnh</h1>
-        <p>Sinh viên Công nghệ thông tin - Lập trình viên tương lai</p>
+
+        <p>
+            Sinh viên Công nghệ thông tin - Lập trình viên tương lai
+        </p>
+
     </div>
+
 
     <div class="container">
 
-        <section id="about">
+
+        <!-- GIỚI THIỆU -->
+        <section id="about" data-aos="fade-up">
+
             <h2>Giới thiệu</h2>
 
             <div class="about">
+
                 <p>
                     Tôi là Cam Quốc Thịnh, 19 tuổi, hiện đang học
                     tại Đại học Lạc Hồng. Tôi yêu thích lập trình,
                     thiết kế website và phát triển phần mềm.
                 </p>
+
             </div>
+
         </section>
 
 
-        <section id="skills">
+        <!-- KỸ NĂNG -->
+        <section id="skills" data-aos="fade-up">
+
             <h2>Kỹ năng</h2>
 
             <div class="skills">
 
-                <div class="skill">
+                <div class="skill" data-aos="fade-right">
                     <h3>HTML</h3>
                     <p>Cơ bản</p>
                 </div>
 
-                <div class="skill">
+                <div class="skill" data-aos="fade-up">
                     <h3>CSS</h3>
                     <p>Cơ bản</p>
                 </div>
 
-                <div class="skill">
+                <div class="skill" data-aos="fade-left">
                     <h3>Python</h3>
                     <p>Cơ bản</p>
                 </div>
 
             </div>
+
         </section>
 
 
-        <section id="projects">
+        <!-- DỰ ÁN -->
+        <section id="projects" data-aos="fade-up">
+
             <h2>Dự án của tôi</h2>
 
             <div class="projects">
 
-                <div class="project">
+                <div class="project" data-aos="zoom-in">
                     <h3>DormHelper</h3>
+
                     <p>
                         Ứng dụng hỗ trợ sinh viên tìm phòng trọ
                         và tìm người ở ghép.
                     </p>
                 </div>
 
-                <div class="project">
+
+                <div class="project" data-aos="zoom-in">
                     <h3>Finance App</h3>
+
                     <p>
                         Ứng dụng quản lý chi tiêu và ngân sách
                         cá nhân.
                     </p>
                 </div>
 
-                <div class="project">
+
+                <div class="project" data-aos="zoom-in">
                     <h3>Bank Management</h3>
+
                     <p>
                         Chương trình quản lý tài khoản ngân hàng
                         bằng Python.
                     </p>
                 </div>
 
-                <div class="project">
+
+                <div class="project" data-aos="zoom-in">
                     <h3>Website bán đồ 2nd</h3>
+
                     <p>
                         Website giới thiệu và bán các sản phẩm
                         công nghệ đã qua sử dụng.
@@ -98,22 +133,74 @@
                 </div>
 
             </div>
+
         </section>
 
 
-        <section id="contact">
+        <!-- LIÊN HỆ -->
+        <section id="contact" data-aos="fade-up">
+
             <h2>Liên hệ</h2>
 
             <p>Email: thinh@example.com</p>
+
             <p>Địa chỉ: Biên Hòa, Đồng Nai</p>
+
+
+            <!-- HOẠT ĐỘNG 1 -->
+            <button class="send-button">
+                Gửi tin nhắn
+            </button>
+
+        </section>
+
+
+        <!-- HOẠT ĐỘNG 2 -->
+        <section class="loading-section" data-aos="fade-up">
+
+            <h2>Loading</h2>
+
+            <div class="spinner"></div>
+
+        </section>
+
+
+        <!-- HOẠT ĐỘNG 4 -->
+        <section data-aos="fade-up">
+
+            <h2>Performance Animation</h2>
+
+            <p>
+                Sử dụng transform thay cho top và left
+                để tối ưu hiệu năng.
+            </p>
+
+            <div class="performance-box"></div>
+
         </section>
 
     </div>
 
 
+    <!-- FOOTER -->
     <footer>
+
         <p>© 2026 Cam Quốc Thịnh</p>
+
     </footer>
 
+
+    <!-- AOS JAVASCRIPT -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+
 </body>
+
 </html>
+```
