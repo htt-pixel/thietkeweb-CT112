@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cá Nhân - Hoạt Động 1 Buổi 5 (Micro-interactions)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="header-container">
+            <h1 class="logo">Võ Minh Quang - Web Developer</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#services">Dịch vụ</a></li>
+                    <li><a href="#projects">Dự án</a></li>
+                    <li><a href="#skills">Kỹ năng</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- THẺ THÔNG BÁO HOẠT ĐỘNG 1 -->
+        <div class="demo-callout-card">
+            <span class="callout-icon">✨</span>
+            <div>
+                <strong>Hoạt động 1 - "Micro-interactions" (Nút bấm cảm xúc):</strong>
+                Rê chuột (hover) vào nút <strong>"Gửi tin nhắn"</strong> để thấy nút đổi màu, nâng lên 3px và đổ bóng sâu bằng hàm timing <code>cubic-bezier</code>; khi bấm chuột (click/active) nút sẽ thu nhỏ lại tạo cảm giác phản hồi xúc giác "đã bấm".
+            </div>
+        </div>
+
+        <!-- GIỚI THIỆU BẢN THÂN -->
+        <section id="about" class="section-card">
+            <h2 class="section-title">Giới thiệu bản thân</h2>
+            <p>Xin chào! Tôi là một Lập trình viên Front-End đam mê tạo ra các trải nghiệm web mượt mà, chuẩn SEO và dễ tiếp cận cho người dùng.</p>
+        </section>
+
+        <!-- DỊCH VỤ CỦA TÔI -->
+        <section id="services" class="section-card">
+            <h2 class="section-title">Dịch vụ của tôi</h2>
+            <div class="services-container">
+                <article class="service-box">
+                    <h3>Thiết kế Web</h3>
+                    <p>Xây dựng giao diện UI/UX trực quan, hiện đại và tối ưu trải nghiệm người dùng.</p>
+                </article>
+                <article class="service-box">
+                    <h3>Lập trình Front-End</h3>
+                    <p>Hiện thực hóa giao diện bằng HTML5, CSS3 và JavaScript mượt mà.</p>
+                </article>
+                <article class="service-box">
+                    <h3>Tối ưu Responsive</h3>
+                    <p>Đảm bảo hiển thị hoàn hảo trên mọi thiết bị từ máy tính đến điện thoại.</p>
+                </article>
+                <article class="service-box">
+                    <h3>Tối ưu SEO</h3>
+                    <p>Sử dụng Semantic HTML giúp trang web dễ dàng thăng hạng trên công cụ tìm kiếm.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- DỰ ÁN NỔI BẬT -->
+        <section id="projects" class="section-card">
+            <h2 class="section-title">Dự án nổi bật</h2>
+            
+            <div class="projects-grid">
+                <article class="project-card">
+                    <h3>Dự án 1: Trang web E-commerce</h3>
+                    <p>Một trang web bán hàng trực tuyến xây dựng bằng HTML5, CSS3 và JavaScript thuần.</p>
+                    <button class="btn-detail" onclick="openModal('project1')">Xem chi tiết</button>
+                </article>
+
+                <article class="project-card">
+                    <h3>Dự án 2: Ứng dụng Quản lý Tác vụ</h3>
+                    <p>Ứng dụng To-Do List hỗ trợ lưu trữ dữ liệu local storage và giao diện Responsive.</p>
+                    <button class="btn-detail" onclick="openModal('project2')">Xem chi tiết</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- KỸ NĂNG CHUYÊN MÔN -->
+        <section id="skills" class="section-card">
+            <h2 class="section-title">Kỹ năng chuyên môn</h2>
+            <ul class="skills-list">
+                <li>HTML5 / CSS3 / JavaScript</li>
+                <li>Semantic HTML & SEO Basics</li>
+                <li>Git & GitHub</li>
+            </ul>
+        </section>
+
+        <!-- ========================================================
+             HOẠT ĐỘNG 1 (BUỔI 5): KHU VỰC LIÊN HỆ & NÚT BẤM CẢM XÚC
+             Nút "Gửi tin nhắn" áp dụng CSS Transition, translateY(-3px),
+             cubic-bezier và active scale(0.96)
+        ======================================================== -->
+        <section id="contact" class="section-card">
+            <h2 class="section-title">Liên hệ với tôi</h2>
+            <p style="margin-bottom: 1.5rem; color: var(--text-slate-muted);">Bạn có dự án cần thực hiện hoặc câu hỏi muốn trao đổi? Hãy gửi tin nhắn cho tôi qua biểu mẫu bên dưới.</p>
+
+            <div class="contact-wrapper-grid">
+                
+                <!-- BIỂU MẪU GỬI TIN NHẮN -->
+                <form class="contact-form" onsubmit="event.preventDefault(); showSentFeedback();">
+                    <div class="form-group">
+                        <label for="senderName">Họ và tên:</label>
+                        <input type="text" id="senderName" placeholder="Nhập họ tên của bạn..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senderEmail">Địa chỉ Email:</label>
+                        <input type="email" id="senderEmail" placeholder="example@gmail.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senderMessage">Nội dung tin nhắn:</label>
+                        <textarea id="senderMessage" rows="4" placeholder="Để lại lời nhắn của bạn ở đây..." required></textarea>
+                    </div>
+
+                    <!-- NÚT BẤM CẢM XÚC CỐT LÕI CỦA HOẠT ĐỘNG 1 -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn-send-message" id="btnSendMessage">
+                            <span>Gửi tin nhắn</span>
+                            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div id="sentFeedback" class="sent-feedback">
+                        ✅ Tin nhắn đã được gửi thành công! Tôi sẽ phản hồi sớm nhất có thể.
+                    </div>
+                </form>
+
+                <!-- THÔNG TIN LIÊN HỆ NHANH -->
+                <div class="contact-quick-info">
+                    <h3>Thông tin trực tiếp</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-slate-muted); margin-bottom: 1rem;">Luôn sẵn sàng kết nối và phản hồi trong vòng 24 giờ.</p>
+
+                    <div class="info-item">
+                        <span class="info-icon">📧</span>
+                        <div>
+                            <small>Email</small>
+                            <p><strong>vmquang.dev@gmail.com</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <div>
+                            <small>Điện thoại</small>
+                            <p><strong>0912 345 678</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <small>Địa chỉ</small>
+                            <p><strong>Cần Thơ, Việt Nam</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL POPUP -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-container">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <span class="badge-tag" id="modalTag">FLEXBOX GUIDE</span>
+            <h1 class="modal-main-title" id="modalTitle">FLEXBOX – BỐ CỤC MỘT CHIỀU</h1>
+
+            <div class="modal-content-grid">
+                <div class="blue-card">
+                    <h3 id="leftCardTitle">FLEXBOX LÀ GÌ?</h3>
+                    <p id="leftCardDesc">Flexbox là mô hình bố cục một chiều...</p>
+                    <p id="leftCardFooter">Kích hoạt bằng: <span class="code-box">display: flex</span></p>
+                </div>
+
+                <div class="light-card">
+                    <h3>CÁC THUỘC TÍNH QUAN TRỌNG</h3>
+                    <ul id="rightCardList">
+                        <li><code>flex-direction</code>: Hướng sắp xếp</li>
+                        <li><code>justify-content</code>: Căn chỉnh trục chính</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT ĐIỀU KHIỂN -->
+    <script>
+        function openModal(projectId) {
+            document.getElementById('projectModal').classList.add('active');
+        }
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('active');
+        }
+
+        // Phản hồi vi mô khi người dùng gửi tin nhắn
+        function showSentFeedback() {
+            const feedback = document.getElementById('sentFeedback');
+            feedback.style.display = 'block';
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 4000);
+        }
+    </script>
+</body>
+</html>

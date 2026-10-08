@@ -1,0 +1,534 @@
+/* ==========================================
+   DESIGN SYSTEM / CSS VARIABLES (:root)
+=========================================== */
+:root {
+    /* Màu sắc */
+    --primary-color: #0284c7;
+    --primary-hover: #0369a1;
+    --primary-light: #e0f2fe;
+    --text-main: #333333;
+    --text-slate-dark: #0f172a;
+    --text-slate-muted: #64748b;
+    --text-slate-body: #334155;
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --modal-overlay-bg: rgba(15, 23, 42, 0.6);
+
+    /* Khoảng cách & Kích thước */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.25rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --container-max-width: 1000px;
+    --container-padding: 20px;
+
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* ==========================================
+   RESET & BASE STYLES
+=========================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    padding-bottom: 60px;
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* ==========================================
+   HEADER & NAVIGATION
+=========================================== */
+header {
+    background-color: var(--bg-card);
+    border-bottom: 2px solid var(--primary-color);
+    padding: var(--spacing-sm) 0;
+    margin-bottom: var(--spacing-lg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.header-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--text-slate-dark);
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+}
+
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* THẺ GHI CHÚ DEMO */
+.demo-callout-card {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border: 1px solid #bae6fd;
+    color: #0369a1;
+    padding: 14px 18px;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.08);
+}
+
+.callout-icon {
+    font-size: 1.4rem;
+}
+
+/* ==========================================
+   SECTION CARDS
+=========================================== */
+.section-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+    font-size: 1.35rem;
+    color: var(--text-slate-dark);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+}
+
+.section-title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 1.2em;
+    background-color: var(--primary-color);
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+/* ==========================================
+   KHU VỰC DỊCH VỤ (RESPONSIVE BREAKPOINTS)
+=========================================== */
+.services-container {
+    display: grid;
+    gap: 20px;
+}
+
+@media screen and (min-width: 1025px) {
+    .services-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.service-box {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.service-box h3 {
+    font-size: 1.1rem;
+    color: var(--text-slate-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.service-box p {
+    font-size: 0.925rem;
+    color: var(--text-slate-muted);
+}
+
+/* ==========================================
+   KHU VỰC DỰ ÁN NỔI BẬT
+=========================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.project-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+}
+
+.project-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-slate-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.project-card p {
+    font-size: 0.925rem;
+    color: var(--text-slate-muted);
+    margin-bottom: var(--spacing-lg);
+}
+
+.btn-detail {
+    align-self: flex-start;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-detail:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.03);
+}
+
+/* ==========================================
+   KĨ NĂNG CHUYÊN MÔN
+=========================================== */
+.skills-list {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    color: var(--text-slate-body);
+}
+
+.skills-list li {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* ==========================================================================
+   HOẠT ĐỘNG 1 (BUỔI 5): "MICRO-INTERACTIONS" - NÚT BẤM CẢM XÚC
+   Chủ đề lý thuyết áp dụng:
+   1. CSS Transitions: chuyển đổi mượt mà giữa các trạng thái Normal -> Hover -> Active.
+   2. 2D Transforms:
+      - translateY(-3px): nhích lên trên 3px khi hover.
+      - translateY(1px) scale(0.96): co nhỏ lại khi click tạo cảm giác phản hồi "đã bấm".
+   3. Box-shadow:
+      - Normal: bóng đổ nhẹ.
+      - Hover: bóng đổ đậm hơn, sâu hơn đổ xuống dưới.
+      - Active: bóng đổ xẹp lại sát nút.
+   4. Hàm timing cubic-bezier(0.175, 0.885, 0.32, 1.275):
+      - Tạo độ nảy nhẹ (elastic bounce) tự nhiên như vật lý đời thực.
+========================================================================== */
+
+/* Bố cục khu vực liên hệ */
+.contact-wrapper-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-wrapper-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form liên hệ */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-slate-dark);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    background-color: #ffffff;
+}
+
+/* -------------------------------------------------------------
+   ĐOẠN MÃ CỐT LÕI: NÚT "GỬI TIN NHẮN" VỚI MICRO-INTERACTIONS
+------------------------------------------------------------- */
+.btn-send-message {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary-color), #0284c7);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 30px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    outline: none;
+    user-select: none;
+    align-self: flex-start;
+
+    /* CỐT LÕI: CSS Transitions với hàm timing cubic-bezier chuyển động tự nhiên */
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                background 0.3s ease,
+                box-shadow 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 1. KHI HOVER: Đổi màu, nhích lên 3px, bóng đổ đậm hơn đổ xuống */
+.btn-send-message:hover {
+    background: linear-gradient(135deg, var(--primary-hover), #075985);
+    transform: translateY(-3px); /* Nhấc lên 3px */
+    box-shadow: 0 8px 22px rgba(2, 132, 199, 0.45); /* Bóng đổ đậm và sâu hơn */
+}
+
+/* 2. KHI CLICK/ACTIVE: Thu nhỏ lại tạo cảm giác phản hồi "đã bấm" */
+.btn-send-message:active {
+    transform: translateY(1px) scale(0.96); /* Thu nhỏ và thụt xuống tạo cảm giác nhấn thật */
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3); /* Bóng đổ xẹp sát lại */
+    transition-duration: 0.1s; /* Phản hồi cơ học tức thì */
+}
+
+/* Hiệu ứng vi chuyển động của Icon máy bay giấy */
+.btn-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-send-message:hover .btn-icon {
+    transform: translateX(4px) translateY(-2px); /* Bay nhẹ hướng lên phía trước */
+}
+
+/* Thông báo đã gửi thành công */
+.sent-feedback {
+    display: none;
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    margin-top: 8px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Khối thông tin liên hệ trực tiếp bên cạnh */
+.contact-quick-info {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+}
+
+.contact-quick-info h3 {
+    font-size: 1.15rem;
+    color: var(--text-slate-dark);
+    margin-bottom: 6px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.info-icon {
+    font-size: 1.3rem;
+}
+
+.info-item small {
+    display: block;
+    color: var(--text-slate-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.info-item p {
+    color: var(--text-slate-dark);
+    font-size: 0.95rem;
+}
+
+/* ==========================================
+   MODAL POPUP
+=========================================== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-overlay-bg);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-sm);
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-container {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 800px;
+    padding: var(--spacing-xl);
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--text-slate-muted);
+}
+
+.badge-tag {
+    display: inline-block;
+    background-color: #e0f2fe;
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-main-title {
+    font-size: 1.4rem;
+    color: var(--text-slate-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+.modal-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.blue-card {
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.light-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.code-box {
+    background-color: #e2e8f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85rem;
+}
