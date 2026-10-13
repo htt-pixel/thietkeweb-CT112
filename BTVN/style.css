@@ -1,0 +1,26 @@
+/* Micro-interactions cho nút bấm Call-to-Action */
+.cta-btn {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform;
+}
+
+/* Hover State (Di chuột vào) */
+.cta-btn:hover {
+    transform: translateY(-2px);
+    background-color: #dc2626;
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+}
+
+/* Active State (Khi bấm click chuột) */
+.cta-btn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 3px 6px rgba(239, 68, 68, 0.2);
+}
