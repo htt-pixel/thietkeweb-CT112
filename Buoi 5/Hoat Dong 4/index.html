@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cá Nhân - Hoạt Động 4 Buổi 5 (Refactoring Performance)</title>
+    
+    <!-- AOS CSS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="header-container">
+            <h1 class="logo">Võ Minh Quang - Web Developer</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#services">Dịch vụ</a></li>
+                    <li><a href="#projects">Dự án</a></li>
+                    <li><a href="#skills">Kỹ năng</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- THẺ THÔNG BÁO HOẠT ĐỘNG 4 -->
+        <div class="demo-callout-card performance-card" data-aos="fade-down" data-aos-duration="700">
+            <span class="callout-icon">⚡</span>
+            <div>
+                <strong>Hoạt động 4 - "Refactoring Performance":</strong>
+                Đã tối ưu hóa hiệu năng chuyển động bằng cách thay thế các vị trí tuyệt đối (<code>top</code>/<code>left</code>) bằng thuộc tính <code>transform: translate()</code> kết hợp GPU Acceleration, giúp giao diện hoạt động cực kỳ mượt mà trên các thiết bị di động.
+            </div>
+        </div>
+
+        <!-- GIỚI THIỆU BẢN THÂN -->
+        <section id="about" class="section-card" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="section-title">Giới thiệu bản thân</h2>
+            <p>Xin chào! Tôi là một Lập trình viên Front-End đam mê tạo ra các trải nghiệm web mượt mà, chuẩn SEO và tối ưu hiệu năng cho người dùng.</p>
+        </section>
+
+        <!-- DỊCH VỤ CỦA TÔI -->
+        <section id="services" class="section-card" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="section-title">Dịch vụ của tôi</h2>
+            <div class="services-container">
+                <article class="service-box" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Thiết kế Web</h3>
+                    <p>Xây dựng giao diện UI/UX trực quan, hiện đại và tối ưu trải nghiệm người dùng.</p>
+                </article>
+                <article class="service-box" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Lập trình Front-End</h3>
+                    <p>Hiện thực hóa giao diện bằng HTML5, CSS3 và JavaScript mượt mà.</p>
+                </article>
+                <article class="service-box" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Tối ưu Responsive</h3>
+                    <p>Đảm bảo hiển thị hoàn hảo trên mọi thiết bị từ máy tính đến điện thoại.</p>
+                </article>
+                <article class="service-box" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Tối ưu SEO & Performance</h3>
+                    <p>Sử dụng GPU acceleration và Semantic HTML giúp nâng cao trải nghiệm & thăng hạng SEO.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- DỰ ÁN NỔI BẬT -->
+        <section id="projects" class="section-card" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="section-title">Dự án nổi bật</h2>
+            
+            <div class="projects-grid">
+                <article class="project-card" data-aos="fade-right" data-aos-duration="900" data-aos-delay="150">
+                    <h3>Dự án 1: Trang web E-commerce</h3>
+                    <p>Một trang web bán hàng trực tuyến xây dựng bằng HTML5, CSS3 và JavaScript thuần.</p>
+                    <button class="btn-detail" onclick="openModal('project1')">Xem chi tiết</button>
+                </article>
+
+                <article class="project-card" data-aos="fade-left" data-aos-duration="900" data-aos-delay="300">
+                    <h3>Dự án 2: Ứng dụng Quản lý Tác vụ</h3>
+                    <p>Ứng dụng To-Do List hỗ trợ lưu trữ dữ liệu local storage và giao diện Responsive.</p>
+                    <button class="btn-detail" onclick="openModal('project2')">Xem chi tiết</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- KỸ NĂNG CHUYÊN MÔN -->
+        <section id="skills" class="section-card" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="section-title">Kỹ năng chuyên môn</h2>
+            <ul class="skills-list">
+                <li data-aos="fade-right" data-aos-delay="100">HTML5 / CSS3 / JavaScript</li>
+                <li data-aos="fade-right" data-aos-delay="200">Refactoring & High-Performance CSS Animation</li>
+                <li data-aos="fade-right" data-aos-delay="300">Git & GitHub</li>
+            </ul>
+        </section>
+
+        <!-- LIÊN HỆ -->
+        <section id="contact" class="section-card" data-aos="zoom-in" data-aos-duration="800">
+            <h2 class="section-title">Liên hệ với tôi</h2>
+            <p style="margin-bottom: 1rem; color: var(--text-slate-muted);">Bạn có dự án cần hợp tác hoặc muốn trao đổi công việc? Hãy để lại tin nhắn!</p>
+            <div class="contact-info-grid">
+                <div class="contact-item">
+                    <strong>Email:</strong> vmquang.dev@gmail.com
+                </div>
+                <div class="contact-item">
+                    <strong>Điện thoại:</strong> 0912 345 678
+                </div>
+                <div class="contact-item">
+                    <strong>Địa chỉ:</strong> Cần Thơ, Việt Nam
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL POPUP -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-container">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <span class="badge-tag" id="modalTag">PERFORMANCE OPTIMIZATION</span>
+            <h1 class="modal-main-title" id="modalTitle">CSS TRANSFORM VS TOP/LEFT</h1>
+
+            <div class="modal-content-grid">
+                <div class="blue-card">
+                    <h3 id="leftCardTitle">TẠI SAO CHỌN TRANSFORM?</h3>
+                    <p id="leftCardDesc">Sử dụng <code>transform: translate()</code> giúp trình duyệt render qua GPU (Hardware Acceleration), giảm tải CPU và tránh giật lag (Reflow/Repaint).</p>
+                    <p id="leftCardFooter">Cú pháp tối ưu: <span class="code-box">transform: translateY(-4px)</span></p>
+                </div>
+
+                <div class="light-card">
+                    <h3>QUY TẮC REFACTORING</h3>
+                    <ul id="rightCardList">
+                        <li>Thay thế <code>top/left</code> bằng <code>translate(x, y)</code></li>
+                        <li>Sử dụng <code>will-change: transform</code> khi cần thiết</li>
+                        <li>Chỉ dùng hiệu ứng trên <code>transform</code> và <code>opacity</code></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false,
+            offset: 80
+        });
+
+        function openModal(projectId) {
+            document.getElementById('projectModal').classList.add('active');
+        }
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

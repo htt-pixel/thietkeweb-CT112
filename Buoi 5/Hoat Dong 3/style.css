@@ -1,0 +1,386 @@
+/* ==========================================
+   DESIGN SYSTEM / CSS VARIABLES (:root)
+=========================================== */
+:root {
+    /* Màu sắc */
+    --primary-color: #0284c7;
+    --primary-hover: #0369a1;
+    --primary-light: #e0f2fe;
+    --text-main: #333333;
+    --text-slate-dark: #0f172a;
+    --text-slate-muted: #64748b;
+    --text-slate-body: #334155;
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --modal-overlay-bg: rgba(15, 23, 42, 0.6);
+
+    /* Khoảng cách & Kích thước */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.25rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --container-max-width: 1000px;
+    --container-padding: 20px;
+
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* ==========================================
+   RESET & BASE STYLES
+=========================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    padding-bottom: 60px;
+    /* Ngăn ngừa thanh cuộn ngang khi các phần tử AOS trượt từ ngoài màn hình vào */
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* ==========================================
+   HEADER & NAVIGATION
+=========================================== */
+header {
+    background-color: var(--bg-card);
+    border-bottom: 2px solid var(--primary-color);
+    padding: var(--spacing-sm) 0;
+    margin-bottom: var(--spacing-lg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.header-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--text-slate-dark);
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+}
+
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* THẺ GHI CHÚ DEMO */
+.demo-callout-card {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    padding: 14px 18px;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(22, 101, 52, 0.06);
+}
+
+.callout-icon {
+    font-size: 1.5rem;
+}
+
+/* ==========================================
+   SECTION CARDS
+=========================================== */
+.section-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+    font-size: 1.35rem;
+    color: var(--text-slate-dark);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+}
+
+.section-title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 1.2em;
+    background-color: var(--primary-color);
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+/* ==========================================
+   KHU VỰC DỊCH VỤ (RESPONSIVE BREAKPOINTS)
+=========================================== */
+.services-container {
+    display: grid;
+    gap: 20px;
+}
+
+@media screen and (min-width: 1025px) {
+    .services-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.service-box {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.service-box h3 {
+    font-size: 1.1rem;
+    color: var(--text-slate-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.service-box p {
+    font-size: 0.925rem;
+    color: var(--text-slate-muted);
+}
+
+/* ==========================================
+   KHU VỰC DỰ ÁN NỔI BẬT
+=========================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.project-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.project-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-slate-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.project-card p {
+    font-size: 0.925rem;
+    color: var(--text-slate-muted);
+    margin-bottom: var(--spacing-lg);
+}
+
+.btn-detail {
+    align-self: flex-start;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-detail:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.03);
+}
+
+/* ==========================================
+   KĨ NĂNG CHUYÊN MÔN
+=========================================== */
+.skills-list {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    color: var(--text-slate-body);
+}
+
+.skills-list li {
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.95rem;
+}
+
+/* ==========================================
+   KHU VỰC LIÊN HỆ
+=========================================== */
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+    background-color: var(--bg-main);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.contact-item {
+    font-size: 0.95rem;
+    color: var(--text-slate-body);
+}
+
+.contact-item strong {
+    color: var(--primary-color);
+}
+
+/* ==========================================
+   MODAL POPUP
+=========================================== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-overlay-bg);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-sm);
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-container {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 800px;
+    padding: var(--spacing-xl);
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--text-slate-muted);
+}
+
+.badge-tag {
+    display: inline-block;
+    background-color: #e0f2fe;
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-main-title {
+    font-size: 1.4rem;
+    color: var(--text-slate-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+.modal-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.blue-card {
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.light-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.code-box {
+    background-color: #e2e8f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85rem;
+}

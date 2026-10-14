@@ -1,0 +1,1068 @@
+/* ==========================================
+   DESIGN SYSTEM / CSS VARIABLES (:root)
+=========================================== */
+:root {
+    /* Màu sắc */
+    --primary-color: #0284c7;
+    --primary-hover: #0369a1;
+    --primary-light: #e0f2fe;
+    --text-main: #333333;
+    --text-slate-dark: #0f172a;
+    --text-slate-muted: #64748b;
+    --text-slate-body: #334155;
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --modal-overlay-bg: rgba(15, 23, 42, 0.6);
+
+    /* Khoảng cách & Kích thước */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.25rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --container-max-width: 1000px;
+    --container-padding: 20px;
+
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+}
+
+/* ==========================================
+   RESET & BASE STYLES
+=========================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    padding-bottom: 60px;
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION + BÀI 5: MODERN HAMBURGER MENU
+   Chủ đề lý thuyết áp dụng:
+   1. CSS Transitions: chuyển đổi mượt mà giữa trạng thái 3 gạch và dấu X.
+   2. 2D Transforms:
+      - Bar 1: translateY(9px) rotate(45deg) -> Dịch xuống tâm và xoay 45°
+      - Bar 2: opacity: 0, scaleX(0)         -> Thu gọn và biến mất mượt mà
+      - Bar 3: translateY(-9px) rotate(-45deg)-> Dịch lên tâm và xoay -45°
+   3. Giao điểm tâm chính xác tạo thành chữ X đối xứng hoàn hảo.
+========================================================================== */
+header {
+    background-color: var(--bg-card);
+    border-bottom: 2px solid var(--primary-color);
+    padding: var(--spacing-sm) 0;
+    margin-bottom: var(--spacing-lg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    gap: var(--spacing-sm);
+}
+
+.logo {
+    font-size: 1.45rem;
+    color: var(--text-slate-dark);
+    font-weight: 700;
+}
+
+/* ------------------------------------------
+   NÚT HAMBURGER BUTTON (BÀI 5)
+------------------------------------------- */
+.hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    gap: 6px; /* Khoảng cách đều nhau giữa các thanh */
+    padding: 0;
+    z-index: 101;
+    user-select: none;
+    /* CSS Transition cho nút khi hover */
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.hamburger-btn:hover {
+    background-color: var(--primary-light);
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Định dạng từng thanh gạch ngang (Bar) */
+.hamburger-btn .bar {
+    width: 24px;
+    height: 3px;
+    background-color: var(--text-slate-dark);
+    border-radius: 3px;
+    display: block;
+
+    /* CỐT LÕI BÀI 5: CSS Transitions tạo chuyển động biến đổi siêu mượt */
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.25s ease,
+                background-color 0.3s ease;
+}
+
+/* ------------------------------------------
+   TRẠNG THÁI ACTIVE: 3 GẠCH BIẾN ĐỔI THÀNH DẤU "X"
+------------------------------------------- */
+/* Thanh trên cùng: Dịch xuống đúng 9px để gặp tâm và xoay 45 độ */
+.hamburger-btn.active .bar-1 {
+    transform: translateY(9px) rotate(45deg);
+    background-color: #ef4444; /* Đổi màu đỏ nổi bật cho dấu X */
+}
+
+/* Thanh ở giữa: Mờ dần về 0 và co ngắn chiều ngang biến mất */
+.hamburger-btn.active .bar-2 {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+/* Thanh dưới cùng: Dịch lên đúng 9px để gặp tâm và xoay -45 độ */
+.hamburger-btn.active .bar-3 {
+    transform: translateY(-9px) rotate(-45deg);
+    background-color: #ef4444;
+}
+
+/* ------------------------------------------
+   DANH SÁCH MENU ĐIỀU HƯỚNG
+------------------------------------------- */
+nav.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+nav.nav-menu a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+nav.nav-menu a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* THẺ GHI CHÚ HƯỚNG DẪN TEST BÀI 5 */
+.demo-callout-card {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    padding: 14px 18px;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(22, 101, 52, 0.06);
+}
+
+.callout-icon {
+    font-size: 1.4rem;
+}
+
+/* ==========================================
+   SECTION CARDS
+=========================================== */
+.section-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+    font-size: 1.35rem;
+    color: var(--text-slate-dark);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+}
+
+.section-title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 1.2em;
+    background-color: var(--primary-color);
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+.section-desc {
+    color: var(--text-slate-muted);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* ==========================================================================
+   BÀI 4 (BUỔI 5): PARALLAX IMAGE BANNER
+========================================================================== */
+.parallax-banner {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80');
+    background-color: #0f172a;
+    min-height: 380px;
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+}
+
+.parallax-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.82) 0%, rgba(2, 132, 199, 0.65) 100%);
+    z-index: 1;
+}
+
+.parallax-content {
+    position: relative;
+    z-index: 2;
+    padding: var(--spacing-xl) var(--spacing-md);
+    max-width: 750px;
+    color: #ffffff;
+}
+
+.parallax-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    color: #e0f2fe;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+}
+
+.parallax-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: var(--spacing-sm);
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.parallax-subtitle {
+    font-size: 1.05rem;
+    color: #e2e8f0;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.parallax-subtitle code {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.parallax-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-parallax-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 10px 24px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-parallax-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-parallax-outline {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+    padding: 10px 24px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-parallax-outline:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   BÀI 3 (BUỔI 5): TYPING EFFECT (PURE CSS)
+========================================================================== */
+.typing-wrapper {
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+}
+
+.terminal-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.terminal-badge .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.dot.red { background-color: #ef4444; }
+.dot.yellow { background-color: #f59e0b; }
+.dot.green { background-color: #10b981; }
+
+.terminal-title {
+    color: #64748b;
+    font-size: 0.75rem;
+    font-family: monospace;
+    margin-left: 6px;
+}
+
+.typing-content {
+    display: flex;
+    align-items: center;
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.prompt-symbol {
+    color: #10b981;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-right: 10px;
+    user-select: none;
+}
+
+.typing-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #38bdf8;
+    width: 0;
+    margin: 0;
+    font-family: "Consolas", "Courier New", Courier, monospace;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #f8fafc;
+    letter-spacing: 0.5px;
+    animation: 
+        typing 4.5s steps(27) infinite,
+        blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    45% {
+        width: 27ch;
+    }
+    75% {
+        width: 27ch;
+    }
+    90% {
+        width: 0;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #38bdf8;
+    }
+}
+
+.about-text {
+    color: var(--text-slate-body);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   BÀI 2 (BUỔI 5): CARD FLIP EFFECT (3D ROTATE 180 DEGREE)
+========================================================================== */
+.personnel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+    justify-content: center;
+    gap: 30px;
+    padding: var(--spacing-sm) 0;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 430px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    border: 1px solid var(--border-color);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+}
+
+.avatar-wrapper {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+
+.avatar-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+}
+
+.avatar-circle.designer {
+    background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+    color: #db2777;
+}
+
+.avatar-svg {
+    width: 48px;
+    height: 48px;
+}
+
+.status-dot {
+    position: absolute;
+    bottom: 4px;
+    right: 6px;
+    width: 14px;
+    height: 14px;
+    background-color: #22c55e;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+}
+
+.person-name {
+    font-size: 1.25rem;
+    color: var(--text-slate-dark);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.person-role {
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.person-tag {
+    display: inline-block;
+    background-color: var(--bg-main);
+    color: var(--text-slate-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 12px;
+}
+
+.person-bio {
+    font-size: 0.88rem;
+    color: var(--text-slate-body);
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+.flip-hint {
+    margin-top: auto;
+    font-size: 0.8rem;
+    color: var(--text-slate-muted);
+    background-color: var(--bg-main);
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hint-icon {
+    font-size: 1rem;
+    animation: spinSlow 3s linear infinite;
+}
+
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.flip-card-back {
+    background: linear-gradient(145deg, #0284c7, #0369a1);
+    color: #ffffff;
+    transform: rotateY(180deg);
+    border: none;
+}
+
+.back-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 6px;
+}
+
+.back-divider {
+    width: 40px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 2px;
+    margin: 8px auto 16px;
+}
+
+.contact-card-list {
+    list-style: none;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-card-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(4px);
+}
+
+.icon-wrap {
+    font-size: 1.1rem;
+}
+
+.contact-text label {
+    display: block;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-text span,
+.contact-text a {
+    font-size: 0.85rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-text a:hover {
+    text-decoration: underline;
+}
+
+.btn-card-action {
+    display: inline-block;
+    width: 100%;
+    background-color: #ffffff;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 10px 0;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-top: auto;
+}
+
+.btn-card-action:hover {
+    background-color: #f0f9ff;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   KHU VỰC DỊCH VỤ (RESPONSIVE BREAKPOINTS)
+=========================================== */
+.services-container {
+    display: grid;
+    gap: 20px;
+}
+
+@media screen and (min-width: 1025px) {
+    .services-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.service-box {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.service-box h3 {
+    font-size: 1.1rem;
+    color: var(--text-slate-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.service-box p {
+    font-size: 0.925rem;
+    color: var(--text-slate-muted);
+}
+
+/* ==========================================
+   KHU VỰC DỰ ÁN NỔI BẬT
+=========================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.project-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+}
+
+.project-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-slate-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.project-card p {
+    font-size: 0.925rem;
+    color: var(--text-slate-muted);
+    margin-bottom: var(--spacing-lg);
+}
+
+.btn-detail {
+    align-self: flex-start;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-detail:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.03);
+}
+
+/* ==========================================
+   KĨ NĂNG CHUYÊN MÔN
+=========================================== */
+.skills-list {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    color: var(--text-slate-body);
+}
+
+.skills-list li {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* ==========================================
+   KHU VỰC LIÊN HỆ
+=========================================== */
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+    background-color: var(--bg-main);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.contact-item {
+    font-size: 0.95rem;
+    color: var(--text-slate-body);
+}
+
+.contact-item strong {
+    color: var(--primary-color);
+}
+
+/* ==========================================
+   MODAL POPUP
+=========================================== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-overlay-bg);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-sm);
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-container {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 800px;
+    padding: var(--spacing-xl);
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--text-slate-muted);
+}
+
+.badge-tag {
+    display: inline-block;
+    background-color: #e0f2fe;
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-main-title {
+    font-size: 1.4rem;
+    color: var(--text-slate-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+.modal-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.blue-card {
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.light-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.code-box {
+    background-color: #e2e8f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   FLOATING ACTION BUTTON (FAB) & PULSE ANIMATION
+========================================================================== */
+.fab-contact {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), #0284c7);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+    z-index: 999;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.fab-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.fab-text {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7);
+    }
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 16px rgba(2, 132, 199, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(2, 132, 199, 0);
+    }
+}
+
+.fab-contact:hover {
+    background: linear-gradient(135deg, var(--primary-hover), #075985);
+    transform: scale(1.15);
+    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
+    animation-play-state: paused;
+}
+
+.fab-contact:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(2, 132, 199, 0.4);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MOBILE & TABLET ADAPTATION CHO HAMBURGER MENU)
+========================================================================== */
+@media screen and (max-width: 868px) {
+    /* Thanh menu trên màn hình di động sẽ được thả xuống khi bấm nút Hamburger */
+    nav.nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-card);
+        border-top: 1px solid var(--border-color);
+        border-bottom: 2px solid var(--primary-color);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        /* CSS Transitions trượt mở menu mượt mà */
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    }
+
+    nav.nav-menu.active {
+        max-height: 480px;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    nav.nav-menu ul {
+        flex-direction: column;
+        padding: 16px 24px;
+        gap: 14px;
+        align-items: flex-start;
+    }
+
+    nav.nav-menu a {
+        font-size: 1.05rem;
+        display: block;
+        width: 100%;
+        padding: 4px 0;
+    }
+
+    .parallax-banner {
+        min-height: 320px;
+    }
+
+    .parallax-title {
+        font-size: 1.65rem;
+    }
+
+    .parallax-subtitle {
+        font-size: 0.95rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .typing-text {
+        font-size: 0.95rem;
+        letter-spacing: 0;
+    }
+
+    .prompt-symbol {
+        font-size: 1rem;
+    }
+
+    .fab-contact {
+        bottom: 20px;
+        right: 20px;
+        width: 58px;
+        height: 58px;
+    }
+
+    .fab-icon {
+        width: 19px;
+        height: 19px;
+    }
+
+    .fab-text {
+        font-size: 0.6rem;
+    }
+}
