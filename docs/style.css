@@ -1,0 +1,255 @@
+/* ==========================================
+   1. BASE & VARIABLES (Thiết lập chung & Biến CSS)
+   ========================================== */
+:root {
+    --bg-main: #0f1923;
+    --bg-card: #1f2833;
+    --accent-color: #ff4655;
+    /* Màu đỏ Valorant */
+    --text-color: #ece8e1;
+    --text-muted: #8b978f;
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --spacing-md: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   2. LAYOUT STYLES (Cấu trúc bố cục các khu vực)
+   ========================================== */
+
+/* Thanh điều hướng Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 8%;
+    background-color: rgba(15, 25, 35, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+/* Khu vực Hero Banner */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 var(--spacing-md);
+    background: linear-gradient(rgba(15, 25, 35, 0.7), rgba(15, 25, 35, 0.9)),
+        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+}
+
+/* Khu vực danh sách sản phẩm */
+.products-section {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Khu vực Footer */
+.footer {
+    padding: 40px 8%;
+    background-color: #080e14;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================
+   3. COMPONENTS STYLES (Thành phần giao diện & Thẻ sản phẩm)
+   ========================================== */
+
+/* Logo & Menu */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Content & Nút bấm */
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-explore {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    will-change: transform;
+}
+
+.btn-explore:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 70, 85, 0.3);
+}
+
+/* Tiêu đề phần sản phẩm */
+.products-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.products-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0;
+}
+
+/* Các thẻ bảng sản phẩm (Product Card) */
+.product-card {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: left;
+    transition: var(--transition-smooth);
+    will-change: transform;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 70, 85, 0.3);
+}
+
+.card-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Ảnh nền riêng cho từng bảng sản phẩm */
+.keyboard-bg {
+    background-image: url('https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80');
+}
+
+.mouse-bg {
+    background-image: url('https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80');
+}
+
+.headset-bg {
+    background-image: url('https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80');
+}
+
+.card-info {
+    padding: 25px;
+}
+
+.card-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.card-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* Footer elements */
+.footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.social-icons a {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-left: 20px;
+    transition: var(--transition-smooth);
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+/* ==========================================
+   4. UTILITIES & RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+

@@ -1,91 +1,95 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VALOR GAMING HUB - Ultimate Gaming Gear</title>
+    <title>VALOR Gaming Hub</title>
+    <!-- Liên kết file CSS tổng -->
     <link rel="stylesheet" href="style.css">
-    <!-- AOS Library CSS (Thành viên 4) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Thư viện Font Awesome cho icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <!-- Header & Intro Animation (Thành viên 1 & 2) -->
-    <header class="header-animate">
-        <nav class="navbar">
-            <div class="logo">🔥 VALOR GAMING HUB</div>
-            <ul class="nav-links">
-                <li><a href="#hero">Trang chủ</a></li>
-                <li><a href="#portfolio">Kho vũ khí</a></li>
-                <li><a href="#about">Về chúng tôi</a></li>
-            </ul>
+
+    <!-- ==========================================
+         1. KHU VỰC HEADER & NAVIGATION (Thanh điều hướng)
+         ========================================== -->
+    <header class="header">
+        <div class="logo">VALOR <span>HUB</span></div>
+        <nav class="nav-links">
+            <a href="#hero">Trang chủ</a>
+            <a href="#products">Sản phẩm</a>
+            <a href="#features">Tính năng</a>
+            <a href="#contact">Liên hệ</a>
         </nav>
     </header>
 
-    <main>
-        <!-- Hero Section (Thành viên 2) -->
-        <section id="hero" class="hero-section hero-animate">
-            <h1>Thăng hoa cảm xúc gaming</h1>
-            <p>Tốc độ đỉnh cao, chuyển động bất tận - Khám phá hệ sinh thái gaming gear thế hệ mới.</p>
-            <!-- Micro-interactions Button (Thành viên 5) -->
-            <button class="cta-btn">Trang bị ngay</button>
-        </section>
+    <!-- ==========================================
+         2. KHU VỰC HERO BANNER (Màn hình mở đầu ấn tượng)
+         ========================================== -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>NÂNG TẦM TRẢI NGHIỆM GAMING</h1>
+            <p>Khám phá hệ sinh thái thiết bị chơi game đỉnh cao dành riêng cho game thủ chuyên nghiệp.</p>
+            <a href="#products" class="btn-explore">Khám phá ngay</a>
+        </div>
+    </section>
 
-        <!-- Portfolio Section / 3 Sản phẩm (Thành viên 3 & 4) -->
-        <section id="portfolio" class="portfolio-section" data-aos="fade-up">
-            <h2>Vũ Khí Tối Thượng Cho Game Thủ</h2>
-            <div class="card-grid">
-                
-                <!-- Sản phẩm 1: Bàn phím cơ -->
-                <div class="interactive-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-badge">Bàn phím cơ</div>
-                    <h3>Aula F108 Pro</h3>
-                    <p>Mạch hot-swap êm ái, LED RGB rực rỡ và cảm giác gõ đầm tay cho mọi pha combat.</p>
-                    <div class="card-footer">
-                        <span class="price">1.895.000₫</span>
-                        <button class="cta-btn">Sở hữu</button>
-                    </div>
+    <!-- ==========================================
+         3. KHU VỰC DANH SÁCH SẢN PHẨM (Products Grid / Bảng sản phẩm)
+         Bao gồm các thẻ sản phẩm: Bàn phím, Chuột, Tai nghe
+         ========================================== -->
+    <section id="products" class="products-section">
+        <h2>SẢN PHẨM NỔI BẬT</h2>
+        <div class="product-grid">
+
+            <!-- Bảng / Thẻ 1: Bàn phím cơ -->
+            <div class="product-card">
+                <div class="card-img keyboard-bg"></div>
+                <div class="card-info">
+                    <h3>Bàn phím cơ Valor Pro</h3>
+                    <p>Switch quang học siêu tốc, LED RGB tùy chỉnh.</p>
+                    <span class="price">2.490.000đ</span>
                 </div>
-
-                <!-- Sản phẩm 2: Chuột Gaming -->
-                <div class="interactive-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-badge">Chuột Gaming</div>
-                    <h3>Logitech G304 Wireless</h3>
-                    <p>Cảm biến HERO siêu chính xác, không độ trễ, bứt phá tốc độ trong mọi tựa game FPS.</p>
-                    <div class="card-footer">
-                        <span class="price">699.000₫</span>
-                        <button class="cta-btn">Sở hữu</button>
-                    </div>
-                </div>
-
-                <!-- Sản phẩm 3: Tai nghe Gaming -->
-                <div class="interactive-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card-badge">Tai nghe</div>
-<h3>MCHOSE V9 Pro</h3>
-                    <p>Âm thanh vòm không khoảng cách, định vị chuẩn xác từng tiếng bước chân của đối thủ.</p>
-                    <div class="card-footer">
-                        <span class="price">980.000₫</span>
-                        <button class="cta-btn">Sở hữu</button>
-                    </div>
-                </div>
-
             </div>
-        </section>
-    </main>
 
-    <!-- Footer -->
-    <footer data-aos="fade-up">
-        <p>&copy; 2026 VALOR GAMING HUB. All rights reserved.</p>
+            <!-- Bảng / Thẻ 2: Chuột Gaming -->
+            <div class="product-card">
+                <div class="card-img mouse-bg"></div>
+                <div class="card-info">
+                    <h3>Chuột Gaming Shadow X</h3>
+                    <p>Cảm biến 26K DPI, thiết kế công thái học nhẹ.</p>
+                    <span class="price">1.690.000đ</span>
+                </div>
+            </div>
+
+            <!-- Bảng / Thẻ 3: Tai nghe -->
+            <div class="product-card">
+                <div class="card-img headset-bg"></div>
+                <div class="card-info">
+                    <h3>Tai nghe SoundStorm 7.1</h3>
+                    <p>Âm thanh vòm sống động, chống ồn chủ động.</p>
+                    <span class="price">1.890.000đ</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         4. KHU VỰC FOOTER & LIÊN HỆ (Chân trang)
+         ========================================== -->
+    <footer id="contact" class="footer">
+        <p>&copy; 2026 VALOR Gaming Hub. Tất cả các quyền được bảo lưu.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+            <a href="https://discord.com/"><i class="fab fa-discord"></i></a>
+            <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+        </div>
     </footer>
 
-    <!-- AOS Library JS (Thành viên 4) -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Khởi tạo thư viện AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            easing: 'ease-out-cubic'
-        });
-    </script>
 </body>
+
 </html>
