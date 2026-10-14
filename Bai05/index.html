@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Cá Nhân</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER & NAVIGATION -->
+  <header>
+    <div class="logo">Portfolio</div>
+    <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+    </button>
+    <nav id="primary-navigation">
+      <ul>
+        <li><a href="#hero">Trang chủ</a></li>
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#services">Dịch vụ</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PORTFOLIO LAYOUT -->
+  <div class="portfolio-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="staff-card" role="group" tabindex="0" aria-label="Hồ sơ nhân sự của Hoàng Anh Hưng">
+        <div class="staff-card-inner">
+          <article class="staff-card-face staff-card-front">
+            <p class="staff-card-label">Thông tin nhân sự</p>
+            <h2>Hoàng Anh Hưng</h2>
+            <p>Web Developer</p>
+          </article>
+          <article class="staff-card-face staff-card-back">
+            <h3>Liên hệ</h3>
+            <p>Đồng Nai, Việt Nam</p>
+            <a href="#contact">Gửi lời nhắn</a>
+          </article>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+      <!-- SECTION 1: HERO -->
+      <section id="hero" class="hero-section" data-aos="fade-up">
+        <h1>Xin chào, tôi là Hoàng Anh Hưng</h1>
+        <p class="typing-text">Tôi là một Web Developer...</p>
+        <a href="#projects" class="btn">Xem Dự Án</a>
+      </section>
+
+      <!-- SECTION 2: ABOUT & SKILLS -->
+      <section id="about" class="about-section" data-aos="fade-up">
+        <h2>Về Tôi</h2>
+        <p>Tôi là một lập trình viên đam mê tạo ra các ứng dụng web tối ưu và thân thiện với người dùng.</p>
+        
+        <h3 class="skills-heading">Kỹ Năng</h3>
+        <ul class="skills-list">
+          <li class="skill-item">
+            <div class="skill-meta"><span>HTML</span><span>90%</span></div>
+            <div class="skill-track" role="meter" aria-label="HTML" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
+              <span class="skill-progress" style="--skill-level: 90%;"></span>
+            </div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-meta"><span>CSS</span><span>85%</span></div>
+            <div class="skill-track" role="meter" aria-label="CSS" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85">
+              <span class="skill-progress" style="--skill-level: 85%;"></span>
+            </div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-meta"><span>JavaScript</span><span>75%</span></div>
+            <div class="skill-track" role="meter" aria-label="JavaScript" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
+              <span class="skill-progress" style="--skill-level: 75%;"></span>
+            </div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-meta"><span>React</span><span>70%</span></div>
+            <div class="skill-track" role="meter" aria-label="React" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70">
+              <span class="skill-progress" style="--skill-level: 70%;"></span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="parallax-banner" aria-labelledby="parallax-title">
+        <h2 id="parallax-title">Biến ý tưởng thành trải nghiệm số</h2>
+        <p>Mỗi dòng mã là một bước tiến để tạo nên sản phẩm hữu ích.</p>
+      </section>
+
+      <!-- SECTION 3: SERVICES -->
+      <section id="services" class="services-section" data-aos="fade-up">
+        <h2 style="color: var(--text-dark);">Dịch Vụ</h2>
+        <div class="services-container">
+          <div class="service-card box">
+            <h3>Thiết Kế Web</h3>
+            <p>Tạo giao diện hiện đại, tối ưu trải nghiệm người dùng.</p>
+          </div>
+          <div class="service-card">
+            <h3>Lập Trình Web</h3>
+            <p>Xây dựng ứng dụng web nhanh chóng, chuẩn SEO và tối ưu.</p>
+          </div>
+          <div class="service-card">
+            <h3>Bảo Trì & Tối Ưu</h3>
+            <p>Tăng tốc độ tải trang và bảo mật website toàn diện.</p>
+          </div>
+          <div class="service-card">
+            <h3>Tư Vấn UX/UI</h3>
+            <p>Nâng cao giá trị sản phẩm qua trải nghiệm người dùng.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: PROJECTS -->
+      <section id="projects" class="projects-section" data-aos="fade-up">
+        <h2 style="color: var(--text-dark); margin-bottom: 0.5rem;">Dự Án Nổi Bật</h2>
+        <div style="display: grid; gap: 1rem;">
+          <div>
+            <h3 style="color: var(--primary-color);">Dự án 1: Website Bán Hàng</h3>
+            <p>Xây dựng ứng dụng thương mại điện tử responsive hoàn chỉnh.</p>
+          </div>
+          <div>
+            <h3 style="color: var(--primary-color);">Dự án 2: Ứng dụng Quản Lý Công Việc</h3>
+            <p>Ứng dụng giúp người dùng theo dõi và sắp xếp công việc hằng ngày hiệu quả.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: CONTACT -->
+      <section id="contact" class="contact-section" data-aos="fade-up">
+        <h2 style="color: var(--text-dark);">Liên Hệ</h2>
+        <p>Hãy kết nối với tôi qua email hoặc form dưới đây:</p>
+        <div class="loading-spinner" role="status" aria-label="Đang tải"></div>
+
+        <form class="contact-form" action="#" method="POST">
+          <div class="form-group">
+            <label for="fullname">Họ và tên:</label>
+            <input type="text" id="fullname" placeholder="Nhập họ và tên của bạn" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Nhập email của bạn" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Lời nhắn:</label>
+            <textarea id="message" rows="4" placeholder="Nhập lời nhắn..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Gửi</button>
+        </form>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Hoàng Anh Hưng. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://github.com" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a href="https://www.facebook.com/hoang.hung.63220"target="_blank">Facebook</a>
+      <a href="https://www.tiktok.com/vi-VN/" target="_blank">Tiktok</a>
+    </div>
+  </footer>
+
+  <a class="floating-contact" href="#contact" aria-label="Đi đến mục Liên hệ">
+    <span>Liên hệ</span>
+  </a>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const primaryNavigation = document.querySelector("#primary-navigation");
+
+    function setMenuOpen(isOpen) {
+      menuToggle.classList.toggle("active", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Đóng menu" : "Mở menu");
+    }
+
+    menuToggle.addEventListener("click", () => {
+      setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    primaryNavigation.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+      offset: 80,
+      once: true
+    });
+  </script>
+</body>
+</html>
