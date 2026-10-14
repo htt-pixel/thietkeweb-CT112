@@ -1,0 +1,210 @@
+/* Biến hệ thống & Reset cơ bản (Tone Gaming Đỏ - Đen) */
+:root {
+    --primary-color: #ef4444;       /* Đỏ gaming cá tính */
+    --primary-hover: #dc2626;     /* Đỏ đậm khi hover */
+    --bg-color: #0b0f19;          /* Nền tối sâu thẳm đậm chất gaming room */
+    --text-color: #f1f5f9;        /* Chữ sáng nổi bật */
+    --card-bg: #1e293b;           /* Nền thẻ card tối sang trọng */
+    --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #0f172a;
+    border-bottom: 1px solid #1e293b;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 100px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+/* Portfolio Section */
+.portfolio-section {
+    padding: 60px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.portfolio-section h2 {
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* 3. Interactive Card (Thành viên 3) */
+.interactive-card {
+    background: var(--card-bg);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    /* Dùng transform thay cho top/margin để tối ưu hiệu năng */
+    transition: transform 0.4s var(--transition-spring), box-shadow 0.4s ease;
+    will-change: transform;
+    text-align: left;
+}
+
+.interactive-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.15), 0 10px 10px -5px rgba(239, 68, 68, 0.1);
+}
+
+.card-badge {
+    display: inline-block;
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.interactive-card h3 {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.interactive-card p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+/* Card Footer & Price */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #334155;
+}
+
+.price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* 5. Micro-interactions CTA Button (Thành viên 5) */
+.cta-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s var(--transition-smooth), background-color 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+    background-color: var(--primary-hover);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+}
+
+.cta-btn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 3px 6px rgba(239, 68, 68, 0.2);
+}
+
+/* 2. Intro Animation (Thành viên 2 - TUYỆT ĐỐI KHÔNG DÙNG top/left) */
+.header-animate {
+    animation: slideUpFadeIn 0.8s var(--transition-smooth) forwards;
+    will-change: transform, opacity;
+}
+
+.hero-animate {
+    animation: slideUpFadeIn 1s var(--transition-smooth) 0.2s forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+@keyframes slideUpFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Chỉ dùng transform để tối ưu hiệu suất */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #060911;
+    border-top: 1px solid #1e293b;
+    color: #64748b;
+    margin-top: 80px;
+}
