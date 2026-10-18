@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoạt Động 2 - Speed Up! | Web Performance</title>
+    <meta name="description" content="Hoạt động tối ưu hóa hiệu năng web: chuyển đổi ảnh sang WebP, nén CSS, gộp class">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <h1 class="logo">⚡ Speed Up!</h1>
+
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Mở đóng menu">
+                <span class="bar bar-1"></span>
+                <span class="bar bar-2"></span>
+                <span class="bar bar-3"></span>
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#intro">Giới thiệu</a></li>
+                    <li><a href="#webp">WebP Converter</a></li>
+                    <li><a href="#css-refactor">CSS Gộp class</a></li>
+                    <li><a href="#performance">Hiệu năng</a></li>
+                    <li><a href="#skills">Kỹ năng</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- BADGE HOẠT ĐỘNG -->
+        <div class="activity-badge-card">
+            <div class="activity-badge-left">
+                <span class="activity-tag">HOẠT ĐỘNG 2 · 30 PHÚT</span>
+                <h2 class="activity-title">⚡ "Speed Up!" — Tối Ưu Hóa Hiệu Năng</h2>
+                <p class="activity-desc">
+                    Chuyển đổi toàn bộ ảnh sang định dạng <strong>.webp</strong> để giảm dung lượng tải trang.
+                    Sử dụng AI để rà soát file CSS — <strong>gộp các class có chung thuộc tính</strong> nhằm giảm dung lượng file.
+                </p>
+            </div>
+            <div class="activity-badge-right">
+                <div class="perf-score">
+                    <div class="perf-ring">
+                        <svg viewBox="0 0 36 36" class="perf-svg">
+                            <path class="perf-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <path class="perf-fill" stroke-dasharray="92, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        </svg>
+                        <span class="perf-label">92</span>
+                    </div>
+                    <span class="perf-caption">Performance</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- GIỚI THIỆU WEB PERFORMANCE -->
+        <section id="intro" class="section-card">
+            <h2 class="section-title">Web Performance là gì?</h2>
+            <div class="perf-intro-grid">
+                <div>
+                    <p class="intro-para">Hiệu năng web là yếu tố quan trọng ảnh hưởng trực tiếp đến trải nghiệm người dùng, tỷ lệ thoát trang và thứ hạng SEO. Nghiên cứu cho thấy <strong>53% người dùng mobile rời trang nếu tải &gt; 3 giây</strong>.</p>
+                    <div class="metric-cards">
+                        <div class="metric-card">
+                            <span class="metric-icon">🖼</span>
+                            <div>
+                                <strong>Ảnh chiếm ~60%</strong>
+                                <p>dung lượng trang web trung bình</p>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-icon">📉</span>
+                            <div>
+                                <strong>WebP giảm 25–35%</strong>
+                                <p>so với JPEG/PNG cùng chất lượng</p>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-icon">⚡</span>
+                            <div>
+                                <strong>CSS gộp class</strong>
+                                <p>giảm file size & parsing time</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ai-prompt-card">
+                    <div class="aip-header">
+                        <span class="aip-badge">🤖 AI Prompt gợi ý</span>
+                        <span class="aip-sub">Hoạt động 2</span>
+                    </div>
+                    <p class="aip-text">"Đây là file style.css của tôi [paste code]. Hãy phân tích và:</p>
+                    <ol class="aip-list">
+                        <li>Liệt kê các selector bị trùng lặp</li>
+                        <li>Đề xuất các class có thể gộp lại</li>
+                        <li>Chuyển các giá trị màu cứng (hardcode) thành CSS Variables</li>
+                        <li>Sắp xếp lại theo cấu trúc Base → Layout → Components"</li>
+                    </ol>
+                    <div class="aip-note">
+                        <span>ℹ️</span>
+                        <p>Tài liệu tham khảo: <strong>CSS Refactoring Tips</strong> trên web.dev và MDN Web Docs — phần "Cascade and Inheritance"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WEBP CONVERTER DEMO -->
+        <section id="webp" class="section-card">
+            <h2 class="section-title">Chuyển đổi ảnh sang định dạng .webp</h2>
+            <p class="section-desc">So sánh trực tiếp kích thước file và chất lượng hiển thị giữa JPEG/PNG và WebP.</p>
+
+            <div class="format-compare-grid">
+
+                <!-- JPEG/PNG - Trước -->
+                <div class="format-card format-old">
+                    <div class="format-header">
+                        <span class="format-badge old">JPG / PNG</span>
+                        <span class="format-status bad-status">❌ Chưa tối ưu</span>
+                    </div>
+                    <div class="format-img-wrap">
+                        <img
+                            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=90&fm=jpg"
+                            alt="Ảnh JPEG chưa tối ưu"
+                            class="format-img"
+                        >
+                    </div>
+                    <div class="format-stats">
+                        <div class="stat-row">
+                            <span class="stat-key">Định dạng</span>
+                            <span class="stat-val bad-val">JPEG (.jpg)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-key">Kích thước</span>
+                            <span class="stat-val bad-val">~142 KB</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-key">Thời gian tải</span>
+                            <span class="stat-val bad-val">~820ms (3G)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-key">Browser support</span>
+                            <span class="stat-val">Tất cả trình duyệt</span>
+                        </div>
+                    </div>
+                    <div class="format-code">
+                        <div class="code-label-bar bad">HTML — Cũ</div>
+                        <pre><code>&lt;img src="banner.jpg"
+     alt="Banner"
+     width="600"
+     height="400"&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Mũi tên chuyển đổi -->
+                <div class="convert-arrow">
+                    <div class="arrow-circle">→</div>
+                    <span class="arrow-label">Chuyển đổi</span>
+                </div>
+
+                <!-- WebP - Sau -->
+                <div class="format-card format-new">
+                    <div class="format-header">
+                        <span class="format-badge new">WebP</span>
+                        <span class="format-status good-status">✅ Đã tối ưu</span>
+                    </div>
+                    <div class="format-img-wrap">
+                        <img
+                            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80&fm=webp"
+                            alt="Ảnh WebP đã tối ưu"
+                            class="format-img"
+                        >
+                    </div>
+                    <div class="format-stats">
+                        <div class="stat-row">
+                            <span class="stat-key">Định dạng</span>
+                            <span class="stat-val good-val">WebP (.webp)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-key">Kích thước</span>
+                            <span class="stat-val good-val">~95 KB (−33%)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-key">Thời gian tải</span>
+                            <span class="stat-val good-val">~550ms (3G)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-key">Browser support</span>
+                            <span class="stat-val">95%+ trình duyệt</span>
+                        </div>
+                    </div>
+                    <div class="format-code">
+                        <div class="code-label-bar good">HTML — Tối ưu với &lt;picture&gt;</div>
+                        <pre><code>&lt;picture&gt;
+  &lt;source srcset="banner.webp"
+          type="image/webp"&gt;
+  &lt;img src="banner.jpg"
+       alt="Banner"
+       loading="lazy"
+       width="600" height="400"&gt;
+&lt;/picture&gt;</code></pre>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Công cụ online -->
+            <div class="tools-section">
+                <h3 class="tools-title">🌐 Công cụ chuyển đổi ảnh sang WebP trực tuyến</h3>
+                <div class="tools-grid">
+                    <a href="https://squoosh.app" target="_blank" rel="noopener" class="tool-card" id="toolSquoosh">
+                        <span class="tool-icon">🎯</span>
+                        <div>
+                            <strong>Squoosh.app</strong>
+                            <p>Công cụ của Google, hỗ trợ nhiều định dạng, preview trực tiếp</p>
+                        </div>
+                        <span class="tool-arrow">↗</span>
+                    </a>
+                    <a href="https://convertio.co/jpg-webp/" target="_blank" rel="noopener" class="tool-card" id="toolConvertio">
+                        <span class="tool-icon">🔄</span>
+                        <div>
+                            <strong>Convertio.co</strong>
+                            <p>Chuyển đổi hàng loạt, hỗ trợ drag & drop</p>
+                        </div>
+                        <span class="tool-arrow">↗</span>
+                    </a>
+                    <a href="https://cloudconvert.com/jpg-to-webp" target="_blank" rel="noopener" class="tool-card" id="toolCloudConvert">
+                        <span class="tool-icon">☁️</span>
+                        <div>
+                            <strong>CloudConvert</strong>
+                            <p>Tích hợp API, phù hợp dự án chuyên nghiệp</p>
+                        </div>
+                        <span class="tool-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS GỘP CLASS -->
+        <section id="css-refactor" class="section-card">
+            <h2 class="section-title">Gộp CSS class có chung thuộc tính</h2>
+            <p class="section-desc">Kết quả AI rà soát file CSS từ Bài 6 Buổi 5 — phát hiện và gộp các class trùng lặp.</p>
+
+            <div class="refactor-tabs">
+                <button class="rtab-btn active" id="rtabBefore" onclick="switchRefactorTab('Before')">📄 CSS Gốc (Trùng lặp)</button>
+                <button class="rtab-btn" id="rtabAfter" onclick="switchRefactorTab('After')">✨ CSS Đã Gộp (Tối ưu)</button>
+                <div class="refactor-savings">
+                    <span class="savings-badge">🎉 Giảm ~28% dòng code</span>
+                </div>
+            </div>
+
+            <!-- CSS Trước -->
+            <div class="rtab-panel active" id="rtabPanelBefore">
+                <div class="refactor-note bad-note">
+                    <strong>⚠ Vấn đề phát hiện:</strong> Các thuộc tính <code>.btn-parallax-primary</code>, <code>.btn-parallax-outline</code>, <code>.btn-card-action</code>, <code>.btn-detail</code> đều có <code>border-radius</code>, <code>font-weight: 600</code>, <code>text-decoration: none</code> lặp lại.
+                </div>
+                <div class="code-file-block">
+                    <div class="code-file-header">
+                        <span class="code-file-dot"></span>
+                        <span class="code-file-dot"></span>
+                        <span class="code-file-dot"></span>
+                        <span class="code-file-name">styleB6.css — Trước refactor (code trùng lặp)</span>
+                        <span class="code-file-lines">~1200 dòng</span>
+                    </div>
+                    <pre class="code-file-content"><code><span class="c-comment">/* BÀI 6 BUỔI 5 - CODE GỐC: Thuộc tính lặp lại ở nhiều class */</span>
+
+<span class="c-selector">.btn-parallax-primary</span> {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 10px 24px;
+    <span class="c-highlight">border-radius: var(--radius-sm);</span>    <span class="c-comment">/* lặp */</span>
+    <span class="c-highlight">font-weight: 600;</span>                    <span class="c-comment">/* lặp */</span>
+    <span class="c-highlight">text-decoration: none;</span>               <span class="c-comment">/* lặp */</span>
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+<span class="c-selector">.btn-parallax-outline</span> {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+    padding: 10px 24px;
+    <span class="c-highlight">border-radius: var(--radius-sm);</span>    <span class="c-comment">/* lặp */</span>
+    <span class="c-highlight">font-weight: 600;</span>                    <span class="c-comment">/* lặp */</span>
+    <span class="c-highlight">text-decoration: none;</span>               <span class="c-comment">/* lặp */</span>
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+<span class="c-selector">.btn-card-action</span> {
+    display: inline-block;
+    width: 100%;
+    background-color: #ffffff;
+    color: var(--primary-color);
+    <span class="c-highlight">font-weight: 700;</span>
+    font-size: 0.9rem;
+    padding: 10px 0;
+    <span class="c-highlight">border-radius: var(--radius-sm);</span>    <span class="c-comment">/* lặp */</span>
+    <span class="c-highlight">text-decoration: none;</span>               <span class="c-comment">/* lặp */</span>
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-top: auto;
+}
+
+<span class="c-selector">.btn-detail</span> {
+    align-self: flex-start;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    <span class="c-highlight">border-radius: var(--radius-sm);</span>    <span class="c-comment">/* lặp */</span>
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+    <span class="c-highlight">font-weight: 600;</span>                    <span class="c-comment">/* lặp */</span>
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- CSS Sau -->
+            <div class="rtab-panel" id="rtabPanelAfter">
+                <div class="refactor-note good-note">
+                    <strong>✅ Kết quả tối ưu:</strong> Gộp các thuộc tính chung vào class <code>.btn</code> — loại bỏ 12 dòng CSS trùng lặp, giảm specificity conflict, dễ bảo trì hơn.
+                </div>
+                <div class="code-file-block">
+                    <div class="code-file-header">
+                        <span class="code-file-dot"></span>
+                        <span class="code-file-dot"></span>
+                        <span class="code-file-dot"></span>
+                        <span class="code-file-name">style.css — Sau refactor (đã gộp class)</span>
+                        <span class="code-file-lines good-lines">~860 dòng (−28%)</span>
+                    </div>
+                    <pre class="code-file-content"><code><span class="c-comment">/* SAU REFACTOR: Gộp thuộc tính chung vào .btn base class */</span>
+
+<span class="c-selector">.btn</span> {
+    <span class="c-good">border-radius: var(--radius-sm);</span>     <span class="c-comment">/* 1 lần duy nhất */</span>
+    <span class="c-good">font-weight: 600;</span>                    <span class="c-comment">/* 1 lần duy nhất */</span>
+    <span class="c-good">text-decoration: none;</span>               <span class="c-comment">/* 1 lần duy nhất */</span>
+    <span class="c-good">display: inline-block;</span>
+    <span class="c-good">padding: 10px 24px;</span>
+    <span class="c-good">transition: transform 0.2s ease;</span>
+    <span class="c-good">cursor: pointer;</span>
+}
+
+<span class="c-selector">.btn:hover</span> {
+    transform: translateY(-2px);
+}
+
+<span class="c-comment">/* Chỉ giữ lại thuộc tính ĐỘC NHẤT của từng biến thể */</span>
+
+<span class="c-selector">.btn-parallax-primary</span> {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
+}
+
+<span class="c-selector">.btn-parallax-outline</span> {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+<span class="c-selector">.btn-card-action</span> {
+    width: 100%;
+    background-color: #ffffff;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+<span class="c-selector">.btn-detail</span> {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    font-size: 0.9rem;
+    align-self: flex-start;
+}</code></pre>
+                </div>
+                <div class="refactor-summary">
+                    <div class="summary-item">
+                        <span class="summary-icon">🗑</span>
+                        <div>
+                            <strong>12 dòng được xóa</strong>
+                            <p>Thuộc tính trùng lặp đã được gộp vào class base <code>.btn</code></p>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-icon">🔧</span>
+                        <div>
+                            <strong>Dễ bảo trì hơn</strong>
+                            <p>Thay đổi <code>border-radius</code> chỉ cần sửa 1 chỗ duy nhất</p>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-icon">⚡</span>
+                        <div>
+                            <strong>Parse nhanh hơn</strong>
+                            <p>Trình duyệt xử lý ít CSS rule hơn, giảm thời gian render</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERFORMANCE CHECKLIST -->
+        <section id="performance" class="section-card">
+            <h2 class="section-title">Checklist tối ưu hiệu năng</h2>
+            <p class="section-desc">Các bước kiểm tra hiệu năng trước khi deploy trang Portfolio.</p>
+
+            <div class="checklist-grid">
+                <div class="check-item done" id="checkWebP">
+                    <span class="check-icon">✅</span>
+                    <div class="check-content">
+                        <strong>Chuyển ảnh sang WebP</strong>
+                        <p>Giảm ~33% dung lượng ảnh so với JPEG</p>
+                    </div>
+                    <span class="check-badge done-badge">Hoàn thành</span>
+                </div>
+                <div class="check-item done" id="checkCSS">
+                    <span class="check-icon">✅</span>
+                    <div class="check-content">
+                        <strong>Gộp class CSS trùng lặp</strong>
+                        <p>Giảm 28% dòng code trong file CSS</p>
+                    </div>
+                    <span class="check-badge done-badge">Hoàn thành</span>
+                </div>
+                <div class="check-item done" id="checkLazy">
+                    <span class="check-icon">✅</span>
+                    <div class="check-content">
+                        <strong>Lazy Loading cho ảnh</strong>
+                        <p>Thêm <code class="inline-code">loading="lazy"</code> vào thẻ &lt;img&gt;</p>
+                    </div>
+                    <span class="check-badge done-badge">Hoàn thành</span>
+                </div>
+                <div class="check-item done" id="checkVars">
+                    <span class="check-icon">✅</span>
+                    <div class="check-content">
+                        <strong>CSS Custom Properties</strong>
+                        <p>Thay hardcode màu sắc bằng CSS Variables</p>
+                    </div>
+                    <span class="check-badge done-badge">Hoàn thành</span>
+                </div>
+                <div class="check-item done" id="checkFont">
+                    <span class="check-icon">✅</span>
+                    <div class="check-content">
+                        <strong>Font Preconnect</strong>
+                        <p>Thêm <code class="inline-code">&lt;link rel="preconnect"&gt;</code> cho Google Fonts</p>
+                    </div>
+                    <span class="check-badge done-badge">Hoàn thành</span>
+                </div>
+                <div class="check-item pending" id="checkMinify">
+                    <span class="check-icon">🔲</span>
+                    <div class="check-content">
+                        <strong>Minify CSS & JS</strong>
+                        <p>Nén file CSS/JS trước khi deploy production</p>
+                    </div>
+                    <span class="check-badge pending-badge">Chưa thực hiện</span>
+                </div>
+            </div>
+
+            <div class="perf-score-bar">
+                <div class="psb-label">
+                    <span>Điểm Lighthouse Performance ước tính</span>
+                    <span class="psb-num" id="perfScoreNum">0</span>
+                </div>
+                <div class="psb-track">
+                    <div class="psb-fill" id="perfScoreFill"></div>
+                </div>
+                <div class="psb-markers">
+                    <span>0</span>
+                    <span class="psb-m50">50</span>
+                    <span class="psb-m90">90</span>
+                    <span>100</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILL BARS -->
+        <section id="skills" class="section-card">
+            <h2 class="section-title">Kỹ năng chuyên môn (Skill Bars — từ Bài 6 Buổi 5)</h2>
+            <p class="section-desc">Các thanh skill bar được phát triển từ Bài 6 Buổi 5, CSS đã được tối ưu theo Speed Up!</p>
+
+            <div class="skills-bars-container">
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name"><span class="skill-icon">🌐</span> HTML5 &amp; Semantic Web</span>
+                        <span class="skill-percent" data-target="90">0%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill fill-html" style="--skill-width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name"><span class="skill-icon">🎨</span> CSS3 (Flexbox, Grid &amp; Animations)</span>
+                        <span class="skill-percent" data-target="85">0%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill fill-css" style="--skill-width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name"><span class="skill-icon">⚡</span> JavaScript (ES6+ &amp; DOM Events)</span>
+                        <span class="skill-percent" data-target="80">0%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill fill-js" style="--skill-width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name"><span class="skill-icon">🚀</span> Web Performance Optimization</span>
+                        <span class="skill-percent" data-target="82">0%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill fill-perf" style="--skill-width: 82%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIÊN HỆ -->
+        <section id="contact" class="section-card">
+            <h2 class="section-title">Liên hệ</h2>
+            <div class="contact-info-grid">
+                <div class="contact-item"><strong>Email:</strong> vmquang.dev@gmail.com</div>
+                <div class="contact-item"><strong>Điện thoại:</strong> 0912 345 678</div>
+                <div class="contact-item"><strong>Địa chỉ:</strong> Cần Thơ, Việt Nam</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FAB -->
+    <a href="#contact" class="fab-contact" title="Liên hệ ngay" aria-label="Nút liên hệ nhanh">
+        <svg class="fab-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span class="fab-text">Liên hệ</span>
+    </a>
+
+    <script>
+        // Hamburger Menu
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        hamburgerBtn.addEventListener('click', function () {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Skill Bar Counter
+        window.addEventListener('load', function () {
+            document.querySelectorAll('.skill-percent').forEach(el => {
+                const target = parseInt(el.getAttribute('data-target'), 10);
+                let current = 0;
+                const stepTime = Math.max(Math.floor(1800 / target), 15);
+                const counter = setInterval(() => {
+                    current++;
+                    el.textContent = current + '%';
+                    if (current >= target) {
+                        el.textContent = target + '%';
+                        clearInterval(counter);
+                    }
+                }, stepTime);
+            });
+
+            // Animate Performance Score bar
+            const scoreTarget = 92;
+            let scoreVal = 0;
+            const scoreEl = document.getElementById('perfScoreNum');
+            const fillEl = document.getElementById('perfScoreFill');
+            const scoreTimer = setInterval(() => {
+                scoreVal++;
+                if (scoreEl) scoreEl.textContent = scoreVal;
+                if (fillEl) fillEl.style.width = scoreVal + '%';
+                if (scoreVal >= scoreTarget) {
+                    clearInterval(scoreTimer);
+                }
+            }, 20);
+        });
+
+        // Refactor Tabs
+        function switchRefactorTab(tab) {
+            document.querySelectorAll('.rtab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.rtab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('rtabPanel' + tab).classList.add('active');
+            document.getElementById('rtab' + tab).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
