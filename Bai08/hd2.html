@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoạt động 2</title>
+</head>
+<body>
+    <h1>Bài tập JavaScript</h1>
+
+    <!-- Viết code JS bên trong thẻ <script> -->
+    <script>
+        // HOẠT ĐỘNG 2: MÁY TÍNH MINI
+        let diemStr = prompt("Nhập vào điểm số của bạn:");
+        let diem = parseFloat(diemStr);
+
+        if (diem > 8) {
+            alert("Xếp loại: Giỏi");
+        } else if (diem > 6.5) {
+            alert("Xếp loại: Khá");
+        } else if (diem >= 5) {
+            alert("Xếp loại: Trung bình");
+        } else if (diem >= 0 && diem < 5) {
+            alert("Xếp loại: Yếu");
+        } else {
+            alert("Điểm số không hợp lệ!");
+        }
+    </script>
+</body>
+</html>
