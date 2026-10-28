@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực hành JavaScript</title>
+</head>
+<body>
+    <h1>Bài thực hành JavaScript</h1>
+
+    <script>
+        console.log("=== HOẠT ĐỘNG 1: THE COUNTING MACHINE ===");
+        
+        // 1. In dãy số từ 1 đến 100
+        console.log("--- Dãy số từ 1 đến 100 ---");
+        for (let i = 1; i <= 100; i++) {
+            console.log(i);
+        }
+
+        // 2. In các số chẵn từ 1 đến 100
+        console.log("--- Các số chẵn từ 1 đến 100 ---");
+        for (let i = 1; i <= 100; i++) {
+            if (i % 2 === 0) {
+                console.log("Số chẵn: " + i);
+            }
+        }
+
+        // 3. In các số chia hết cho 5 từ 1 đến 100
+        console.log("--- Các số chia hết cho 5 từ 1 đến 100 ---");
+        for (let i = 1; i <= 100; i++) {
+            if (i % 5 === 0) {
+                console.log("Số chia hết cho 5: " + i);
+            }
+        }
+
+
+        console.log("=== HOẠT ĐỘNG 2: FUNCTION FACTORY ===");
+        
+        // Khai báo hàm tính diện tích hình chữ nhật
+        function tinhDienTich(dai, rong) {
+            return dai * rong;
+        }
+
+        // Gọi hàm 3 lần với các thông số khác nhau
+        console.log("Diện tích HCN (5 x 10) = " + tinhDienTich(5, 10));
+        console.log("Diện tích HCN (7 x 3) = " + tinhDienTich(7, 3));
+        console.log("Diện tích HCN (12 x 4) = " + tinhDienTich(12, 4));
+
+
+        console.log("=== HOẠT ĐỘNG 3: REFACTORING CHALLENGE (Nguyên tắc DRY) ===");
+        
+        // Khai báo hàm tính thuế thu nhập tái sử dụng
+        function tinhThueThuNhap(luong) {
+            let thue = 0;
+            if (luong > 20000000) {
+                thue = luong * 0.15;
+            } else {
+                thue = luong * 0.05;
+            }
+            return thue;
+        }
+
+        // Tái sử dụng hàm cho các mức lương khác nhau
+        console.log("Thuế của lương 15,000,000 VNĐ là: " + tinhThueThuNhap(15000000) + " VNĐ");
+        console.log("Thuế của lương 25,000,000 VNĐ là: " + tinhThueThuNhap(25000000) + " VNĐ");
+    </script>
+</body>
+</html>
