@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoạt động 3: AI Logic Explainer</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; border-left: 4px solid #e74c3c; }
+        button { padding: 10px 15px; background: #e74c3c; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h3>Hoạt động 3: Giải thích luồng chạy mã lệnh (AI Logic Explainer)</h3>
+    <p>Đoạn mã xử lý giảm giá cho thành viên:</p>
+    
+    <pre>
+let giaGoc = 500000;
+let laThanhVien = true;
+
+// Sử dụng toán tử điều kiện (Ternary Operator) thay thế cho if-else rút gọn
+let tongTien = laThanhVien ? giaGoc * 0.8 : giaGoc;
+
+console.log("Số tiền cần thanh toán là: " + tongTien);
+    </pre>
+
+    <button onclick="chayAIExplainer()">Chạy và dịch luồng code</button>
+    <p id="giaiThich" style="font-weight: bold; color: #27ae60; margin-top: 15px;"></p>
+
+    <script>
+        function chayAIExplainer() {
+            let giaGoc = 500000;
+            let laThanhVien = true;
+            
+            // Logic xử lý
+            let tongTien = laThanhVien ? giaGoc * 0.8 : giaGoc;
+            
+            let ketQuaText = "👉 Dịch nghĩa bằng AI: Sản phẩm có giá gốc " + giaGoc + " VNĐ. Vì trạng thái 'laThanhVien' là True (Được giảm 20%), hệ thống tính toán ra tổng tiền thanh toán thực tế là: " + tongTien + " VNĐ.";
+            
+            document.getElementById("giaiThich").innerText = ketQuaText;
+            
+            // Debug dòng lệnh
+            console.log("Giá gốc:", giaGoc);
+            console.log("Là thành viên:", laThanhVien);
+            console.log("Tổng tiền sau tính toán:", tongTien);
+        }
+    </script>
+</body>
+</html>

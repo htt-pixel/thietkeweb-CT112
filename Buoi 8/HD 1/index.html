@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoạt động 1: Hello JS Console</title>
+</head>
+<body>
+    <h2>Hoạt động 1: Khai báo biến & Hiện tượng Ép kiểu (Type Coercion)</h2>
+    <p>Hãy nhấn phím <b>F12</b>, chọn tab <b>Console</b> và nhấn nút bên dưới để xem kết quả.</p>
+    <button onclick="chayHoatDong1()">Chạy thử nghiệm Console</button>
+
+    <script>
+        function chayHoatDong1() {
+            // Khai báo biến với let và const (LLO 3.1.1)
+            let tenSinhVien = "Võ Minh Quang";
+            const namHoc = 2026;
+            let dangHoc = true;
+
+            console.log("--- KẾT QUẢ HOẠT ĐỘNG 1 ---");
+            console.log("Họ tên sinh viên:", tenSinhVien, "(Kiểu:", typeof tenSinhVien + ")");
+            console.log("Năm học:", namHoc, "(Kiểu:", typeof namHoc + ")");
+            console.log("Trạng thái:", dangHoc, "(Kiểu:", typeof dangHoc + ")");
+
+            // Giải thích hiện tượng Vibe Coding: Tại sao '10' + 20 ra '1020'?
+            let ketQuaSai = '10' + 20; 
+            console.log("Cộng chuỗi '10' + 20 = ", ketQuaSai, "-> JS tự động ép số 20 thành chuỗi rồi nối lại.");
+            
+            let ketQuaDung = Number('10') + 20;
+            console.log("Ép kiểu tường minh Number('10') + 20 = ", ketQuaDung);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tuần 9 - Hoạt động 1: Máy đếm tự động</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+        .box { background: #f0f4f8; padding: 20px; border-radius: 8px; max-width: 500px; }
+        button { padding: 10px 15px; background: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer; margin-right: 5px; }
+        button:hover { background: #2980b9; }
+        #outScreen { margin-top: 15px; background: #1e1e1e; color: #00ff66; padding: 15px; border-radius: 5px; font-family: monospace; max-height: 200px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Hoạt động 1: Máy đếm tự động (For Loop)</h2>
+        <p>Nhấn phím <b>F12</b> để mở Console hoặc xem kết quả ngay bên dưới:</p>
+        
+        <button onclick="demTu1Den100()">Đếm từ 1 đến 100</button>
+        <button onclick="demSoChan()">Chỉ in số chẵn (1-100)</button>
+
+        <div id="outScreen">Nhấn nút để chạy vòng lặp...</div>
+    </div>
+
+    <script>
+        // LLO 3.2.1: Sử dụng vòng lặp for để in ra dãy số
+        function demTu1Den100() {
+            let screen = document.getElementById("outScreen");
+            screen.innerHTML = "=== DÃY SỐ TỪ 1 ĐẾN 100 ===<br>";
+            
+            console.log("--- BẮT ĐẦU ĐẾM 1 - 100 ---");
+            // Vòng lặp for: (khởi tạo; điều kiện; bước nhảy)
+            for (let i = 1; i <= 100; i++) {
+                console.log("Số:", i);
+                screen.innerHTML += i + " ";
+            }
+        }
+
+        function demSoChan() {
+            let screen = document.getElementById("outScreen");
+            screen.innerHTML = "=== DÃY SỐ CHẴN TỪ 1 ĐẾN 100 ===<br>";
+            
+            console.log("--- BẮT ĐẦU IN SỐ CHẴN ---");
+            for (let i = 1; i <= 100; i++) {
+                // Kiểm tra điều kiện chia hết cho 2
+                if (i % 2 === 0) {
+                    console.log("Số chẵn:", i);
+                    screen.innerHTML += i + " ";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

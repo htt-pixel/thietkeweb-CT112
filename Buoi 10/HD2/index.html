@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tuần 10 - Hoạt động 2: Light Switch</title>
+    <style>
+        /* Thiết lập mặc định giao diện Sáng (Light mode) */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #ffffff;
+            color: #000000;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            max-width: 450px;
+            background: #fdfdfd;
+        }
+        button {
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover { background: #34495e; }
+    </style>
+</head>
+<body>
+
+    <div class="box" id="mainBox">
+        <h2>Hoạt động 2: Light Switch (Dark Mode Toggle)</h2>
+        <p>Nhấn nút bên dưới để chuyển đổi trạng thái màu nền của trang web.</p>
+        <button id="toggle-btn">Bật Dark Mode 🌙</button>
+    </div>
+
+    <script>
+        // LLO 3.3.2 & 3.3.3: Lắng nghe sự kiện click và thay đổi thuộc tính/CSS giao diện
+        const toggleBtn = document.getElementById("toggle-btn");
+        const bodyTag = document.body;
+
+        toggleBtn.addEventListener("click", function() {
+            // Kiểm tra màu nền hiện tại để đổi qua lại (Dark mode đơn giản)
+            if (bodyTag.style.backgroundColor === "black") {
+                // Chuyển về chế độ Sáng
+                bodyTag.style.backgroundColor = "#ffffff";
+                bodyTag.style.color = "#000000";
+                toggleBtn.innerText = "Bật Dark Mode 🌙";
+                toggleBtn.style.backgroundColor = "#2c3e50";
+                console.log("Đã chuyển sang chế độ Sáng (Light Mode)");
+            } else {
+                // Chuyển sang chế độ Tối (Dark Mode)
+                bodyTag.style.backgroundColor = "black";
+                bodyTag.style.color = "#ffffff";
+                toggleBtn.innerText = "Bật Light Mode ☀️";
+                toggleBtn.style.backgroundColor = "#f1c40f";
+                toggleBtn.style.color = "#000";
+                console.log("Đã chuyển sang chế độ Tối (Dark Mode)");
+            }
+        });
+    </script>
+
+</body>
+</html>
