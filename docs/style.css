@@ -253,3 +253,101 @@ body {
     }
 }
 
+
+
+/* ==========================================
+   5. REAL-TIME WELCOME TOAST NOTIFICATION
+   ========================================== */
+.welcome-toast {
+    position: fixed;
+    top: 90px;
+    right: 25px;
+    background: linear-gradient(135deg, rgba(31, 40, 51, 0.95), rgba(15, 25, 35, 0.98));
+    border-left: 4px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 70, 85, 0.25);
+    z-index: 9999;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+    max-width: 380px;
+    backdrop-filter: blur(8px);
+}
+
+.welcome-toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.welcome-toast-icon {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    animation: toast-glow 2s infinite ease-in-out;
+}
+
+.welcome-toast-content {
+    flex: 1;
+}
+
+.welcome-toast-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 3px;
+    letter-spacing: 0.5px;
+}
+
+.welcome-toast-msg {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.welcome-toast-close {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.4rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 4px;
+    transition: var(--transition-smooth);
+}
+
+.welcome-toast-close:hover {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+@keyframes toast-glow {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px var(--accent-color));
+    }
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 8px var(--accent-color));
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-toast {
+        top: 80px;
+        left: 20px;
+        right: 20px;
+        max-width: none;
+        transform: translateY(-50px);
+    }
+
+    .welcome-toast.show {
+        transform: translateY(0);
+    }
+}
