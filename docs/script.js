@@ -92,3 +92,5 @@ function createGreetingToast(title, message, iconClass) {
 // Chạy mã khi tài liệu HTML đã sẵn sàng
 document.addEventListener("DOMContentLoaded", initRealtimeGreeting);
 
+
+
