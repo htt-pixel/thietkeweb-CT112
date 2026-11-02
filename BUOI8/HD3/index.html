@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoạt động 3 - AI Logic Explainer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f5f9;
+            color: #263247;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #243b80, #5675d8);
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 25px auto;
+        }
+
+        .intro, .lesson, .conclusion {
+            background: white;
+            padding: 22px;
+            margin-bottom: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #0000000d;
+        }
+
+        h2 {
+            color: #304eaa;
+            margin-top: 0;
+        }
+
+        pre {
+            background: #172033;
+            color: #dce7ff;
+            padding: 18px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+
+        .result {
+            background: #e8f5ec;
+            border-left: 5px solid #2c9b57;
+            padding: 12px 16px;
+            border-radius: 5px;
+            margin-top: 12px;
+        }
+
+        .explain {
+            background: #eef3ff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        button {
+            background: #304eaa;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            padding: 11px 18px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #20377e;
+        }
+
+        #output {
+            background: #172033;
+            color: #a8f0b9;
+            padding: 15px;
+            border-radius: 8px;
+            min-height: 45px;
+            white-space: pre-wrap;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #69758a;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>AI LOGIC EXPLAINER</h1>
+    <p>Hoạt động 3 - Sử dụng AI để giải thích logic lập trình</p>
+    <p>Thời gian thực hiện: 30 phút</p>
+</header>
+
+<div class="container">
+
+    <section class="intro">
+        <h2>1. Mục tiêu hoạt động</h2>
+        <p>
+            Sử dụng AI để phân tích mã JavaScript,
+            giải thích luồng chạy của chương trình bằng
+            ngôn ngữ tự nhiên và phát hiện lỗi lập trình.
+        </p>
+        <p>
+            Thông qua hoạt động, sinh viên hiểu rõ hơn
+            cách sử dụng vòng lặp, điều kiện, hàm và mảng.
+        </p>
+    </section>
+
+    <section class="lesson">
+        <h2>2. Ví dụ 1 - Tính tổng bằng vòng lặp</h2>
+
+        <pre><code>let tong = 0;
+
+for (let i = 1; i <= 5; i++) {
+    tong = tong + i;
+}
+
+console.log(tong);</code></pre>
+
+        <div class="explain">
+            <strong>Giải thích của AI:</strong>
+            <ul>
+                <li>tong = 0: Khởi tạo biến tổng.</li>
+                <li>i = 1: Bắt đầu vòng lặp từ 1.</li>
+                <li>i <= 5: Lặp khi i nhỏ hơn hoặc bằng 5.</li>
+                <li>i++: Tăng i lên 1 sau mỗi lần lặp.</li>
+                <li>tong = tong + i: Cộng i vào tổng.</li>
+            </ul>
+        </div>
+
+        <div class="result">
+            <strong>Kết quả:</strong> 15
+        </div>
+    </section>
+
+    <section class="lesson">
+        <h2>3. Ví dụ 2 - Lọc dữ liệu trong mảng</h2>
+
+        <pre><code>let numbers = [2, 4, 6, 8, 10];
+
+let result = numbers.filter(function(num) {
+    return num > 5;
+});
+
+console.log(result);</code></pre>
+
+        <div class="explain">
+            <strong>Giải thích của AI:</strong>
+            <ul>
+                <li>numbers: Danh sách các số ban đầu.</li>
+                <li>filter(): Lọc các phần tử trong mảng.</li>
+                <li>num > 5: Điều kiện giữ lại số lớn hơn 5.</li>
+                <li>return: Trả về điều kiện kiểm tra.</li>
+            </ul>
+        </div>
+
+        <div class="result">
+            <strong>Kết quả:</strong> [6, 8, 10]
+        </div>
+    </section>
+
+    <section class="lesson">
+        <h2>4. Ví dụ 3 - Phát hiện và sửa lỗi</h2>
+
+        <p><strong>Mã nguồn bị lỗi:</strong></p>
+
+        <pre><code>let name = "Minh";
+
+function sayHello() {
+    console.log("Xin chào " + nane);
+}
+
+sayHello();</code></pre>
+
+        <div class="explain">
+            <strong>Giải thích của AI:</strong>
+            <p>
+                Chương trình khai báo biến name nhưng
+                bên trong hàm lại sử dụng nane.
+                Đây là lỗi viết sai tên biến.
+            </p>
+
+            <strong>Cách sửa:</strong>
+            <pre><code>let name = "Minh";
+
+function sayHello() {
+    console.log("Xin chào " + name);
+}
+
+sayHello();</code></pre>
+        </div>
+
+        <div class="result">
+            <strong>Kết quả sau khi sửa:</strong>
+            Xin chào Minh
+        </div>
+    </section>
+
+    <section class="lesson">
+        <h2>5. Ví dụ 4 - Đếm số điểm đạt yêu cầu</h2>
+
+        <pre><code>let diem = 0;
+let danhSach = [7, 8, 4, 9, 5];
+
+for (let i = 0; i < danhSach.length; i++) {
+    if (danhSach[i] >= 7) {
+        diem++;
+    }
+}
+
+console.log("So diem dat:", diem);</code></pre>
+
+        <div class="explain">
+            <strong>Giải thích của AI:</strong>
+            <ul>
+                <li>diem = 0: Khởi tạo biến đếm.</li>
+                <li>danhSach: Chứa 5 điểm số.</li>
+                <li>length: Lấy số lượng phần tử trong mảng.</li>
+                <li>for: Duyệt qua từng phần tử.</li>
+                <li>if: Kiểm tra điểm có >= 7 hay không.</li>
+                <li>diem++: Tăng biến đếm lên 1 nếu đạt điều kiện.</li>
+            </ul>
+        </div>
+
+        <div class="result">
+            <strong>Kết quả:</strong> So diem dat: 3
+        </div>
+    </section>
+
+    <section class="lesson">
+        <h2>6. Thực hành chạy JavaScript</h2>
+        <p>
+            Nhấn nút bên dưới để chạy thử chương trình
+            đếm số điểm đạt yêu cầu.
+        </p>
+
+        <button onclick="chayChuongTrinh()">
+            Chạy chương trình
+        </button>
+
+        <h3>Kết quả chạy:</h3>
+        <div id="output">Kết quả sẽ hiển thị tại đây...</div>
+    </section>
+
+    <section class="conclusion">
+        <h2>7. Nhận xét và kết luận</h2>
+
+        <p>
+            Qua hoạt động AI Logic Explainer, em hiểu rõ
+            hơn cách hoạt động của các câu lệnh JavaScript
+            như vòng lặp for, điều kiện if, hàm filter()
+            và cách sử dụng biến.
+        </p>
+
+        <p>
+            AI giúp em chuyển đổi những đoạn mã khó hiểu
+            thành ngôn ngữ tự nhiên, hỗ trợ phát hiện lỗi
+            và giải thích chương trình theo từng bước.
+        </p>
+
+        <p>
+            Tuy nhiên, em nhận thấy không nên chỉ sao chép
+            kết quả từ AI mà cần đọc, kiểm tra và hiểu
+            logic chương trình để có thể áp dụng vào
+            những bài tập khác.
+        </p>
+    </section>
+
+</div>
+
+<footer>
+    HOẠT ĐỘNG 3 - AI LOGIC EXPLAINER
+</footer>
+
+<script>
+    function chayChuongTrinh() {
+        let diem = 0;
+        let danhSach = [7, 8, 4, 9, 5];
+
+        for (let i = 0; i < danhSach.length; i++) {
+            if (danhSach[i] >= 7) {
+                diem++;
+            }
+        }
+
+        document.getElementById("output").textContent =
+            "So diem dat: " + diem;
+    }
+</script>
+
+</body>
+</html>

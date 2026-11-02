@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refactoring Challenge</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f5f9;
+            color: #263247;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #263d80, #5878dc);
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 950px;
+            margin: 25px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            margin-bottom: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #0000000d;
+        }
+
+        h2 {
+            color: #304eaa;
+            margin-top: 0;
+        }
+
+        pre {
+            background: #172033;
+            color: #dce7ff;
+            padding: 18px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .explain {
+            background: #eef3ff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .result {
+            background: #e8f5ec;
+            padding: 15px;
+            border-left: 5px solid #2c9b57;
+            border-radius: 6px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccd3df;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        button {
+            background: #304eaa;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #20377e;
+        }
+
+        #ketQua {
+            margin-top: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #dce1eb;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #eef3ff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #69758a;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>REFACTORING CHALLENGE</h1>
+    <p>Hoạt động 3 - Tái cấu trúc mã nguồn bằng AI</p>
+    <p>Thời gian thực hiện: 30 phút</p>
+</header>
+
+<div class="container">
+
+    <section class="card">
+        <h2>1. Mục tiêu hoạt động</h2>
+        <p>
+            Sử dụng AI để cải tiến đoạn code tính thuế thu nhập
+            bị lặp lại thành một hàm có thể tái sử dụng
+            cho nhiều mức lương khác nhau.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>2. Vấn đề của code ban đầu</h2>
+
+        <pre><code>let luongA = 8000000;
+let thueA = luongA * 0.05;
+
+let luongB = 15000000;
+let thueB = luongB * 0.05;
+
+let luongC = 25000000;
+let thueC = luongC * 0.05;
+
+console.log(thueA, thueB, thueC);</code></pre>
+
+        <div class="explain">
+            <strong>Nhận xét:</strong>
+            <ul>
+                <li>Code có nhiều phần tính toán lặp lại.</li>
+                <li>Khó sửa đổi khi công thức thay đổi.</li>
+                <li>Không thuận tiện khi thêm nhiều mức lương.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>3. Giải pháp Refactoring</h2>
+
+        <p>
+            Sử dụng hàm tinhThue(luong) để đóng gói
+            công thức tính thuế và tái sử dụng.
+        </p>
+
+        <pre><code>function tinhThue(luong) {
+    let thue = 0;
+
+    if (luong <= 10000000) {
+        thue = luong * 0.05;
+    }
+    else if (luong <= 20000000) {
+        thue = 10000000 * 0.05
+             + (luong - 10000000) * 0.10;
+    }
+    else {
+        thue = 10000000 * 0.05
+             + 10000000 * 0.10
+             + (luong - 20000000) * 0.15;
+    }
+
+    return thue;
+}</code></pre>
+
+        <div class="explain">
+            <strong>Giải thích:</strong>
+            <ul>
+                <li>function: Khai báo một hàm.</li>
+                <li>luong: Tham số đầu vào của hàm.</li>
+                <li>if / else if / else: Phân loại mức lương.</li>
+                <li>return: Trả về số tiền thuế.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>4. Bảng kết quả ví dụ</h2>
+
+        <table>
+            <tr>
+                <th>Mức lương</th>
+                <th>Thuế phải nộp</th>
+            </tr>
+            <tr>
+                <td>8.000.000đ</td>
+                <td>400.000đ</td>
+            </tr>
+            <tr>
+                <td>15.000.000đ</td>
+                <td>1.000.000đ</td>
+            </tr>
+            <tr>
+                <td>25.000.000đ</td>
+                <td>2.250.000đ</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="card">
+        <h2>5. Thực hành tính thuế</h2>
+
+        <p>
+            Nhập mức lương cần tính để kiểm tra
+            khả năng tái sử dụng của hàm.
+        </p>
+
+        <label for="luong">Mức lương (VNĐ):</label>
+        <input
+            type="number"
+            id="luong"
+            placeholder="Ví dụ: 15000000"
+            min="0"
+        >
+
+        <button onclick="tinhVaHienThi()">
+            Tính thuế thu nhập
+        </button>
+
+        <div id="ketQua" class="result">
+            Kết quả sẽ hiển thị tại đây.
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>6. Nhận xét và kết luận</h2>
+
+        <p>
+            Qua hoạt động Refactoring Challenge, em hiểu
+            được cách sử dụng hàm để đóng gói những đoạn
+            code có chức năng giống nhau.
+        </p>
+
+        <p>
+            Việc tái cấu trúc giúp mã nguồn ngắn gọn,
+            dễ đọc, dễ bảo trì và có thể tái sử dụng
+            cho nhiều mức lương khác nhau.
+        </p>
+
+        <p>
+            AI hỗ trợ em nhận biết những phần code
+            bị lặp lại và đề xuất cách cải tiến.
+            Tuy nhiên, em vẫn cần kiểm tra kết quả
+            để đảm bảo chương trình hoạt động chính xác.
+        </p>
+    </section>
+
+</div>
+
+<footer>
+    REFACTORING CHALLENGE - AI ASSISTED PROGRAMMING
+</footer>
+
+<script>
+    // Hàm tính thuế có thể tái sử dụng
+    function tinhThue(luong) {
+        let thue = 0;
+
+        if (luong <= 10000000) {
+            thue = luong * 0.05;
+        }
+        else if (luong <= 20000000) {
+            thue = 10000000 * 0.05
+                 + (luong - 10000000) * 0.10;
+        }
+        else {
+            thue = 10000000 * 0.05
+                 + 10000000 * 0.10
+                 + (luong - 20000000) * 0.15;
+        }
+
+        return thue;
+    }
+
+    // Hàm lấy dữ liệu và hiển thị kết quả
+    function tinhVaHienThi() {
+        let luong = Number(
+            document.getElementById("luong").value
+        );
+
+        let ketQua = document.getElementById("ketQua");
+
+        if (
+            document.getElementById("luong").value === ""
+            || !Number.isFinite(luong)
+            || luong < 0
+        ) {
+            ketQua.textContent =
+                "Vui lòng nhập mức lương hợp lệ!";
+            return;
+        }
+
+        let thue = tinhThue(luong);
+
+        ketQua.textContent =
+            "Mức lương: " + luong.toLocaleString("vi-VN")
+            + " VNĐ | Thuế phải nộp: "
+            + thue.toLocaleString("vi-VN") + " VNĐ";
+    }
+</script>
+
+</body>
+</html>

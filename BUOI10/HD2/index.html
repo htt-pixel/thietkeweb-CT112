@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Switch</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+            background-color: white;
+            color: black;
+            transition: 0.3s;
+        }
+
+        img {
+            width: 150px;
+            margin: 20px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: orange;
+            font-size: 16px;
+        }
+
+        .dark-mode {
+            background-color: #222;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Light Switch - Bật/Tắt bóng đèn</h1>
+
+    <img id="light" src="https://www.w3schools.com/js/pic_bulboff.gif"
+         alt="Bóng đèn đang tắt">
+
+    <br>
+
+    <button id="toggle-light">Bật/Tắt đèn</button>
+
+    <button id="toggle-btn">Dark Mode</button>
+
+    <script>
+        // Bài 1: Bật và tắt bóng đèn
+
+        let light = document.getElementById("light");
+        let toggleLight = document.getElementById("toggle-light");
+
+        let isLightOn = false;
+
+        toggleLight.addEventListener("click", function() {
+
+            if (isLightOn === false) {
+                light.src = "https://www.w3schools.com/js/pic_bulbon.gif";
+                isLightOn = true;
+            } else {
+                light.src = "https://www.w3schools.com/js/pic_bulboff.gif";
+                isLightOn = false;
+            }
+
+        });
+
+        // Bài 2: Chuyển đổi Dark Mode
+
+        let toggleBtn = document.getElementById("toggle-btn");
+
+        toggleBtn.addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+        });
+
+    </script>
+
+</body>
+</html>

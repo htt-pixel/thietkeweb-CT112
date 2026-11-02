@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoạt động 2: Logic Builder</title>
+</head>
+<body>
+    <h1>Bài thực hành: Logic Builder - Xếp loại học lực</h1>
+    <p>Nhấn vào nút bên dưới để nhập điểm số của bạn:</p>
+    <button onclick="kiemTraDiem()">Nhập điểm ngay</button>
+
+    <script>
+        function kiemTraDiem() {
+            // 1. Sử dụng prompt() để lấy điểm số từ người dùng (ép kiểu sang số thực dùng parseFloat)
+            let nhapDiem = prompt("Nhập vào số điểm của bạn (0 - 10):");
+            
+            // Nếu người dùng bấm Cancel thì thoát hàm
+            if (nhapDiem === null) return; 
+
+            let diem = parseFloat(nhapDiem);
+
+            // 2. Kiểm tra dữ liệu nhập vào có phải là số hợp lệ không
+            if (isNaN(diem) || diem < 0 || diem > 10) {
+                alert("Vui lòng nhập một số hợp lệ từ 0 đến 10!");
+                return;
+            }
+
+            // 3. Sử dụng cấu trúc điều kiện if-else để kiểm tra và xếp loại theo yêu cầu
+            // (Theo prompt mẫu: Giỏi (>8), Khá (>6.5), Trung bình (>=5), Yếu (<5))
+            if (diem > 8) {
+                alert("Điểm của bạn là " + diem + " - Xếp loại: GIỎI! Xuất sắc quá!");
+            } else if (diem > 6.5) {
+                alert("Điểm của bạn là " + diem + " - Xếp loại: KHÁ! Cố gắng phát huy nhé!");
+            } else if (diem >= 5) {
+                alert("Điểm của bạn là " + diem + " - Xếp loại: TRUNG BÌNH. Chúc mừng bạn đã đạt!");
+            } else {
+                alert("Điểm của bạn là " + diem + " - Xếp loại: YẾU. Rất tiếc, hãy cố gắng hơn!");
+            }
+        }
+    </script>
+</body>
+</html>

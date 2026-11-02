@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Element Picker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .box {
+            background-color: lightblue;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #menu {
+            background-color: lightgray;
+            padding: 15px;
+        }
+
+        #menu li {
+            margin: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>The Element Picker - Truy tìm thẻ</h1>
+
+    <h2>1. Tìm kiếm phần tử bằng class</h2>
+
+    <div class="box">Đây là hộp số 1</div>
+    <div class="box">Đây là hộp số 2</div>
+    <div class="box">Đây là hộp số 3</div>
+
+    <h2>2. Menu điều hướng</h2>
+
+    <ul id="menu">
+        <li>Trang chủ</li>
+        <li>Giới thiệu</li>
+        <li>Sản phẩm</li>
+        <li>Liên hệ</li>
+    </ul>
+
+    <button onclick="doiMauChu()">Đổi màu chữ thành đỏ</button>
+
+    <script>
+        // Bài 1: Tìm phần tử có class là box
+        console.log(document.querySelector('.box'));
+
+        // Bài 2: Chọn tất cả các thẻ bên trong menu
+        function doiMauChu() {
+            let cacThe = document.querySelectorAll('#menu *');
+
+            cacThe.forEach(function(the) {
+                the.style.color = 'red';
+            });
+        }
+    </script>
+
+</body>
+</html>

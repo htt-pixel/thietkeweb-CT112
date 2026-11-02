@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Input - Phản hồi tức thì</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+            background-color: #f2f2f2;
+        }
+
+        input {
+            padding: 12px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .result {
+            margin-top: 20px;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Live Input - Phản hồi tức thì</h1>
+
+    <p>Hãy nhập tên của bạn vào ô bên dưới:</p>
+
+    <input type="text" id="nameInput" placeholder="Nhập tên của bạn...">
+
+    <h2>Nội dung bạn vừa nhập:</h2>
+
+    <span id="result" class="result">Chưa có nội dung</span>
+
+    <script>
+        // Lấy phần tử input và span từ HTML
+        let nameInput = document.getElementById("nameInput");
+        let result = document.getElementById("result");
+
+        // Lắng nghe sự kiện input
+        nameInput.addEventListener("input", function() {
+
+            // Lấy nội dung người dùng nhập
+            let userText = nameInput.value;
+
+            // Hiển thị nội dung vào thẻ span
+            if (userText === "") {
+                result.textContent = "Chưa có nội dung";
+            } else {
+                result.textContent = userText;
+            }
+
+        });
+    </script>
+
+</body>
+</html>

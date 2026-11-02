@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Factory</title>
+</head>
+<body>
+
+    <h1>Function Factory - Nhà máy xử lý dữ liệu</h1>
+
+    <h2>1. Tính diện tích hình chữ nhật</h2>
+    <div id="ketQuaDienTich"></div>
+
+    <h2>2. Thông tin người dùng</h2>
+    <div id="ketQuaNguoiDung"></div>
+
+    <script>
+        // Bài 1: Hàm tính diện tích hình chữ nhật
+        function tinhDienTich(dai, rong) {
+            return dai * rong;
+        }
+
+        // Gọi hàm 3 lần với thông số khác nhau
+        let dienTich1 = tinhDienTich(10, 5);
+        let dienTich2 = tinhDienTich(8, 4);
+        let dienTich3 = tinhDienTich(12, 6);
+
+        document.getElementById("ketQuaDienTich").innerHTML =
+            "Hình chữ nhật 1: " + dienTich1 + "<br>" +
+            "Hình chữ nhật 2: " + dienTich2 + "<br>" +
+            "Hình chữ nhật 3: " + dienTich3;
+
+        // Bài 2: Hàm chào người dùng
+        function chaoNguoiDung(ten, namSinh) {
+            let namHienTai = new Date().getFullYear();
+            let tuoi = namHienTai - namSinh;
+
+            return "Chào " + ten + ", bạn hiện tại " + tuoi + " tuổi";
+        }
+
+        // Gọi hàm
+        let loiChao = chaoNguoiDung("Minh", 2005);
+
+        // In kết quả ra Console
+        console.log(loiChao);
+
+        // Hiển thị kết quả lên trang HTML
+        document.getElementById("ketQuaNguoiDung").innerHTML = loiChao;
+    </script>
+
+</body>
+</html>
