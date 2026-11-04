@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Theme & Brand Switcher Landing Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER / NAVIGATION -->
+  <header class="site-header">
+    <div class="logo">BrandHub</div>
+    
+    <div class="controls-group">
+      <!-- Brand Switcher Buttons -->
+      <div class="brand-switcher">
+        <button class="brand-btn active" data-brand="eco">Eco</button>
+        <button class="brand-btn" data-brand="luxury">Luxury</button>
+        <button class="brand-btn" data-brand="cyberpunk">Cyberpunk</button>
+      </div>
+
+      <!-- Toggle Dark/Light Mode -->
+      <button id="toggleThemeBtn" class="theme-toggle-btn" title="Chuyển đổi sáng/tối">🌓 Chế Độ</button>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <main class="hero-section">
+    <div class="hero-card">
+      <h1 id="heroTitle">Sống Xanh & Phát Triển Bền Vững</h1>
+      <p id="heroSubtitle">Khám phá các giải pháp thân thiện với môi trường, hướng tới một tương lai xanh sạch và an toàn hơn cho hành tinh của chúng ta.</p>
+      <a href="#explore" class="btn-primary" id="heroBtn">Khám Phá Ngay</a>
+    </div>
+  </main>
+
+  <script src="vs.js"></script>
+</body>
+</html>

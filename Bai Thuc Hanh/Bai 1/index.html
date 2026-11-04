@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task & Itinerary Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon">⚡</span>
+        <h2>TaskFlow</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active">
+          <span class="nav-icon">📊</span> Tổng quan
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">✅</span> Công việc
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">✈️</span> Lịch trình
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">⚙️</span> Cài đặt
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="avatar">Q</div>
+          <div class="user-info">
+            <span class="user-name">Minh Quang</span>
+            <span class="user-role">Frontend Dev</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="greeting-box">
+          <h1 id="greeting-title">Xin chào, Quang! 👋</h1>
+          <p class="greeting-subtitle">Chúc bạn một ngày làm việc hiệu quả và năng suất.</p>
+        </div>
+        <div class="clock-badge">
+          <span class="clock-icon">🕒</span>
+          <span id="realtime-clock">00:00:00</span>
+        </div>
+      </header>
+
+      <!-- Grid Dashboard Widgets (Weather & Quick Task) -->
+      <div class="dashboard-grid">
+        <!-- Weather Widget (Cột trái) -->
+        <div class="weather-card">
+          <div class="weather-display" id="weather-display">
+            <div class="weather-icon" id="weather-icon">☀️</div>
+            <div class="weather-info-group">
+              <span class="city-name" id="city-name">Biên Hòa</span>
+              <span class="weather-temp" id="weather-temp">32°C</span>
+              <span class="weather-condition" id="weather-condition">Nắng nóng</span>
+            </div>
+          </div>
+          <div class="weather-control">
+            <label for="city-select">Chọn địa điểm:</label>
+            <select id="city-select">
+              <option value="Biên Hòa">Biên Hòa</option>
+              <option value="Đà Lạt">Đà Lạt</option>
+              <option value="Vũng Tàu">Vũng Tàu</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Task Creator Card (Cột phải) -->
+        <div class="form-card">
+          <h3>Thêm công việc mới</h3>
+          <form id="task-form" class="task-input-group">
+            <input 
+              type="text" 
+              id="task-input" 
+              placeholder="Nhập tên công việc cần làm..." 
+              required
+              autocomplete="off"
+            >
+            <button type="submit" class="btn-primary">
+              <span>+</span> Thêm Task
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Task List Section -->
+      <section class="task-list-section">
+        <div class="section-header">
+          <h3>Danh sách công việc</h3>
+          <span class="task-count" id="task-count">3 công việc</span>
+        </div>
+        <ul class="task-list" id="task-list">
+          <li class="task-item">
+            <label class="checkbox-container">
+              <input type="checkbox" checked>
+              <span class="checkmark"></span>
+              <span class="task-text">Tối ưu hóa bố cục CSS Grid cho Task Dashboard</span>
+            </label>
+            <span class="tag tag-success">Đã xong</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Itinerary Section (Quản lý Lịch trình & Địa điểm du lịch) -->
+      <section class="itinerary-section">
+        <h3>Quản lý Lịch trình Du lịch & Điểm đến</h3>
+        <form id="itinerary-form" class="itinerary-form">
+          <input type="text" id="place-input" placeholder="Nhập tên địa điểm..." required autocomplete="off">
+          <input type="text" id="time-input" placeholder="Thời gian (VD: 08:30 sáng)..." required autocomplete="off">
+          <button type="submit" class="btn-primary">Thêm Lịch Trình</button>
+        </form>
+
+        <ul class="itinerary-list" id="itinerary-list">
+          <!-- Các item được render động từ JS -->
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <!-- Import Main Script as ES6 Module -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

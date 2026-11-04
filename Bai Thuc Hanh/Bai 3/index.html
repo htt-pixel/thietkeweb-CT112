@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký sự kiện AI Workshop 2026</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: #f8fafc;
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Minimalist Form Container */
+    .form-card {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 450px;
+      padding: 36px 32px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+      border: 1px solid #e2e8f0;
+    }
+
+    .form-card h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .form-card p.subtitle {
+      font-size: 0.875rem;
+      color: #64748b;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    /* Form Group & Inputs */
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 0.95rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      outline: none;
+      transition: all 0.2s ease;
+      background-color: #fff;
+    }
+
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    }
+
+    .form-control.error-border {
+      border-color: #ef4444;
+    }
+
+    /* Validation Error Message */
+    .error-msg {
+      color: #ef4444;
+      font-size: 0.8rem;
+      margin-top: 5px;
+      min-height: 18px;
+    }
+
+    /* Submit Button */
+    .btn-submit {
+      width: 100%;
+      padding: 13px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-submit:disabled {
+      background-color: #94a3b8;
+      cursor: not-allowed;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-card">
+    <h2>AI Workshop 2026</h2>
+    <p class="subtitle">Điền thông tin để hoàn tất đăng ký tham dự</p>
+
+    <form id="registrationForm" novalidate>
+      <!-- Họ và tên -->
+      <div class="form-group">
+        <label for="fullName">Họ và tên</label>
+        <input type="text" id="fullName" class="form-control" placeholder="Nguyễn Văn A">
+        <div class="error-msg" id="fullNameError"></div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Địa chỉ Email</label>
+        <input type="email" id="email" class="form-control" placeholder="example@domain.com">
+        <div class="error-msg" id="emailError"></div>
+      </div>
+
+      <!-- Số điện thoại -->
+      <div class="form-group">
+        <label for="phone">Số điện thoại</label>
+        <input type="tel" id="phone" class="form-control" placeholder="0901234567">
+        <div class="error-msg" id="phoneError"></div>
+      </div>
+
+      <!-- Loại vé -->
+      <div class="form-group">
+        <label for="ticketType">Loại vé tham dự</label>
+        <select id="ticketType" class="form-control">
+          <option value="">-- Chọn loại vé --</option>
+          <option value="VIP">Vé VIP</option>
+          <option value="Standard">Vé Standard</option>
+          <option value="Student">Vé Student</option>
+        </select>
+        <div class="error-msg" id="ticketTypeError"></div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" id="submitBtn" class="btn-submit">Đăng Ký Ngay</button>
+    </form>
+  </div>
+
+  <script>
+    // ==========================================
+    // CẤU HÌNH WEB APP URL TỪ GOOGLE APPS SCRIPT
+    // ==========================================
+    const SCRIPT_URL = 'THAY_THE_URL_WEB_APP_CUA_BAN_VAI_DAY';
+
+    const form = document.getElementById('registrationForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Element inputs & errors
+    const fields = {
+      fullName: { input: document.getElementById('fullName'), error: document.getElementById('fullNameError') },
+      email: { input: document.getElementById('email'), error: document.getElementById('emailError') },
+      phone: { input: document.getElementById('phone'), error: document.getElementById('phoneError') },
+      ticketType: { input: document.getElementById('ticketType'), error: document.getElementById('ticketTypeError') }
+    };
+
+    // ==========================================
+    // BƯỚC 2: VALIDATE FORM (PURE JAVASCRIPT)
+    // ==========================================
+    function validateForm() {
+      let isValid = true;
+
+      // Reset toàn bộ thông báo lỗi
+      Object.values(fields).forEach(f => {
+        f.error.textContent = '';
+        f.input.classList.remove('error-border');
+      });
+
+      // 1. Validate Họ tên
+      const fullNameVal = fields.fullName.input.value.trim();
+      if (!fullNameVal) {
+        showError(fields.fullName, 'Vui lòng nhập họ và tên.');
+        isValid = false;
+      }
+
+      // 2. Validate Email (RegEx chuẩn)
+      const emailVal = fields.email.input.value.trim();
+      const emailRegex = /^[a-zA-Z0-0._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailVal) {
+        showError(fields.email, 'Vui lòng nhập email.');
+        isValid = false;
+      } else if (!emailRegex.test(emailVal)) {
+        showError(fields.email, 'Email không đúng định dạng.');
+        isValid = false;
+      }
+
+      // 3. Validate SĐT (Đủ 10 chữ số)
+      const phoneVal = fields.phone.input.value.trim();
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneVal) {
+        showError(fields.phone, 'Vui lòng nhập số điện thoại.');
+        isValid = false;
+      } else if (!phoneRegex.test(phoneVal)) {
+        showError(fields.phone, 'Số điện thoại phải bao gồm đúng 10 chữ số.');
+        isValid = false;
+      }
+
+      // 4. Validate Loại vé
+      const ticketVal = fields.ticketType.input.value;
+      if (!ticketVal) {
+        showError(fields.ticketType, 'Vui lòng chọn loại vé.');
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    function showError(field, message) {
+      field.error.textContent = message;
+      field.input.classList.add('error-border');
+    }
+
+    // ==========================================
+    // BƯỚC 4: GỬI DỮ LIỆU BẰNG FETCH API
+    // ==========================================
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      if (!validateForm()) return;
+
+      // Vô hiệu hóa nút bấm & Đổi trạng thái Loading
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Loading...';
+
+      const formData = {
+        Name: fields.fullName.input.value.trim(),
+        Email: fields.email.input.value.trim(),
+        Phone: fields.phone.input.value.trim(),
+        TicketType: fields.ticketType.input.value
+      };
+
+      try {
+        const response = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8', // Dùng text/plain để tránh CORS preflight trên Google Apps Script
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (result.status === 'success') {
+          alert('🎉 Chúc mừng! Bạn đã đăng ký tham dự AI Workshop 2026 thành công.');
+          form.reset();
+        } else {
+          alert('Đã có lỗi xảy ra: ' + (result.message || 'Không rõ lý do'));
+        }
+      } catch (error) {
+        console.error('Fetch Error:', error);
+        alert('Có lỗi kết nối! Vui lòng thử lại sau.');
+      } finally {
+        // Mở lại nút bấm & Reset chữ
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Đăng Ký Ngay';
+      }
+    });
+  </script>
+</body>
+</html>

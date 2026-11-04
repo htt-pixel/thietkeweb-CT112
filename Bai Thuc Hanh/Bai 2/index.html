@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Planner - Travel Dashboard</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%), 
+                  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #1e293b;
+    }
+
+    /* Main Glass Container */
+    .app-container {
+      width: 100%;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 24px;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+      padding: 30px;
+    }
+
+    /* Common Card Styling inside Container */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Cột Trái: Thời Tiết */
+    .weather-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .weather-main {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    /* Live Clock Styling */
+    .live-clock {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #334155;
+      background: rgba(255, 255, 255, 0.4);
+      padding: 6px 14px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.5px;
+    }
+
+    .location-selector {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      color: #334155;
+      outline: none;
+      margin-bottom: 15px;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+
+    .temp-display {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1;
+      margin: 10px 0;
+    }
+
+    .weather-status {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #475569;
+    }
+
+    .weather-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .detail-item span {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .detail-item strong {
+      font-size: 1.1rem;
+      color: #1e293b;
+      margin-top: 4px;
+    }
+
+    .forecast-list {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .forecast-day {
+      flex: 1;
+      text-align: center;
+      padding: 10px 5px;
+    }
+
+    .forecast-day .day {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #475569;
+    }
+
+    .forecast-day .icon {
+      font-size: 1.2rem;
+      margin: 6px 0;
+    }
+
+    .forecast-day .temp {
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    /* Cột Phải: Lịch Trình Du Lịch */
+    .itinerary-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .planner-form {
+      display: flex;
+      gap: 10px;
+      padding: 16px;
+    }
+
+    .planner-form input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      padding: 10px 14px;
+      border-radius: 12px;
+      outline: none;
+      color: #0f172a;
+      font-size: 0.9rem;
+    }
+
+    .planner-form input::placeholder {
+      color: #64748b;
+    }
+
+    .planner-form input:focus {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: #2563eb;
+    }
+
+    .btn-add {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-weight: 600;
+      color: #2563eb;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-add:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px);
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 420px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      animation: fadeInSlideDown 0.35s ease forwards;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(4px);
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .timeline-item.fade-out {
+      animation: fadeOut 0.3s ease forwards;
+    }
+
+    /* Trạng thái Đã đến */
+    .timeline-item.visited {
+      background: rgba(34, 197, 94, 0.2);
+      border-color: rgba(34, 197, 94, 0.4);
+    }
+
+    .timeline-item.visited .activity-info h4 {
+      text-decoration: line-through;
+      color: #15803d;
+    }
+
+    .time-badge {
+      background: rgba(37, 99, 235, 0.15);
+      color: #1d4ed8;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      min-width: 85px;
+      text-align: center;
+    }
+
+    .activity-info {
+      flex: 1;
+      margin: 0 16px;
+    }
+
+    .activity-info h4 {
+      font-size: 1rem;
+      color: #0f172a;
+    }
+
+    .activity-info p {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .item-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn-action {
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn-visit {
+      background: rgba(37, 99, 235, 0.15);
+      color: #1d4ed8;
+    }
+
+    .btn-visit:hover {
+      background: rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-delete {
+      background: rgba(239, 68, 68, 0.15);
+      color: #b91c1c;
+    }
+
+    .btn-delete:hover {
+      background: rgba(239, 68, 68, 0.3);
+    }
+
+    /* Animations */
+    @keyframes fadeInSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 850px) {
+      .app-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .weather-details {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .activity-info {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="app-container">
+    <!-- Cột Trái: Thông Tin Thời Tiết -->
+    <section class="weather-column">
+      <div class="glass-card weather-main">
+        <!-- Đồng hồ thời gian thực đang đếm -->
+        <div class="live-clock" id="liveClock">Đang tải giờ...</div>
+
+        <select class="location-selector" id="citySelect" aria-label="Chọn địa điểm">
+          <option value="bienhoa">📍 Biên Hòa, Việt Nam</option>
+          <option value="dalat">📍 Đà Lạt, Việt Nam</option>
+          <option value="vungtau">📍 Vũng Tàu, Việt Nam</option>
+        </select>
+        <div class="temp-display" id="weatherTemp">33°C</div>
+        <div class="weather-status" id="weatherStatus">☀️ Nắng nhiều, trời oi khô</div>
+      </div>
+
+      <div class="weather-details">
+        <div class="glass-card detail-item">
+          <span>Độ ẩm</span>
+          <strong>65%</strong>
+        </div>
+        <div class="glass-card detail-item">
+          <span>Tốc độ gió</span>
+          <strong>12 km/h</strong>
+        </div>
+        <div class="glass-card detail-item">
+          <span>Chỉ số UV</span>
+          <strong>4 (Vừa)</strong>
+        </div>
+        <div class="glass-card detail-item">
+          <span>Khả năng mưa</span>
+          <strong>10%</strong>
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <h2>Dự báo 4 ngày tới</h2>
+        <div class="forecast-list">
+          <div class="glass-card forecast-day">
+            <div class="day">Thứ 2</div>
+            <div class="icon">☀️</div>
+            <div class="temp">29°C</div>
+          </div>
+          <div class="glass-card forecast-day">
+            <div class="day">Thứ 3</div>
+            <div class="icon">⛅</div>
+            <div class="temp">27°C</div>
+          </div>
+          <div class="glass-card forecast-day">
+            <div class="day">Thứ 4</div>
+            <div class="icon">🌧️</div>
+            <div class="temp">24°C</div>
+          </div>
+          <div class="glass-card forecast-day">
+            <div class="day">Thứ 5</div>
+            <div class="icon">🌤️</div>
+            <div class="temp">26°C</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cột Phải: Lịch Trình Du Lịch -->
+    <section class="itinerary-column">
+      <div class="planner-header">
+        <h2>🗓️ Lịch Trình Hôm Nay</h2>
+      </div>
+
+      <!-- Form Nhập Địa Điểm & Thời Gian -->
+      <div class="glass-card planner-form">
+        <input type="text" id="timeInput" placeholder="Thời gian (VD: 08:00 AM)" aria-label="Thời gian" />
+        <input type="text" id="locationInput" placeholder="Nhập địa điểm / hoạt động..." aria-label="Địa điểm" />
+        <button class="btn-add" id="addBtn">Thêm</button>
+      </div>
+
+      <div class="timeline" id="timelineContainer">
+        <!-- Danh sách sẽ được render tự động bằng JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modular JavaScript Engine -->
+  <script>
+    /* ==========================================================================
+       1. CONSTANTS & INITIAL DATA
+       ========================================================================== */
+    const STORAGE_KEY_CITY = "weather_planner_selected_city";
+    const STORAGE_KEY_ITINERARY = "weather_planner_itinerary_list";
+
+    const weatherData = [
+      { id: "bienhoa", name: "Biên Hòa", temp: "33°C", condition: "Nắng nhiều, trời oi khô", icon: "☀️" },
+      { id: "dalat", name: "Đà Lạt", temp: "19°C", condition: "Có mây, se lạnh về chiều", icon: "⛅" },
+      { id: "vungtau", name: "Vũng Tàu", temp: "29°C", condition: "Nắng đẹp, gió biển mát", icon: "🌤️" }
+    ];
+
+    const defaultItinerary = [
+      { id: "init-1", time: "07:30 AM", title: "Ngắm bình minh & Ăn sáng", desc: "Bãi biển Mỹ Khê - Bún chả cá", visited: false },
+      { id: "init-2", time: "10:00 AM", title: "Tham quan Chùa Linh Ứng", desc: "Bán đảo Sơn Trà", visited: false }
+    ];
+
+    /* ==========================================================================
+       2. DOM ELEMENTS
+       ========================================================================== */
+    const citySelect = document.getElementById("citySelect");
+    const weatherTemp = document.getElementById("weatherTemp");
+    const weatherStatus = document.getElementById("weatherStatus");
+    const addBtn = document.getElementById("addBtn");
+    const timeInput = document.getElementById("timeInput");
+    const locationInput = document.getElementById("locationInput");
+    const timelineContainer = document.getElementById("timelineContainer");
+    const liveClockElement = document.getElementById("liveClock");
+
+    /* ==========================================================================
+       3. LIVE CLOCK MODULE (Đồng hồ đếm thời gian thực)
+       ========================================================================== */
+    function initLiveClock() {
+      function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        
+        const options = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
+        const dateStr = now.toLocaleDateString('vi-VN', options);
+
+        liveClockElement.textContent = `🕒 ${hours}:${minutes}:${seconds} - ${dateStr}`;
+      }
+
+      updateClock(); // Chạy ngay lập tức khi load
+      setInterval(updateClock, 1000); // Lặp lại mỗi giây để đếm
+    }
+
+    /* ==========================================================================
+       4. LOCAL STORAGE MODULE (Quản lý lưu trữ)
+       ========================================================================== */
+    function saveStorage(key, data) {
+      try {
+        localStorage.setItem(key, JSON.stringify(data));
+      } catch (e) {
+        console.error("Lỗi khi ghi LocalStorage:", e);
+      }
+    }
+
+    function loadStorage(key, fallbackValue) {
+      try {
+        const data = localStorage.getItem(key);
+        return data ? JSON.parse(data) : fallbackValue;
+      } catch (e) {
+        console.error("Lỗi khi đọc LocalStorage:", e);
+        return fallbackValue;
+      }
+    }
+
+    /* ==========================================================================
+       5. RENDER MODULE (Cập nhật giao diện UI)
+       ========================================================================== */
+    function renderWeatherUI(cityId) {
+      const selectedCity = weatherData.find(item => item.id === cityId);
+      if (selectedCity) {
+        weatherTemp.textContent = selectedCity.temp;
+        weatherStatus.textContent = `${selectedCity.icon} ${selectedCity.condition}`;
+        citySelect.value = cityId;
+      }
+    }
+
+    function renderItineraryUI(itineraryList) {
+      timelineContainer.innerHTML = "";
+
+      itineraryList.forEach(item => {
+        const card = document.createElement("div");
+        card.className = `glass-card timeline-item ${item.visited ? "visited" : ""}`;
+        card.dataset.id = item.id;
+
+        card.innerHTML = `
+          <span class="time-badge">${escapeHTML(item.time)}</span>
+          <div class="activity-info">
+            <h4>${escapeHTML(item.title)}</h4>
+            <p>${escapeHTML(item.desc || "Hoạt động du lịch")}</p>
+          </div>
+          <div class="item-actions">
+            <button class="btn-action btn-visit" onclick="toggleStatus('${item.id}')">
+              ${item.visited ? "Hoàn tác" : "Đã đến"}
+            </button>
+            <button class="btn-action btn-delete" onclick="deleteItem('${item.id}')">Xóa</button>
+          </div>
+        `;
+
+        timelineContainer.appendChild(card);
+      });
+    }
+
+    function renderUI() {
+      const savedCity = loadStorage(STORAGE_KEY_CITY, "bienhoa");
+      const savedItinerary = loadStorage(STORAGE_KEY_ITINERARY, defaultItinerary);
+
+      renderWeatherUI(savedCity);
+      renderItineraryUI(savedItinerary);
+      initLiveClock(); // Khởi chạy đồng hồ
+    }
+
+    /* ==========================================================================
+       6. ACTION MODULE (Xử lý tác vụ Lịch trình)
+       ========================================================================== */
+    function addItinerary() {
+      const timeValue = timeInput.value.trim();
+      const locationValue = locationInput.value.trim();
+
+      if (!timeValue || !locationValue) {
+        alert("Vui lòng nhập đầy đủ thời gian và địa điểm!");
+        return;
+      }
+
+      const currentList = loadStorage(STORAGE_KEY_ITINERARY, defaultItinerary);
+      const newItem = {
+        id: "item-" + Date.now(),
+        time: timeValue,
+        title: locationValue,
+        desc: "Lịch trình tự chọn",
+        visited: false
+      };
+
+      const updatedList = [...currentList, newItem];
+      saveStorage(STORAGE_KEY_ITINERARY, updatedList);
+      renderItineraryUI(updatedList);
+
+      timeInput.value = "";
+      locationInput.value = "";
+      timeInput.focus();
+    }
+
+    function toggleStatus(itemId) {
+      const currentList = loadStorage(STORAGE_KEY_ITINERARY, defaultItinerary);
+      const updatedList = currentList.map(item => {
+        if (item.id === itemId) {
+          return { ...item, visited: !item.visited };
+        }
+        return item;
+      });
+
+      saveStorage(STORAGE_KEY_ITINERARY, updatedList);
+      renderItineraryUI(updatedList);
+    }
+
+    function deleteItem(itemId) {
+      const elementToRemove = document.querySelector(`[data-id="${itemId}"]`);
+      
+      if (elementToRemove) {
+        elementToRemove.classList.add("fade-out");
+
+        setTimeout(() => {
+          const currentList = loadStorage(STORAGE_KEY_ITINERARY, defaultItinerary);
+          const updatedList = currentList.filter(item => item.id !== itemId);
+
+          saveStorage(STORAGE_KEY_ITINERARY, updatedList);
+          renderItineraryUI(updatedList);
+        }, 300);
+      }
+    }
+
+    /* ==========================================================================
+       7. EVENTS & GLOBAL BINDING
+       ========================================================================== */
+    citySelect.addEventListener("change", (e) => {
+      const selectedCityId = e.target.value;
+      saveStorage(STORAGE_KEY_CITY, selectedCityId);
+      renderWeatherUI(selectedCityId);
+    });
+
+    addBtn.addEventListener("click", addItinerary);
+
+    locationInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") addItinerary();
+    });
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g, 
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+      );
+    }
+
+    window.toggleStatus = toggleStatus;
+    window.deleteItem = deleteItem;
+
+    document.addEventListener("DOMContentLoaded", renderUI);
+  </script>
+</body>
+</html>

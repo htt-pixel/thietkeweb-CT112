@@ -1,0 +1,103 @@
+/* Form thêm lịch trình */
+    .planner-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding: 16px;
+    }
+
+    .planner-form input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      padding: 10px 14px;
+      border-radius: 12px;
+      outline: none;
+      color: #0f172a;
+      font-size: 0.9rem;
+    }
+
+    .planner-form input::placeholder {
+      color: #64748b;
+    }
+
+    .planner-form input:focus {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: #2563eb;
+    }
+
+    /* Nhóm nút hành động trong mỗi item */
+    .item-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn-action {
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn-visit {
+      background: rgba(37, 99, 235, 0.15);
+      color: #1d4ed8;
+    }
+
+    .btn-visit:hover {
+      background: rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-delete {
+      background: rgba(239, 68, 68, 0.15);
+      color: #b91c1c;
+    }
+
+    .btn-delete:hover {
+      background: rgba(239, 68, 68, 0.3);
+    }
+
+    /* Trạng thái 'Đã đến' (Visited) */
+    .timeline-item.visited {
+      background: rgba(34, 197, 94, 0.2);
+      border-color: rgba(34, 197, 94, 0.4);
+    }
+
+    .timeline-item.visited .activity-info h4 {
+      text-decoration: line-through;
+      color: #15803d;
+    }
+
+    /* Hiệu ứng CSS Animations */
+    @keyframes fadeInSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+    }
+
+    .timeline-item {
+      animation: fadeInSlideDown 0.35s ease forwards;
+    }
+
+    .timeline-item.fade-out {
+      animation: fadeOut 0.3s ease forwards;
+    }

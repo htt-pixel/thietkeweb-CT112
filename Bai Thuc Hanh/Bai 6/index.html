@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Cursor, Parallax & Magnetic Button</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- BƯỚC 1: CUSTOM CURSOR -->
+  <div class="custom-cursor" id="customCursor"></div>
+
+  <!-- BƯỚC 2: HERO SECTION VỚI PARALLAX EFFECT -->
+  <header class="hero-section">
+    <div class="parallax-bg" id="parallaxBg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Trải Nghiệm Tương Tác Đỉnh Cao</h1>
+      <p class="hero-subtitle">Khám phá các hiệu ứng Front-end nâng cao với Custom Cursor, Parallax Scroll và Magnetic Button.</p>
+      
+      <!-- BƯỚC 3: MAGNETIC BUTTON -->
+      <button class="magnetic-btn" id="magneticBtn">
+        <span class="btn-text">Hover Vào Tôi</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- NỘI DUNG CUỘN TRANG DÙNG ĐỂ KIỂM TRA SCROLL PARALLAX -->
+  <main class="content-section">
+    <div class="container">
+      <h2>Cuộn Xuống Để Trải Nghiệm Parallax</h2>
+      <p>Khi bạn cuộn trang, ảnh nền Hero Section ở phía trên sẽ di chuyển chậm hơn so với tốc độ cuộn thông thường (hệ số 0.5) nhờ tối ưu hóa qua requestAnimationFrame.</p>
+      <div class="demo-card">
+        <h3>Tính năng nổi bật</h3>
+        <ul>
+          <li><strong>Custom Cursor:</strong> Theo dõi con trỏ chuột mượt mà với hiệu ứng lag mượt.</li>
+          <li><strong>Parallax Background:</strong> Dịch chuyển nền mượt mà theo độ cuộn trang.</li>
+          <li><strong>Magnetic Button:</strong> Nút bấm bị hút về hướng con trỏ chuột trong bán kính 100px.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script src="vs.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart EV - Trải nghiệm xe điện thông minh</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR & THANH TÌM KIẾM -->
+  <nav class="navbar">
+    <div class="nav-brand">Smart EV</div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Tìm kiếm tính năng...">
+      <button id="searchBtn" class="search-btn" title="Tìm kiếm">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- BƯỚC 1: HERO SECTION -->
+  <header class="hero-section">
+    <h1 class="hero-title">Tương Lai Di Chuyển Thông Minh</h1>
+    <p class="hero-subtitle">Khám phá dòng ô tô điện thế hệ mới với hiệu suất vượt trội, công nghệ tự lái tiên tiến và thiết kế sang trọng tuyệt đỉnh.</p>
+    <a href="#gallery" class="btn-gradient">Khám phá ngay</a>
+  </header>
+
+  <!-- BƯỚC 2: ABOUT / FEATURES SECTION (Scroll Reveal) -->
+  <section id="about">
+    <h2 class="section-title">Đổi Mới Từng Chuyển Động</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Hiệu Suất Vượt Trội</h3>
+        <p>Động cơ điện kép mang lại khả năng tăng tốc mượt mà từ 0-100km/h chỉ trong chưa đầy 3.5 giây với tầm hoạt động trên 600km mỗi lần sạc.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Công Nghệ Thông Minh AI</h3>
+        <p>Hệ thống tự lái cấp độ 3 tích hợp AI học sâu, cập nhật phần mềm OTA liên tục giúp xe thông minh hơn mỗi ngày.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Thân Thiện Môi Trường</h3>
+        <p>Không phát thải carbon trực tiếp, vật liệu nội thất tái chế cao cấp đạt tiêu chuẩn bảo vệ hành tinh xanh.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BƯỚC 3: INTERACTIVE CAR SHOWCASE (Gallery) -->
+  <section id="gallery">
+    <h2 class="section-title">Trưng Bày & Tùy Chọn Màu Sắc</h2>
+    <div class="showcase-container">
+      <div class="car-display-box">
+        <img id="carImage" class="car-image" src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1000&q=80" alt="Xe điện thông minh màu đỏ">
+      </div>
+      <div class="color-picker-group">
+        <button class="color-btn active" style="background-color: #dc2626;" data-img="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1000&q=80" title="Đỏ Thể Thao"></button>
+        <button class="color-btn" style="background-color: #0f172a; border-color: #475569;" data-img="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1000&q=80" title="Đen Huyền Bí"></button>
+        <button class="color-btn" style="background-color: #f8fafc;" data-img="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1000&q=80" title="Trắng Ngọc Trinh"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BƯỚC 4: FOOTER 3 CỘT & NÚT CHAT ZALO CỐ ĐỊNH -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Về Smart EV</h4>
+        <p>Tiên phong trong giải pháp giao thông xanh và thông minh, mang lại trải nghiệm lái xe đẳng cấp và bền vững cho tương lai.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Kết Nhanh</h4>
+        <ul>
+          <li><a href="#">Trang chủ</a></li>
+          <li><a href="#about">Công nghệ</a></li>
+          <li><a href="#gallery">Sản phẩm</a></li>
+          <li><a href="#">Dịch vụ hậu mãi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kết Nối Với Chúng Tôi</h4>
+        <p>Hotline: 1900 1234<br>Email: support@smartev.vn<br>Địa chỉ: Khu công nghệ cao, TP. Biên Hòa</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Smart EV Vietnam. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Nút Chat Zalo Cố Định Góc Phải -->
+  <a href="https://zalo.me" target="_blank" class="zalo-float-btn" id="zaloBtn" title="Chat Zalo với chúng tôi">
+    <svg viewBox="0 0 48 48">
+      <path d="M24 4C12.95 4 4 12.95 4 24c0 4.54 1.56 8.73 4.18 12.07L6 42l6.23-2.12C15.53 42.44 19.63 44 24 44c11.05 0 20-8.95 20-20S35.05 4 24 4zm11.23 27.64c-.45 1.28-2.6 2.38-3.57 2.52-.92.14-2.11.2-3.41-.23-2.79-.92-4.59-2.68-6.14-4.56-1.83-2.22-3.3-4.88-4.45-7.85-.38-.97-.04-1.5.34-1.93.35-.4.77-1.04 1.15-1.56.38-.52.5-.89.75-1.46.25-.57.12-1.07-.06-1.5-.18-.43-1.61-3.89-2.21-5.32-.58-1.39-1.18-1.2-1.62-1.22-.42-.02-.9-.02-1.38-.02-.48 0-1.26.18-1.92.9-.66.72-2.52 2.46-2.52 5.99 0 3.53 2.58 6.94 2.94 7.42.36.48 5.09 7.78 12.33 10.6 5.86 2.3 7.05 1.84 8.32 1.72 1.27-.12 4.1-1.68 4.68-3.31.58-1.63.58-3.03.41-3.31-.17-.28-.62-.44-1.3-.78z"/>
+    </svg>
+  </a>
+
+  <script src="vs.js"></script>
+</body>
+</html>
