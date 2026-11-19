@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tuần 12 - Quản lý dữ liệu sản phẩm</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Danh sách sản phẩm</h1>
+
+    <div class="toolbar">
+      <button id="btn-all" type="button">Tất cả (10)</button>
+      <button id="btn-sale" type="button">Đang giảm giá</button>
+      <button id="btn-over-1m" type="button">Giá &gt; 1 triệu</button>
+    </div>
+
+    <section id="product-list" class="product-grid" aria-live="polite"></section>
+  </main>
+
+  <script src="activity1-user.js"></script>
+  <script src="activity2-filter.js"></script>
+  <script src="activity3-render.js"></script>
+</body>
+</html>

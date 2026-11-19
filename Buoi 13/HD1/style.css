@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7f6;
+  color: #1f2933;
+}
+
+.pitch-header {
+  background: #2b6cb0;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.pitch-main {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.pitch-controls {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 14px;
+  border: 1px solid #cbd5e0;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background: #2b6cb0;
+  color: #ffffff;
+  border-color: #2b6cb0;
+}
+
+#pitch-search {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #cbd5e0;
+}
+
+.pitch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+}
+
+.pitch-card,
+.pitch-summary {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.pitch-card button,
+.pitch-summary button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #2b6cb0;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#pitch-cart {
+  list-style: none;
+  margin: 10px 0;
+}
+
+#pitch-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+#pitch-phone {
+  padding: 8px;
+  border: 1px solid #cbd5e0;
+}
+
+@media (max-width: 768px) {
+  .pitch-main {
+    grid-template-columns: 1fr;
+  }
+}

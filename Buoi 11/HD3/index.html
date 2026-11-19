@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hoạt động 3 - Data Collector</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>Hồ Sơ Người Dùng</h2>
+  <form id="profileForm">
+    <div class="group">
+      <label class="group-title" for="name">Họ và tên:</label>
+      <input type="text" id="name" required placeholder="Nguyễn Văn A" />
+    </div>
+
+    <div class="group">
+      <label class="group-title" for="userEmail">Email:</label>
+      <input type="email" id="userEmail" required placeholder="a@example.com" />
+    </div>
+
+    <!-- Radio button: Giới tính -->
+    <div class="group inline-options">
+      <span class="group-title">Giới tính:</span>
+      <label><input type="radio" name="gender" value="Nam" checked /> Nam</label>
+      <label><input type="radio" name="gender" value="Nữ" /> Nữ</label>
+      <label><input type="radio" name="gender" value="Khác" /> Khác</label>
+    </div>
+
+    <!-- Checkbox: Sở thích -->
+    <div class="group inline-options">
+      <span class="group-title">Sở thích:</span>
+      <label><input type="checkbox" name="hobbies" value="Lập trình" /> Lập trình</label>
+      <label><input type="checkbox" name="hobbies" value="Đọc sách" /> Đọc sách</label>
+      <label><input type="checkbox" name="hobbies" value="Thể thao" /> Thể thao</label>
+      <label><input type="checkbox" name="hobbies" value="Âm nhạc" /> Âm nhạc</label>
+    </div>
+
+    <button type="submit">Thu thập dữ liệu</button>
+  </form>
+
+  <h3>Kết quả Object thu thập được:</h3>
+  <pre id="output">{}</pre>
+
+  <script src="script.js"></script>
+</body>
+</html>

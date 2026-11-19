@@ -1,0 +1,37 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 460px;
+  margin: 30px auto;
+  line-height: 1.5;
+}
+
+.group {
+  margin-bottom: 14px;
+}
+
+.group-title {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.inline-options label {
+  margin-right: 14px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+pre {
+  background: #1e1e1e;
+  color: #9cdcfe;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+}

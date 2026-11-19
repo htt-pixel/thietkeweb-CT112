@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: 30px auto;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+input.input-error {
+  border: 1.5px solid #e53935;
+  background-color: #fff8f8;
+}
+
+.error-msg {
+  display: block;
+  color: #e53935;
+  font-size: 13px;
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+button {
+  padding: 10px 16px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

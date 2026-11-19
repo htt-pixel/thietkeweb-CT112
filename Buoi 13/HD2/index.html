@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serenity Spa - Blueprint Đặt Lịch</title>
+  <link rel="stylesheet" href="blueprint.css" />
+</head>
+<body>
+  <header class="bp-topbar">
+    <h1>Serenity Spa Blueprint</h1>
+  </header>
+
+  <main class="bp-layout">
+    <section aria-label="Danh sách dịch vụ">
+      <h2>Danh sách dịch vụ</h2>
+      <div id="bp-service-list" class="bp-cards"></div>
+    </section>
+
+    <aside aria-label="Chi tiết đặt lịch">
+      <h2>Dịch vụ đã chọn</h2>
+      <ul id="bp-selected-items" class="bp-selected-list"></ul>
+      <div class="bp-totals">
+        <p>Tổng thời gian: <span id="bp-total-time">0</span> phút</p>
+        <p>Tổng tiền: <span id="bp-total-cost">0đ</span></p>
+      </div>
+      <form id="bp-checkout-form" novalidate>
+        <label for="bp-fullname">Họ và tên</label>
+        <input type="text" id="bp-fullname" />
+        <small id="bp-name-err" class="bp-error"></small>
+
+        <label for="bp-mobile">Số điện thoại</label>
+        <input type="tel" id="bp-mobile" />
+        <small id="bp-mobile-err" class="bp-error"></small>
+
+        <button type="submit">Xác nhận lịch hẹn</button>
+        <p id="bp-result" class="bp-success"></p>
+      </form>
+    </aside>
+  </main>
+
+  <script src="blueprint.js"></script>
+</body>
+</html>

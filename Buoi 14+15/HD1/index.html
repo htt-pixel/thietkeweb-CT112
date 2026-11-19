@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hệ Thống Quản Lý Học Vụ — Sprint 2</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div class="acad-app">
+    <!-- Sidebar -->
+    <aside class="acad-sidebar">
+      <div class="acad-brand">
+        <h2>🎓 Học Vụ MVP</h2>
+        <p>Sprint 2 · Agile & Vibe Coding</p>
+      </div>
+      <nav class="acad-nav">
+        <a href="#sec-scores" class="acad-nav-link active">Bảng Điểm Sinh Viên</a>
+        <a href="#sec-support" class="acad-nav-link">Hỗ Trợ Học Vụ</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="acad-main">
+      <header class="acad-header">
+        <h1>Quản Lý Kết Quả Học Tập</h1>
+        <p>Tra cứu điểm hệ 10, quy đổi GPA hệ 4 và gửi yêu cầu hỗ trợ</p>
+      </header>
+
+      <!-- Khu vực 1: Tìm kiếm & Bảng điểm -->
+      <section id="sec-scores" class="acad-card">
+        <div class="acad-toolbar">
+          <h2>Danh sách sinh viên</h2>
+          <input
+            type="text"
+            id="acad-search-input"
+            class="acad-search-input"
+            placeholder="Tìm theo tên hoặc MSSV (vd: 12500101, Minh Anh)..."
+            aria-label="Tìm kiếm sinh viên"
+          />
+        </div>
+
+        <div class="acad-table-wrap">
+          <table class="acad-table">
+            <thead>
+              <tr>
+                <th>MSSV</th>
+                <th>Họ và tên</th>
+                <th>GPA (Hệ 10)</th>
+                <th>GPA (Hệ 4)</th>
+                <th>Môn chưa đạt</th>
+              </tr>
+            </thead>
+            <tbody id="acad-student-tbody">
+              <!-- Dữ liệu sẽ được js/features.js render tự động -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Khu vực 2: Form liên hệ hỗ trợ học vụ -->
+      <section id="sec-support" class="acad-card">
+        <h2>Gửi yêu cầu hỗ trợ học vụ</h2>
+        <form id="acad-support-form" class="acad-form" novalidate>
+          <div class="acad-form-group">
+            <label for="studentId">Mã số sinh viên (8 chữ số)</label>
+            <input
+              type="text"
+              id="studentId"
+              name="studentId"
+              placeholder="Ví dụ: 12500101"
+              maxlength="8"
+              required
+            />
+          </div>
+
+          <div class="acad-form-group">
+            <label for="message">Nội dung cần hỗ trợ</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Nhập nội dung cần hỗ trợ (tối thiểu 10 ký tự)..."
+              required
+            ></textarea>
+          </div>
+
+          <p id="acad-form-error" class="acad-form-error" role="alert"></p>
+
+          <button type="submit" class="acad-btn-primary">Gửi yêu cầu</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Lưu ý: Dùng type="module" để hỗ trợ import/export giữa các file JS -->
+  <script type="module" src="./js/features.js"></script>
+</body>
+</html>

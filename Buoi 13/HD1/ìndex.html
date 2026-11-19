@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serenity Spa - Pitching Demo</title>
+  <link rel="stylesheet" href="pitching-demo.css" />
+</head>
+<body>
+  <header class="pitch-header">
+    <h1>Serenity Spa</h1>
+    <p>Demo ý tưởng &amp; tính năng JavaScript cốt lõi</p>
+  </header>
+
+  <main class="pitch-main">
+    <section class="pitch-controls">
+      <button type="button" class="filter-btn active" data-category="all">Tất cả</button>
+      <button type="button" class="filter-btn" data-category="massage">Massage</button>
+      <button type="button" class="filter-btn" data-category="skincare">Chăm sóc da</button>
+      <input type="search" id="pitch-search" placeholder="Tìm dịch vụ..." />
+    </section>
+
+    <section id="pitch-services" class="pitch-grid"></section>
+
+    <aside class="pitch-summary">
+      <h2>Phiếu tạm tính</h2>
+      <ul id="pitch-cart"></ul>
+      <p>Tổng thời gian: <strong id="pitch-duration">0</strong> phút</p>
+      <p>Tổng tiền: <strong id="pitch-total">0đ</strong></p>
+      <form id="pitch-form" novalidate>
+        <input type="text" id="pitch-phone" placeholder="Số điện thoại (10 số)" />
+        <button type="submit">Kiểm tra đặt lịch</button>
+        <p id="pitch-msg"></p>
+      </form>
+    </aside>
+  </main>
+
+  <script src="pitching-demo.js"></script>
+</body>
+</html>

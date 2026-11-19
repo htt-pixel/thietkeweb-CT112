@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hoạt động 2 - Smart Validator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>Form Đăng Ký</h2>
+  <form id="registerForm" novalidate>
+    <div class="form-group">
+      <label for="username">Tên đăng nhập (Username):</label>
+      <input type="text" id="username" />
+      <span class="error-msg" id="usernameError"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" />
+      <span class="error-msg" id="emailError"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Mật khẩu:</label>
+      <input type="password" id="password" />
+      <span class="error-msg" id="passwordError"></span>
+    </div>
+
+    <button type="submit">Đăng ký</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

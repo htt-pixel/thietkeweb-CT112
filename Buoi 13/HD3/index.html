@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Workflow - Theo Dõi Issue Nhóm</title>
+  <link rel="stylesheet" href="github-issues.css" />
+</head>
+<body>
+  <header class="gh-header">
+    <h1>GitHub Workflow - Serenity Spa</h1>
+    <p>Danh sách Issue khởi tạo cho nhóm</p>
+  </header>
+
+  <main class="gh-container">
+    <form id="gh-issue-form" class="gh-form">
+      <input type="text" id="gh-issue-title" placeholder="Tiêu đề Issue mới (vd: [JS] Tính tổng tiền)" required />
+      <select id="gh-issue-layer">
+        <option value="HTML">Tầng HTML</option>
+        <option value="CSS">Tầng CSS</option>
+        <option value="JavaScript">Tầng JavaScript</option>
+      </select>
+      <button type="submit">Thêm Issue</button>
+    </form>
+
+    <ul id="gh-issue-list" class="gh-list"></ul>
+  </main>
+
+  <script src="github-issues.js"></script>
+</body>
+</html>
