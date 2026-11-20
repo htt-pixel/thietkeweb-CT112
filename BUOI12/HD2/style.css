@@ -1,0 +1,46 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    padding: 30px 15px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px #0002;
+}
+
+h1 {
+    color: #2563eb;
+    text-align: center;
+}
+
+button {
+    padding: 12px;
+    margin: 5px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.product {
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.sale {
+    color: red;
+    font-weight: bold;
+}

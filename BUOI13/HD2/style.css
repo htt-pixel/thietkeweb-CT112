@@ -1,0 +1,666 @@
+
+/* =====================================
+   1. GLOBAL
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #10243e;
+    --background: #f1f5f9;
+    --white: #ffffff;
+    --text: #334155;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --warning: #d97706;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    opacity: 0.88;
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #93c5fd;
+    border-color: var(--primary);
+}
+
+/* =====================================
+   2. HEADER
+===================================== */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 8%;
+
+    background: #ffffffed;
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 2px 12px #0000000d;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.navigation {
+    display: flex;
+    gap: 25px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.navigation a:hover {
+    color: var(--primary);
+}
+
+/* =====================================
+   3. CONTAINER
+===================================== */
+
+.container {
+    width: 84%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section {
+    padding: 55px 0;
+}
+
+.section-heading {
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: 30px;
+    color: var(--secondary);
+    margin: 5px 0;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+.tag {
+    display: inline-block;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* =====================================
+   4. HERO
+===================================== */
+
+.hero {
+    margin-top: 30px;
+    min-height: 370px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 55px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(120deg, #0f172aee, #2563ebbb),
+        url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1400")
+        center/cover;
+
+    color: white;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.hero p {
+    margin-bottom: 25px;
+}
+
+.hero .tag {
+    color: #bfdbfe;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 8px;
+
+    background: white;
+    color: var(--primary);
+
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.hero-button:hover {
+    background: #dbeafe;
+}
+
+/* =====================================
+   5. INPUTS AND BUTTONS
+===================================== */
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: white;
+    color: var(--text);
+}
+
+button {
+    padding: 12px 18px;
+    border-radius: 8px;
+
+    background: var(--primary);
+    color: white;
+
+    font-weight: 700;
+}
+
+button:hover {
+    background: var(--primary-dark);
+}
+
+/* =====================================
+   6. WEATHER
+===================================== */
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.search-box input {
+    flex: 1;
+}
+
+.weather-card {
+    min-height: 180px;
+    padding: 28px;
+
+    border-radius: 18px;
+
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    color: white;
+
+    box-shadow: 0 8px 20px #2563eb22;
+}
+
+.weather-placeholder {
+    min-height: 120px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.weather-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.weather-temperature {
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.weather-icon {
+    font-size: 75px;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.weather-detail {
+    padding: 14px;
+    border-radius: 10px;
+    background: #ffffff25;
+}
+
+.weather-detail strong {
+    display: block;
+    font-size: 19px;
+}
+
+.suggestion-box {
+    margin-top: 15px;
+    padding: 18px;
+
+    background: white;
+    border-left: 5px solid var(--success);
+    border-radius: 10px;
+}
+
+.suggestion-box h3 {
+    color: var(--success);
+    margin-bottom: 5px;
+}
+
+/* =====================================
+   7. FORM
+===================================== */
+
+.panel {
+    padding: 25px;
+    border-radius: 15px;
+
+    background: white;
+    box-shadow: 0 4px 15px #00000008;
+}
+
+.panel h3 {
+    margin-bottom: 20px;
+    color: var(--secondary);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 700;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.secondary-button {
+    background: #64748b;
+}
+
+.message {
+    min-height: 22px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.message.error {
+    color: var(--danger);
+}
+
+.message.success {
+    color: var(--success);
+}
+
+/* =====================================
+   8. SEARCH / FILTER / SORT
+===================================== */
+
+.toolbar {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 12px;
+    margin: 30px 0 20px;
+}
+
+/* =====================================
+   9. STATISTICS
+===================================== */
+
+.statistics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    padding: 20px;
+    border-radius: 12px;
+    background: white;
+
+    box-shadow: 0 4px 12px #00000008;
+}
+
+.stat-card span {
+    display: block;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.stat-card strong {
+    display: block;
+    color: var(--primary);
+    font-size: 28px;
+}
+
+/* =====================================
+   10. ITINERARY
+===================================== */
+
+.list-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.list-heading h3 {
+    color: var(--secondary);
+}
+
+.export-button {
+    background: var(--success);
+}
+
+.export-button:hover,
+.visited-button:hover {
+    background: #15803d;
+}
+
+.itinerary-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.card {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: white;
+
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px #0000000d;
+}
+
+.card h3 {
+    color: var(--secondary);
+    margin-bottom: 8px;
+}
+
+.card p {
+    margin: 5px 0;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+}
+
+.card-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.card-actions button {
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+.visited-button {
+    background: var(--success);
+}
+
+.edit-button {
+    background: var(--warning);
+}
+
+.edit-button:hover {
+    background: #b45309;
+}
+
+.delete-button {
+    background: var(--danger);
+}
+
+.delete-button:hover {
+    background: #b91c1c;
+}
+
+.status {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-top: 8px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.status.done {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status.pending {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+
+    padding: 35px;
+    border-radius: 12px;
+    background: white;
+
+    color: var(--muted);
+    text-align: center;
+}
+
+/* =====================================
+   11. PAGINATION
+===================================== */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.pagination select {
+    width: auto;
+}
+
+.pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* =====================================
+   12. FOOTER
+===================================== */
+
+.footer {
+    margin-top: 50px;
+    padding: 35px 15px;
+
+    background: var(--secondary);
+    color: white;
+
+    text-align: center;
+}
+
+.footer h3 {
+    color: #60a5fa;
+}
+
+.footer p {
+    margin-top: 6px;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+/* =====================================
+   13. UTILITIES
+===================================== */
+
+.hidden {
+    display: none !important;
+}
+
+/* =====================================
+   14. RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+
+    .header {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .navigation {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    .hero {
+        min-height: 300px;
+        padding: 30px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .itinerary-list {
+        grid-template-columns: 1fr;
+    }
+
+    .weather-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .section-heading h2 {
+        font-size: 24px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .list-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+}

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Collector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Thông tin người dùng</h1>
+
+        <form id="userForm">
+
+            <label for="fullname">Họ và tên:</label>
+            <input type="text" id="fullname" placeholder="Nhập họ tên">
+
+            <h3>Giới tính:</h3>
+
+            <label class="option">
+                <input type="radio" name="gender" value="Nam">
+                Nam
+            </label>
+
+            <label class="option">
+                <input type="radio" name="gender" value="Nữ">
+                Nữ
+            </label>
+
+            <label class="option">
+                <input type="radio" name="gender" value="Khác">
+                Khác
+            </label>
+
+            <h3>Sở thích:</h3>
+
+            <label class="option">
+                <input type="checkbox" name="hobby" value="Đọc sách">
+                Đọc sách
+            </label>
+
+            <label class="option">
+                <input type="checkbox" name="hobby" value="Nghe nhạc">
+                Nghe nhạc
+            </label>
+
+            <label class="option">
+                <input type="checkbox" name="hobby" value="Chơi game">
+                Chơi game
+            </label>
+
+            <label class="option">
+                <input type="checkbox" name="hobby" value="Du lịch">
+                Du lịch
+            </label>
+
+            <button type="submit">Thu thập dữ liệu</button>
+        </form>
+
+        <h3>Kết quả:</h3>
+        <pre id="result"></pre>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+  

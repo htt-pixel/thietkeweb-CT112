@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, sans-serif; color: #172033; line-height: 1.6; }
+.site-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #fff; border-bottom: 1px solid #e8edf5; }
+.logo { color: #172033; font-weight: 800; font-size: 1.4rem; text-decoration: none; }
+.logo span { color: #4776e6; }
+.nav-list { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+.nav-list a, .site-footer a { color: #34415a; text-decoration: none; }
+.hero { padding: 100px 8%; background: #eef3ff; }
+.hero h1 { margin: 8px 0; font-size: clamp(2.5rem, 7vw, 4.5rem); }
+.eyebrow { color: #4776e6; font-weight: 700; letter-spacing: 2px; }
+.lead { max-width: 620px; font-size: 1.2rem; }
+.button { display: inline-block; margin-top: 15px; padding: 12px 22px; background: #4776e6; color: white; border-radius: 8px; text-decoration: none; }
+.section { padding: 60px 8%; }
+.section h2, .site-footer h2 { font-size: 2rem; }
+.about-card, .project-card { max-width: 850px; margin: 18px 0; padding: 22px; background: #f7f9fc; border-radius: 12px; }
+.skill-list { display: flex; flex-wrap: wrap; gap: 12px; padding: 0; list-style: none; }
+.skill-list li { padding: 10px 16px; background: #eaf0ff; border-radius: 20px; }
+.site-footer { padding: 45px 8%; background: #172033; color: white; }
+.site-footer a { color: #b9cbff; }
+@media (max-width: 700px) { .site-header { align-items: flex-start; flex-direction: column; gap: 12px; } .nav-list { flex-wrap: wrap; gap: 12px; } .hero { padding-top: 70px; } }

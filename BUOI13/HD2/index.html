@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10243e">
+
+    <title>TRAVEL GLASS | Weather & Travel Planner</title>
+
+    <!-- Kết nối CSS -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Kết nối font chữ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Kết nối JavaScript sau khi HTML được phân tích -->
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="#home" class="logo">
+            TRAVEL<span>GLASS</span>
+        </a>
+
+        <nav class="navigation">
+            <a href="#home">Trang chủ</a>
+            <a href="#weather">Thời tiết</a>
+            <a href="#itinerary">Lịch trình</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="tag">WEATHER & TRAVEL PLANNER</span>
+
+                <h1>
+                    Khám phá thế giới,<br>
+                    lên kế hoạch dễ dàng.
+                </h1>
+
+                <p>
+                    Theo dõi thời tiết, quản lý lịch trình
+                    và lưu giữ những hành trình đáng nhớ.
+                </p>
+
+                <a href="#weather" class="hero-button">
+                    Bắt đầu khám phá
+                </a>
+            </div>
+        </section>
+
+        <!-- WEATHER -->
+        <section class="section" id="weather">
+
+            <div class="section-heading">
+                <div>
+                    <span class="tag">WEATHER INFORMATION</span>
+                    <h2>Tra cứu thời tiết</h2>
+                    <p>Kiểm tra thời tiết tại thành phố bạn muốn đến.</p>
+                </div>
+            </div>
+
+            <form id="weatherForm" class="search-box">
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Nhập tên thành phố..."
+                    value="Da Lat"
+                    required
+                >
+
+                <button type="submit" id="weatherButton">
+                    Tìm kiếm
+                </button>
+            </form>
+
+            <p id="weatherMessage" class="message" aria-live="polite"></p>
+
+            <div id="weatherResult" class="weather-card">
+                <div class="weather-placeholder">
+                    Đang chuẩn bị dữ liệu thời tiết...
+                </div>
+            </div>
+
+            <div id="suggestionBox" class="suggestion-box hidden">
+                <h3>Gợi ý du lịch</h3>
+                <p id="suggestionText"></p>
+            </div>
+
+        </section>
+
+        <!-- ITINERARY -->
+        <section class="section" id="itinerary">
+
+            <div class="section-heading">
+                <div>
+                    <span class="tag">TRAVEL MANAGEMENT</span>
+                    <h2>Quản lý lịch trình</h2>
+                    <p>Lưu lại những địa điểm bạn muốn khám phá.</p>
+                </div>
+            </div>
+
+            <!-- FORM -->
+            <div class="panel">
+
+                <h3 id="formTitle">Thêm địa điểm mới</h3>
+
+                <form id="itineraryForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="title">Tên địa điểm *</label>
+                            <input
+                                type="text"
+                                id="title"
+                                placeholder="Ví dụ: Hồ Xuân Hương"
+                                maxlength="100"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">Thành phố *</label>
+                            <input
+                                type="text"
+                                id="city"
+                                placeholder="Ví dụ: Đà Lạt"
+                                maxlength="100"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Ngày tham quan *</label>
+                            <input type="date" id="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Thời gian *</label>
+                            <input type="time" id="time" required>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="note">Ghi chú</label>
+                        <textarea
+                            id="note"
+                            rows="3"
+                            maxlength="500"
+                            placeholder="Nhập ghi chú cho chuyến đi..."
+                        ></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submitButton">
+                            Thêm lịch trình
+                        </button>
+
+                        <button
+                            type="button"
+                            id="cancelEdit"
+                            class="secondary-button hidden"
+                        >
+                            Hủy chỉnh sửa
+                        </button>
+                    </div>
+
+                    <p id="formMessage" class="message" aria-live="polite"></p>
+
+                </form>
+            </div>
+
+            <!-- SEARCH / FILTER / SORT -->
+            <div class="toolbar">
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Tìm tên địa điểm hoặc thành phố..."
+                >
+
+                <select id="filterSelect">
+                    <option value="all">Tất cả địa điểm</option>
+                    <option value="visited">Đã tham quan</option>
+                    <option value="notVisited">Chưa tham quan</option>
+                </select>
+
+                <select id="sortSelect">
+                    <option value="newest">Ngày gần nhất trước</option>
+                    <option value="oldest">Ngày xa nhất trước</option>
+                    <option value="name">Tên A - Z</option>
+                </select>
+
+            </div>
+
+            <!-- STATISTICS -->
+            <div class="statistics">
+
+                <div class="stat-card">
+                    <span>Tổng địa điểm</span>
+                    <strong id="totalCount">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Đã tham quan</span>
+                    <strong id="visitedCount">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Chưa tham quan</span>
+                    <strong id="pendingCount">0</strong>
+                </div>
+
+            </div>
+
+            <!-- LIST -->
+            <div class="list-heading">
+                <h3>Danh sách lịch trình</h3>
+
+                <button type="button" id="exportButton" class="export-button">
+                    Xuất file TXT
+                </button>
+            </div>
+
+            <div id="itineraryList" class="itinerary-list"></div>
+
+            <!-- PAGINATION -->
+            <div class="pagination">
+
+                <button type="button" id="prevPage">
+                    Trước
+                </button>
+
+                <span id="pageInfo">Trang 1 / 1</span>
+
+                <button type="button" id="nextPage">
+                    Tiếp
+                </button>
+
+                <select id="pageSize" aria-label="Số lịch trình mỗi trang">
+                    <option value="5">5 / trang</option>
+                    <option value="10">10 / trang</option>
+                    <option value="20">20 / trang</option>
+                    <option value="0">Tất cả</option>
+                </select>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <h3>TRAVEL GLASS</h3>
+        <p>Weather & Travel Planner</p>
+        <p>© 2026 - Student Web Development Project</p>
+    </footer>
+
+</body>
+</html>
