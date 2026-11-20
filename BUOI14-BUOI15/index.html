@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Store - Website bán giày</title>
+
+    <!-- Kết nối CSS -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Kết nối JavaScript -->
+    <script src="./script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>SHOE STORE</h1>
+
+        <nav>
+            <a href="#home">Trang chủ</a>
+            <a href="#products">Sản phẩm</a>
+            <a href="#contact">Đăng ký</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <h2>Khám phá phong cách của bạn</h2>
+            <p>Những đôi giày phù hợp cho mọi hành trình.</p>
+            <a href="#products" class="btn">Mua sắm ngay</a>
+        </section>
+
+        <section class="products" id="products">
+            <h2>Danh sách sản phẩm</h2>
+
+            <div class="filter">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Tìm kiếm tên giày..."
+                >
+
+                <button id="filterButton">
+                    Giày trên 1 triệu
+                </button>
+
+                <button id="showAllButton">
+                    Hiển thị tất cả
+                </button>
+            </div>
+
+            <div id="productList" class="product-list">
+                <!-- JavaScript hiển thị sản phẩm tại đây -->
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>Đăng ký nhận thông tin</h2>
+
+            <form id="registerForm">
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Họ và tên"
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Địa chỉ Email"
+                >
+
+                <button type="submit">Đăng ký</button>
+
+                <p id="message"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 SHOE STORE - Website thực hành Thiết kế Web</p>
+    </footer>
+
+</body>
+</html>
